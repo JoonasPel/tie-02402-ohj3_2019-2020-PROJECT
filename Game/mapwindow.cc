@@ -3,6 +3,11 @@
 
 #include "graphics/simplemapitem.h"
 
+#include "gameeventhandler.h"
+#include "objectmanager.h"
+
+#include "core/worldgenerator.h"
+
 #include <math.h>
 
 MapWindow::MapWindow(QWidget *parent,
@@ -17,6 +22,21 @@ MapWindow::MapWindow(QWidget *parent,
     Course::SimpleGameScene* sgs_rawptr = m_simplescene.get();
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
+
+
+    //lisays
+     //auto gameEventHandler = std::make_shared<Course::iGameEventHandler>();
+     //auto objectManager = std::make_shared<Course::iObjectManager>();
+
+
+    std::shared_ptr<Student::GameEventHandler> gameEventHandler;
+    std::shared_ptr<Student::ObjectManager> objectManager;
+
+    Course::WorldGenerator::getInstance().addConstructor<Course::TileBase>(1);
+    Course::WorldGenerator::getInstance().generateMap(1,1,1, objectManager, gameEventHandler);
+
+
+
 }
 
 MapWindow::~MapWindow()

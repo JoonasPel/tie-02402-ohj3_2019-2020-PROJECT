@@ -10,7 +10,9 @@ SOURCES += \
     mapwindow.cc
 
 HEADERS += \
-    mapwindow.hh
+    gameeventhandler.h \
+    mapwindow.hh \
+    objectmanager.h
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
