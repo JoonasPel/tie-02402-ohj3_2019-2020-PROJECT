@@ -15,6 +15,7 @@ class Coordinate;
 class ObjectManager : public Course::iObjectManager
 {
 public:
+    ObjectManager();
     /**
      * @brief Default destructor.
      */
@@ -36,6 +37,7 @@ public:
             const std::vector<Course::Coordinate>& coordinates) = 0;
 
 
-}; // class iObjectManager
+};
 
-} // namespace Course
+}
+

@@ -16,7 +16,7 @@ class Coordinate;
 class GameEventHandler : public Course::iGameEventHandler
 {
 public:
-
+    GameEventHandler();
 
     virtual ~GameEventHandler() = default;
 
