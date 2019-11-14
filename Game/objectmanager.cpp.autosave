@@ -25,9 +25,9 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const st
 
 }
 
-void ObjectManager::addTiles(const std::vector<std::shared_ptr<TileBase> > &tiles)
+void ObjectManager::addTiles(std::vector<std::shared_ptr<TileBase> > &tiles)
 {
- std::cout << "iouhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
+    tiless = tiles;
 }
 
 }

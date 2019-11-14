@@ -6,8 +6,10 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    gameeventhandler.cpp \
     main.cpp \
-    mapwindow.cc
+    mapwindow.cc \
+    objectmanager.cpp
 
 HEADERS += \
     gameeventhandler.h \
