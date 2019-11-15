@@ -49,11 +49,14 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
 
-    worldGen.generateMap(11,11,1, objectManager, gameEventHandler);
+    worldGen.generateMap(10,10,1, objectManager, gameEventHandler);
 
 
-    m_simplescene->drawItem(objectManager->getTile(99));
-
+    for(unsigned int i = 0; i < 101; i++)
+    {
+           auto item = objectManager->getTile(i);
+           drawItem(item);
+    }
 
 
 
