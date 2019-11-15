@@ -22,8 +22,8 @@ public:
     virtual ~ObjectManager() = default;
 
 
-    virtual void addTiles(
-            const std::vector<std::shared_ptr<TileBase>>& tiles) = 0;
+    void addTiles(
+            const std::vector<std::shared_ptr<Course::TileBase>>& tiles) = 0;
 
 
     std::shared_ptr<Course::TileBase> getTile(
@@ -37,7 +37,7 @@ public:
             const std::vector<Course::Coordinate>& coordinates) = 0;
 
 
-    std::vector<std::shared_ptr<Course::TileBase>> tiles;
+    std::vector<std::shared_ptr<Course::TileBase>> tiles_;
 
 };
 

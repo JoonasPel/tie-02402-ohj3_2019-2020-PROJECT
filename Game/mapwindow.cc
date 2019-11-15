@@ -29,20 +29,9 @@ MapWindow::MapWindow(QWidget *parent,
 
     //lisays  kurssin puolelta periytetyt
 
-     //auto objectManager = std::make_shared<Course::iObjectManager>();
-
+    //auto gameEventHandler = std::make_shared<Student::GameEventHandler>();
 
     //auto objectManager = std::make_shared<Student::ObjectManager>();
-
-
-
-
-
-
-
-
-
-
 
 
     std::shared_ptr<Student::GameEventHandler> gameEventHandler;
@@ -50,27 +39,13 @@ MapWindow::MapWindow(QWidget *parent,
 
 
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
-    worldGen.addConstructor<Course::Forest>(2);
-    worldGen.addConstructor<Course::Grassland>(3);
+    worldGen.addConstructor<Course::Forest>(1);
+    worldGen.addConstructor<Course::Grassland>(1);
 
-    worldGen.generateMap(1,1,1,objectManager,gameEventHandler);
-
-
+    worldGen.generateMap(1,1,1, objectManager, gameEventHandler);
 
 
-
-
-
-
-
-
-
-
-
-
-    //m_simplescene->drawItem(objectManager->tiles);
-
-
+    m_simplescene->drawItem(objectManager->getTile(1));
 
 
 }
