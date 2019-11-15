@@ -27,25 +27,34 @@ MapWindow::MapWindow(QWidget *parent,
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
 
-    //lisays  kurssin puolelta periytetyt
-
-    //auto gameEventHandler = std::make_shared<Student::GameEventHandler>();
-
-    //auto objectManager = std::make_shared<Student::ObjectManager>();
 
 
-    std::shared_ptr<Student::GameEventHandler> gameEventHandler;
-    std::shared_ptr<Student::ObjectManager> objectManager;
+
+     Student::ObjectManager* manager = new Student::ObjectManager(); //1
+
+
+     Student::GameEventHandler* gamehandler = new Student::GameEventHandler; //2
+
+
+
+     std::shared_ptr<Student::GameEventHandler> gameEventHandler
+            = std::make_shared<Student::GameEventHandler>(*gamehandler); //3
+
+     std::shared_ptr<Student::ObjectManager> objectManager
+            = std::make_shared<Student::ObjectManager>(*manager);         //4
+
 
 
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
 
-    worldGen.generateMap(1,1,1, objectManager, gameEventHandler);
+    worldGen.generateMap(11,11,1, objectManager, gameEventHandler);
 
 
-    m_simplescene->drawItem(objectManager->getTile(1));
+    m_simplescene->drawItem(objectManager->getTile(99));
+
+
 
 
 }

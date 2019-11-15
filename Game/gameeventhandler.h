@@ -26,11 +26,11 @@ public:
 
      bool modifyResource(std::shared_ptr<Course::PlayerBase> player,
                                  Course::BasicResource resource,
-                                 int amount) = 0;
+                                 int amount);
 
 
      bool modifyResources(std::shared_ptr<Course::PlayerBase> player,
-                                  Course::ResourceMap resources) = 0;
+                                  Course::ResourceMap resources);
 
 };
 }

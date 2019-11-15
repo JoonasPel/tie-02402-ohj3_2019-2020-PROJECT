@@ -23,18 +23,18 @@ public:
 
 
     void addTiles(
-            const std::vector<std::shared_ptr<Course::TileBase>>& tiles) = 0;
+            const std::vector<std::shared_ptr<Course::TileBase>>& tiles);
 
 
     std::shared_ptr<Course::TileBase> getTile(
-            const Course::Coordinate& coordinate) = 0;
+            const Course::Coordinate& coordinate);
 
 
-     std::shared_ptr<Course::TileBase> getTile(const Course::ObjectId& id) = 0;
+     std::shared_ptr<Course::TileBase> getTile(const Course::ObjectId& id);
 
 
      std::vector<std::shared_ptr<Course::TileBase>> getTiles(
-            const std::vector<Course::Coordinate>& coordinates) = 0;
+            const std::vector<Course::Coordinate>& coordinates);
 
 
     std::vector<std::shared_ptr<Course::TileBase>> tiles_;
