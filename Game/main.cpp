@@ -13,7 +13,11 @@ int main(int argc, char* argv[])
     //testi3
     Dialog dia;
     MapWindow mapWindow;
+
     //Testi-toni
+
+    //Testi-toni2
+
     //testi1
     QObject::connect(&dia, &Dialog::sendtilecount,
                      &mapWindow, &MapWindow::draw_tiles);
