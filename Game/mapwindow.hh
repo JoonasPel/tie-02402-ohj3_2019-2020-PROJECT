@@ -12,6 +12,8 @@
 
 #include "interfaces/igameeventhandler.h"
 #include "graphics/simplegamescene.h"
+#include "objectmanager.h"
+#include "gameeventhandler.h"
 
 namespace Ui {
 class MapWindow;
@@ -38,10 +40,22 @@ public:
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
 
+public slots:
+
+    //dialog lahettaa tiilien lukumaaran ja tama tallentaa sen.
+    void draw_tiles(int value);
+
+
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
     std::shared_ptr<Course::SimpleGameScene> m_simplescene = nullptr;
+
+    Student::ObjectManager* manager = nullptr;
+    Student::GameEventHandler* gamehandler = nullptr;
+
+    std::shared_ptr<Student::GameEventHandler> gameEventHandler;
+    std::shared_ptr<Student::ObjectManager> objectManager;
 
 };
 

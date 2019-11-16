@@ -6,12 +6,14 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    dialog.cpp \
     gameeventhandler.cpp \
     main.cpp \
     mapwindow.cc \
     objectmanager.cpp
 
 HEADERS += \
+    dialog.h \
     gameeventhandler.h \
     mapwindow.hh \
     objectmanager.h
@@ -41,4 +43,5 @@ else:unix: PRE_TARGETDEPS += \
     $$OUT_PWD/../Course/CourseLib/libCourseLib.a
 
 FORMS += \
+    dialog.ui \
     mapwindow.ui

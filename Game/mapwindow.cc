@@ -3,10 +3,6 @@
 #include <iostream>
 
 #include "graphics/simplemapitem.h"
-
-#include "gameeventhandler.h"
-#include "objectmanager.h"
-
 #include "core/worldgenerator.h"
 
 #include <math.h>
@@ -18,7 +14,11 @@ MapWindow::MapWindow(QWidget *parent,
     QMainWindow(parent),
     m_ui(new Ui::MapWindow),
     m_GEHandler(handler),
-    m_simplescene(new Course::SimpleGameScene(this))
+    m_simplescene(new Course::SimpleGameScene(this)),
+    manager(new Student::ObjectManager()),
+    gamehandler(new Student::GameEventHandler()),
+    gameEventHandler(std::make_shared<Student::GameEventHandler>(*gamehandler)),
+    objectManager(std::make_shared<Student::ObjectManager>(*manager))
 {
     m_ui->setupUi(this);
 
@@ -26,40 +26,11 @@ MapWindow::MapWindow(QWidget *parent,
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
-
-
-
-
-     Student::ObjectManager* manager = new Student::ObjectManager(); //1
-
-
-     Student::GameEventHandler* gamehandler = new Student::GameEventHandler; //2
-
-
-
-     std::shared_ptr<Student::GameEventHandler> gameEventHandler
-            = std::make_shared<Student::GameEventHandler>(*gamehandler); //3
-
-     std::shared_ptr<Student::ObjectManager> objectManager
-            = std::make_shared<Student::ObjectManager>(*manager);         //4
-
-
-
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
 
-    worldGen.generateMap(10,10,1, objectManager, gameEventHandler);
-
-
-    for(unsigned int i = 0; i < 101; i++)
-    {
-           auto item = objectManager->getTile(i);
-           drawItem(item);
-    }
-
-
-
+    worldGen.generateMap(10,10,3, objectManager, gameEventHandler);
 }
 
 MapWindow::~MapWindow()
@@ -91,6 +62,17 @@ void MapWindow::resize()
 void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 {
     m_simplescene->updateItem(obj);
+}
+
+void MapWindow::draw_tiles(int tile_count)
+{
+
+    std::cout << tile_count << std::endl;
+    for(unsigned int i = 0; i < tile_count; i++)
+    {
+           auto item = objectManager->getTile(i);
+           drawItem(item);
+    }
 }
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
