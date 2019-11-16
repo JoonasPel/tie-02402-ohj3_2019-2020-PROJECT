@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
 
     QApplication app(argc, argv);    
-
+    //testi3
     Dialog dia;
     MapWindow mapWindow;
     //Testi-Joonas
