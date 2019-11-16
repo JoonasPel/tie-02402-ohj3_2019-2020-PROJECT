@@ -23,5 +23,5 @@ int Dialog::exec()
     {
         emit sendtilecount(ui->horizontalSlider->value());
     }
-    return dialog;
+    return dialog; //
 }
