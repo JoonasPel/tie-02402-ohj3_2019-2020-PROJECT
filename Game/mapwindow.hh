@@ -10,10 +10,17 @@
 
 #include <map>
 
+
+#include <tiles/forest.h>
+#include <tiles/grassland.h>
+#include "buildings/farm.h"
+#include "buildings/buildingbase.h"
 #include "interfaces/igameeventhandler.h"
 #include "graphics/simplegamescene.h"
 #include "objectmanager.h"
 #include "gameeventhandler.h"
+#include "core/playerbase.h"
+#include "core/resourcemaps.h"
 
 namespace Ui {
 class MapWindow;
@@ -56,6 +63,11 @@ private:
 
     std::shared_ptr<Student::GameEventHandler> gameEventHandler;
     std::shared_ptr<Student::ObjectManager> objectManager;
+
+    Course::PlayerBase* player1 = nullptr;
+    std::shared_ptr<Course::PlayerBase> pl1;
+
+
 
 };
 

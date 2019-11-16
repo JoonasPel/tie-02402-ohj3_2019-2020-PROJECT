@@ -1,13 +1,14 @@
 #include "mapwindow.hh"
 #include "ui_mapwindow.h"
 #include <iostream>
+#include <string>
 
 #include "graphics/simplemapitem.h"
 #include "core/worldgenerator.h"
 
 #include <math.h>
-#include <tiles/forest.h>
-#include <tiles/grassland.h>
+
+
 
 MapWindow::MapWindow(QWidget *parent,
                      std::shared_ptr<Course::iGameEventHandler> handler):
@@ -16,9 +17,11 @@ MapWindow::MapWindow(QWidget *parent,
     m_GEHandler(handler),
     m_simplescene(new Course::SimpleGameScene(this)),
     manager(new Student::ObjectManager()),
-    gamehandler(new Student::GameEventHandler()),
+    gamehandler(new Student::GameEventHandler()),    
     gameEventHandler(std::make_shared<Student::GameEventHandler>(*gamehandler)),
-    objectManager(std::make_shared<Student::ObjectManager>(*manager))
+    objectManager(std::make_shared<Student::ObjectManager>(*manager)),
+    player1(new Course::PlayerBase("player1")),
+    pl1(std::make_shared<Course::PlayerBase>(*player1))
 {
     m_ui->setupUi(this);
 
@@ -30,7 +33,10 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
 
-    worldGen.generateMap(10,10,3, objectManager, gameEventHandler);
+    worldGen.generateMap(10,10,312, objectManager, gameEventHandler);
+
+
+
 }
 
 MapWindow::~MapWindow()
@@ -73,6 +79,27 @@ void MapWindow::draw_tiles(int tile_count)
            auto item = objectManager->getTile(i);
            drawItem(item);
     }
+
+//    farmin lisays testausta, ja sen piirtoa
+    std::string sana;
+    sana = player1->getName();
+    std::cout << sana;
+
+    Course::Farm* testifarmi = new Course::Farm(gameEventHandler,objectManager,pl1);
+
+    sana = testifarmi->getType();
+    std::cout << sana << std::endl;
+
+    //std::shared_ptr<Course::Farm> farmi =
+    //std::make_shared<Course::Farm>(*testifarmi);
+
+    //Course::Forest& testimetsa = new Course::Forest;
+
+    auto tiili1 = objectManager->getTile(5);
+    sana = tiili1->getType();
+    std::cout << sana << std::endl;
+
+
 }
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
