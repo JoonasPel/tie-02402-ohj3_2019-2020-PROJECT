@@ -62,8 +62,7 @@ private:
     std::shared_ptr<Student::GameEventHandler> gameEventHandler;
     std::shared_ptr<Student::ObjectManager> objectManager;
 
-    Course::PlayerBase* player1 = nullptr;
-    std::shared_ptr<Course::PlayerBase> pl1;
+    std::shared_ptr<Course::PlayerBase> player1;
 
 
 
