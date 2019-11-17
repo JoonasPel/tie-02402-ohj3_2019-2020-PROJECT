@@ -15,11 +15,9 @@ MapWindow::MapWindow(QWidget *parent,
     QMainWindow(parent),
     m_ui(new Ui::MapWindow),
     m_GEHandler(handler),
-    m_simplescene(new Course::SimpleGameScene(this)),
-    manager(new Student::ObjectManager()),
-    gamehandler(new Student::GameEventHandler()),    
-    gameEventHandler(std::make_shared<Student::GameEventHandler>(*gamehandler)),
-    objectManager(std::make_shared<Student::ObjectManager>(*manager)),
+    m_simplescene(new Course::SimpleGameScene(this)),  
+    gameEventHandler(std::make_shared<Student::GameEventHandler>()),
+    objectManager(std::make_shared<Student::ObjectManager>()),
     player1(new Course::PlayerBase("player1")),
     pl1(std::make_shared<Course::PlayerBase>(*player1))
 {
@@ -93,6 +91,7 @@ void MapWindow::draw_tiles(int tile_count)
     tiili1->addBuilding(farmi);
 
     drawItem(farmi);
+
 
 
 }

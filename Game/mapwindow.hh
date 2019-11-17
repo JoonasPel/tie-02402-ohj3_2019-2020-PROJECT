@@ -59,9 +59,6 @@ private:
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
     std::shared_ptr<Course::SimpleGameScene> m_simplescene = nullptr;
 
-    Student::ObjectManager* manager = nullptr;
-    Student::GameEventHandler* gamehandler = nullptr;
-
     std::shared_ptr<Student::GameEventHandler> gameEventHandler;
     std::shared_ptr<Student::ObjectManager> objectManager;
 
