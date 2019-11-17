@@ -6,6 +6,7 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    desert.cpp \
     dialog.cpp \
     gameeventhandler.cpp \
     main.cpp \
@@ -13,6 +14,7 @@ SOURCES += \
     objectmanager.cpp
 
 HEADERS += \
+    desert.h \
     dialog.h \
     gameeventhandler.h \
     mapwindow.hh \

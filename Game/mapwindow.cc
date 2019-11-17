@@ -29,7 +29,7 @@ MapWindow::MapWindow(QWidget *parent,
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
-
+    worldGen.addConstructor<Student::Desert>(1);
     worldGen.generateMap(10,10,312, objectManager, gameEventHandler);
 
 

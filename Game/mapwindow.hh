@@ -13,6 +13,7 @@
 #include "tiles/tilebase.h"
 #include <tiles/forest.h>
 #include <tiles/grassland.h>
+#include <desert.h>
 #include "buildings/farm.h"
 #include "buildings/headquarters.h"
 #include "buildings/buildingbase.h"
