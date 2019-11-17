@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 #include "interfaces/iobjectmanager.h"
+#include "core/coordinate.h"
 
 namespace Student {
 

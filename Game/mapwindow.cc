@@ -81,23 +81,18 @@ void MapWindow::draw_tiles(int tile_count)
     }
 
 //    farmin lisays testausta, ja sen piirtoa
-    std::string sana;
-    sana = player1->getName();
-    std::cout << sana;
 
-    Course::Farm* testifarmi = new Course::Farm(gameEventHandler,objectManager,pl1);
 
-    sana = testifarmi->getType();
-    std::cout << sana << std::endl;
+    std::shared_ptr<Course::Farm> farmi =
+            std::make_shared<Course::Farm>(gameEventHandler,objectManager,pl1);
 
-    //std::shared_ptr<Course::Farm> farmi =
-    //std::make_shared<Course::Farm>(*testifarmi);
-
-    //Course::Forest& testimetsa = new Course::Forest;
 
     auto tiili1 = objectManager->getTile(5);
-    sana = tiili1->getType();
-    std::cout << sana << std::endl;
+
+
+    tiili1->addBuilding(farmi);
+
+    drawItem(farmi);
 
 
 }
