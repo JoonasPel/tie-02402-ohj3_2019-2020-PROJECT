@@ -18,7 +18,8 @@ HEADERS += \
     dialog.h \
     gameeventhandler.h \
     mapwindow.hh \
-    objectmanager.h
+    objectmanager.h \
+    resourcelist.h
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
