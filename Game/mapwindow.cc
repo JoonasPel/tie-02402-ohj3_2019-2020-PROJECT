@@ -18,7 +18,7 @@ MapWindow::MapWindow(QWidget *parent,
     m_simplescene(new Course::SimpleGameScene(this)),  
     gameEventHandler(std::make_shared<Student::GameEventHandler>()),
     objectManager(std::make_shared<Student::ObjectManager>()),
-    player1(std::make_shared<Course::PlayerBase>("Player 1"))
+    player1(std::make_shared<Student::Player>("Player 1"))
 {
     m_ui->setupUi(this);
 
@@ -70,7 +70,6 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 void MapWindow::draw_tiles(int tile_count)
 {
 
-    std::cout << tile_count << std::endl;
     for(unsigned int i = 0; i < tile_count; i++)
     {
            auto item = objectManager->getTile(i);
@@ -84,12 +83,27 @@ void MapWindow::draw_tiles(int tile_count)
             std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
 
 
-    auto tiili1 = objectManager->getTile(5);
+    auto tiili1 = objectManager->getTile(0);
 
 
     tiili1->addBuilding(farmi);
 
     drawItem(farmi);
+
+    // Testataan lisata worker tileen.
+
+    auto tiili2 = objectManager->getTile(1);
+
+    player1->addObject(tiili2);
+
+    std::shared_ptr<Course::BasicWorker> basicworker =
+            std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
+
+    //tiili2->addWorker(basicworker);
+
+    //drawItem(basicworker);
+
+
 
 
 }

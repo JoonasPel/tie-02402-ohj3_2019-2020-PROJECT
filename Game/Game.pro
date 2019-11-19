@@ -11,7 +11,8 @@ SOURCES += \
     gameeventhandler.cpp \
     main.cpp \
     mapwindow.cc \
-    objectmanager.cpp
+    objectmanager.cpp \
+    player.cpp
 
 HEADERS += \
     desert.h \
@@ -19,6 +20,7 @@ HEADERS += \
     gameeventhandler.h \
     mapwindow.hh \
     objectmanager.h \
+    player.h \
     resourcelist.h
 
 win32:CONFIG(release, debug|release): LIBS += \

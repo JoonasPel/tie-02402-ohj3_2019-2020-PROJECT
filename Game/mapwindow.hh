@@ -21,8 +21,9 @@
 #include "graphics/simplegamescene.h"
 #include "objectmanager.h"
 #include "gameeventhandler.h"
-#include "core/playerbase.h"
 #include "core/resourcemaps.h"
+#include "workers/basicworker.h"
+#include "player.h"
 
 namespace Ui {
 class MapWindow;
@@ -63,7 +64,7 @@ private:
     std::shared_ptr<Student::GameEventHandler> gameEventHandler;
     std::shared_ptr<Student::ObjectManager> objectManager;
 
-    std::shared_ptr<Course::PlayerBase> player1;
+    std::shared_ptr<Student::Player> player1;
 
 
 
