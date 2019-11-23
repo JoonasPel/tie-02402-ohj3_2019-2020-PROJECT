@@ -26,6 +26,19 @@ MapWindow::MapWindow(QWidget *parent,
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
+   //connect(m_gamescene.get(), QGraphicsScene::sendtileid,
+          //       this, &MapWindow::print_tile_info);
+
+  //QObject::connect(m_gamescene, SIGNAL(Student::GameScene::sendtileid(unsigned int)),
+          // this, SLOT(print_tile_info(unsigned int)));
+
+  //QObject::connect(m_gamescene.get(), SIGNAL (sendtileid(unsigned int)),
+    //      this, SLOT (print_tile_info(unsigned int)));
+
+
+
+
+
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
@@ -83,10 +96,10 @@ void MapWindow::draw_tiles(int tile_count)
             std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
 
 
-    auto tiili1 = objectManager->getTile(0);
+    auto tile1 = objectManager->getTile(0);
 
 
-    tiili1->addBuilding(farmi);
+    tile1->addBuilding(farmi);
 
     drawItem(farmi);
 
@@ -95,9 +108,9 @@ void MapWindow::draw_tiles(int tile_count)
     std::shared_ptr<Course::BasicWorker> basicworker =
             std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
 
-    tiili1->setOwner(player1);
+    tile1->setOwner(player1);
 
-    tiili1->addWorker(basicworker);
+    tile1->addWorker(basicworker);
 
     drawItem(basicworker);
 
@@ -106,36 +119,12 @@ void MapWindow::draw_tiles(int tile_count)
 
 }
 
-//bool MapWindow::event(QEvent *event)
-//{
-//if(event->type() == QEvent::GraphicsSceneMousePress)
-//{
-//    QGraphicsSceneMouseEvent* mouse_event =
-//            dynamic_cast<QGraphicsSceneMouseEvent*>(event);
+void MapWindow::print_tile_info(unsigned int tile_id)
+{
+    auto tile = objectManager->getTile(tile_id);
+    std::string tile_type = tile->getType();
 
-
-
-//        QPointF point = mouse_event->scenePos() / 50;
-
-//        point.rx() = floor(point.rx());
-//        point.ry() = floor(point.ry());
-
-//        QGraphicsItem* pressed = itemAt(point * 50, QTransform());
-
-//        if ( pressed == nullptr ){
-//            qDebug() << "Click on map area.";
-//        }else{
-//            qDebug() << "ObjID: " <<
-//                        static_cast<Course::SimpleMapItem*>(pressed)
-//                        ->getBoundObject()->ID  << " pressed.";
-//            return true;
-
-
-//    }
-//}
-
-//return false;
-//}
+}
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {

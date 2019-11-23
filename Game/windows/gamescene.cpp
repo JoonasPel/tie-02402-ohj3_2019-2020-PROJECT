@@ -103,11 +103,17 @@ bool GameScene::event(QEvent *event)
             QGraphicsItem* pressed = itemAt(point * m_scale, QTransform());
 
             if ( pressed == m_mapBoundRect ){
-                qDebug() << "Click on map areaaaaaaaaaaa.";
+                qDebug() << "Click on map area.";
             }else{
-                qDebug() << "ObjID: " <<
-                            static_cast<Course::SimpleMapItem*>(pressed)
-                            ->getBoundObject()->ID  << " pressed.";
+
+                unsigned int id = static_cast<Course::SimpleMapItem*>(pressed)
+                        ->getBoundObject()->ID;
+
+                qDebug() << "ObjID: " << id << " pressed.";
+
+                //painetun tiilin id mapwindowin slottiin.
+                //emit sendtileid(id);
+
                 return true;
             }
 

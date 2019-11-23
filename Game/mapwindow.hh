@@ -2,12 +2,14 @@
 #define MAPWINDOW_HH
 
 #include <QMainWindow>
+#include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QMouseEvent>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QEvent>
+#include <QApplication>
 
 #include <math.h>
 #include <map>
@@ -57,8 +59,8 @@ public:
 
 public slots:
 
-    //dialog lahettaa tiilien lukumaaran ja tama tallentaa sen.
     void draw_tiles(int value);
+    void print_tile_info(unsigned int tile_id);
 
 
 private:
@@ -72,7 +74,6 @@ private:
     std::shared_ptr<Student::Player> player1;
 
 
-//    bool event(QEvent* event);
 
 
 

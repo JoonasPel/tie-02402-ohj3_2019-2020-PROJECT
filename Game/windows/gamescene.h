@@ -18,6 +18,8 @@ const std::pair<int, int> SCENE_SCALE_LIMITS = {1, 500};
 
 class GameScene : public QGraphicsScene
 {
+
+
 public:
     GameScene(QWidget* qt_parent = nullptr,
               int width = 10,
@@ -44,6 +46,9 @@ public:
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
     virtual bool event(QEvent* event) override;
+
+signals:
+    void sendtileid(unsigned int id);
 
 private:
     QGraphicsItem* m_mapBoundRect;
