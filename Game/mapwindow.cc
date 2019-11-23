@@ -15,14 +15,14 @@ MapWindow::MapWindow(QWidget *parent,
     QMainWindow(parent),
     m_ui(new Ui::MapWindow),
     m_GEHandler(handler),
-    m_simplescene(new Course::SimpleGameScene(this)),  
+    m_gamescene(new Student::GameScene(this)),
     gameEventHandler(std::make_shared<Student::GameEventHandler>()),
     objectManager(std::make_shared<Student::ObjectManager>()),
     player1(std::make_shared<Student::Player>("Player 1"))
 {
     m_ui->setupUi(this);
 
-    Course::SimpleGameScene* sgs_rawptr = m_simplescene.get();
+    Student::GameScene* sgs_rawptr = m_gamescene.get();
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
@@ -49,22 +49,22 @@ void MapWindow::setGEHandler(
 
 void MapWindow::setSize(int width, int height)
 {
-    m_simplescene->setSize(width, height);
+    m_gamescene->setSize(width, height);
 }
 
 void MapWindow::setScale(int scale)
 {
-    m_simplescene->setScale(scale);
+    m_gamescene->setScale(scale);
 }
 
 void MapWindow::resize()
 {
-    m_simplescene->resize();
+    m_gamescene->resize();
 }
 
 void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 {
-    m_simplescene->updateItem(obj);
+    m_gamescene->updateItem(obj);
 }
 
 void MapWindow::draw_tiles(int tile_count)
@@ -139,10 +139,10 @@ void MapWindow::draw_tiles(int tile_count)
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {
-    m_simplescene->removeItem(obj);
+    m_gamescene->removeItem(obj);
 }
 
 void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
-    m_simplescene->drawItem(obj);
+    m_gamescene->drawItem(obj);
 }

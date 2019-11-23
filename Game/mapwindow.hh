@@ -27,7 +27,7 @@
 #include "workers/basicworker.h"
 #include "player.h"
 
-#include "graphics/simplegamescene.h"
+#include "windows/gamescene.h"
 #include "graphics/simplemapitem.h"
 
 namespace Ui {
@@ -64,7 +64,7 @@ public slots:
 private:
     Ui::MapWindow* m_ui;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
-    std::shared_ptr<Course::SimpleGameScene> m_simplescene = nullptr;
+    std::shared_ptr<Student::GameScene> m_gamescene = nullptr;
 
     std::shared_ptr<Student::GameEventHandler> gameEventHandler;
     std::shared_ptr<Student::ObjectManager> objectManager;

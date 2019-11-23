@@ -103,7 +103,7 @@ bool GameScene::event(QEvent *event)
             QGraphicsItem* pressed = itemAt(point * m_scale, QTransform());
 
             if ( pressed == m_mapBoundRect ){
-                qDebug() << "Click on map area.";
+                qDebug() << "Click on map areaaaaaaaaaaa.";
             }else{
                 qDebug() << "ObjID: " <<
                             static_cast<Course::SimpleMapItem*>(pressed)
