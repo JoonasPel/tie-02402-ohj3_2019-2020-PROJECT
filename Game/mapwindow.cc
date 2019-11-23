@@ -92,16 +92,18 @@ void MapWindow::draw_tiles(int tile_count)
 
     // Testataan lisata worker tileen.
 
-    auto tiili2 = objectManager->getTile(1);
 
-    player1->addObject(tiili2);
+
 
     std::shared_ptr<Course::BasicWorker> basicworker =
             std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
 
-    //tiili2->addWorker(basicworker);
 
-    //drawItem(basicworker);
+    tiili1->setOwner(player1);
+
+    tiili1->addWorker(basicworker);
+
+    drawItem(basicworker);
 
 
 
