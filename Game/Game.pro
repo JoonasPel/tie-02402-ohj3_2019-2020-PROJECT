@@ -7,21 +7,23 @@ CONFIG += c++14
 
 SOURCES += \
     desert.cpp \
-    dialog.cpp \
     gameeventhandler.cpp \
     main.cpp \
     mapwindow.cc \
     objectmanager.cpp \
-    player.cpp
+    player.cpp \
+    windows/dialog.cpp \
+    windows/gamescene.cpp
 
 HEADERS += \
     desert.h \
-    dialog.h \
     gameeventhandler.h \
     mapwindow.hh \
     objectmanager.h \
     player.h \
-    resourcelist.h
+    resourcelist.h \
+    windows/dialog.h \
+    windows/gamescene.h
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib

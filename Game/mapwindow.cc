@@ -90,14 +90,10 @@ void MapWindow::draw_tiles(int tile_count)
 
     drawItem(farmi);
 
-    // Testataan lisata worker tileen.
-
-
-
+    // Lisataan worker tileen.
 
     std::shared_ptr<Course::BasicWorker> basicworker =
             std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
-
 
     tiili1->setOwner(player1);
 
@@ -109,6 +105,37 @@ void MapWindow::draw_tiles(int tile_count)
 
 
 }
+
+//bool MapWindow::event(QEvent *event)
+//{
+//if(event->type() == QEvent::GraphicsSceneMousePress)
+//{
+//    QGraphicsSceneMouseEvent* mouse_event =
+//            dynamic_cast<QGraphicsSceneMouseEvent*>(event);
+
+
+
+//        QPointF point = mouse_event->scenePos() / 50;
+
+//        point.rx() = floor(point.rx());
+//        point.ry() = floor(point.ry());
+
+//        QGraphicsItem* pressed = itemAt(point * 50, QTransform());
+
+//        if ( pressed == nullptr ){
+//            qDebug() << "Click on map area.";
+//        }else{
+//            qDebug() << "ObjID: " <<
+//                        static_cast<Course::SimpleMapItem*>(pressed)
+//                        ->getBoundObject()->ID  << " pressed.";
+//            return true;
+
+
+//    }
+//}
+
+//return false;
+//}
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 {

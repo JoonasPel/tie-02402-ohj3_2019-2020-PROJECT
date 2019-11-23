@@ -1,5 +1,5 @@
 #include "mapwindow.hh"
-#include "dialog.h"
+#include "windows/dialog.h"
 
 #include <QApplication>
 

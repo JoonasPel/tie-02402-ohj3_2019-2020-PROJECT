@@ -7,7 +7,9 @@
 #include <QMouseEvent>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
+#include <QEvent>
 
+#include <math.h>
 #include <map>
 
 #include "tiles/tilebase.h"
@@ -24,6 +26,9 @@
 #include "core/resourcemaps.h"
 #include "workers/basicworker.h"
 #include "player.h"
+
+#include "graphics/simplegamescene.h"
+#include "graphics/simplemapitem.h"
 
 namespace Ui {
 class MapWindow;
@@ -65,6 +70,9 @@ private:
     std::shared_ptr<Student::ObjectManager> objectManager;
 
     std::shared_ptr<Student::Player> player1;
+
+
+//    bool event(QEvent* event);
 
 
 
