@@ -111,8 +111,8 @@ bool GameScene::event(QEvent *event)
 
                 qDebug() << "ObjID: " << id << " pressed.";
 
-                //painetun tiilin id mapwindowin slottiin.
-                //emit sendtileid(id);
+                //klikatun tiilin id mapwindowin slottiin print_tile_info.
+                emit sendtileid(id);
 
                 return true;
             }

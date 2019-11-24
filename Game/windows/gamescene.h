@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QDebug>
+#include <QObject>
 
 #include <map>
 #include <memory>
@@ -18,7 +19,7 @@ const std::pair<int, int> SCENE_SCALE_LIMITS = {1, 500};
 
 class GameScene : public QGraphicsScene
 {
-
+    Q_OBJECT
 
 public:
     GameScene(QWidget* qt_parent = nullptr,

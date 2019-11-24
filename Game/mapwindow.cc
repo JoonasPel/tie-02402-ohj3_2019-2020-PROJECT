@@ -26,14 +26,12 @@ MapWindow::MapWindow(QWidget *parent,
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
-   //connect(m_gamescene.get(), QGraphicsScene::sendtileid,
-          //       this, &MapWindow::print_tile_info);
 
-  //QObject::connect(m_gamescene, SIGNAL(Student::GameScene::sendtileid(unsigned int)),
-          // this, SLOT(print_tile_info(unsigned int)));
+    connect(m_gamescene.get(), &Student::GameScene::sendtileid,
+                this, &MapWindow::print_tile_info);
 
-  //QObject::connect(m_gamescene.get(), SIGNAL (sendtileid(unsigned int)),
-    //      this, SLOT (print_tile_info(unsigned int)));
+    //connect(m_gamescene.get(), SIGNAL (sendtileid(unsigned int)),
+           // this, SLOT (print_tile_info(unsigned int)));
 
 
 
@@ -123,6 +121,7 @@ void MapWindow::print_tile_info(unsigned int tile_id)
 {
     auto tile = objectManager->getTile(tile_id);
     std::string tile_type = tile->getType();
+    std::cout << tile_type << std::endl;
 
 }
 
