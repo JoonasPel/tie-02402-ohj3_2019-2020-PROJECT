@@ -14,9 +14,9 @@ GameScene::GameScene(QWidget* parent,
                      int scale):
     QGraphicsScene(parent),
     m_mapBoundRect(nullptr),
-    m_width(10),
-    m_height(10),
-    m_scale(50)
+    m_width(15),
+    m_height(15),
+    m_scale(33)
 {
     setSize(width, height);
     setScale(scale);
