@@ -182,6 +182,11 @@
     <layout class="QGridLayout" name="gridLayout_6">
      <item row="0" column="0">
       <widget class="QLabel" name="MoneyLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -189,6 +194,11 @@
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="StoneLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -196,6 +206,11 @@
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="FoodLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -203,6 +218,11 @@
      </item>
      <item row="4" column="0">
       <widget class="QLabel" name="OreLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -210,12 +230,35 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="WoodLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="TileTypeLabel">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>470</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

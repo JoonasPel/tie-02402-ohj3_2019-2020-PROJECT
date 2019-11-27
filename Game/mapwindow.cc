@@ -131,9 +131,10 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
     std::vector<std::shared_ptr<Course::WorkerBase>> workers =
             tile->getWorkers();
 
-    m_ui->InfoText->setText(q_tile_type+"    ( " +QString::number(x_coord)+
-                            "," + QString::number(y_coord) + " )\n\nOwner: ");
+    m_ui->InfoText->setText("Owner: ");
 
+    m_ui->TileTypeLabel->setText(q_tile_type + "  ("+QString::number(x_coord)+
+                                 "," + QString::number(y_coord)+")");
 
     if (tile->getOwner() == nullptr)
     {
@@ -143,7 +144,6 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
     {
         std::string owner = tile->getOwner()->getName();
         QString q_owner = QString::fromStdString(owner);
-
         m_ui->InfoText->append(q_owner);
     }
 

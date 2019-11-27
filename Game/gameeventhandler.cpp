@@ -15,14 +15,6 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
 
 
 
-
-
-
-
-
-
-
-
 //    ResourceMapDouble worker_efficiency; pitaa hakea workerin tehokkuus
 //    ResourceMap total_production;     tiilen production
 //    auto m_workers = tile->getWorkers();
