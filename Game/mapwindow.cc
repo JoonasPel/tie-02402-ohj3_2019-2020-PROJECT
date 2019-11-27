@@ -178,6 +178,14 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
     }
 
 
+    std::map<Course::BasicResource, int> tile_production = gameEventHandler->getProduction(tile);
+
+
+    m_ui->MoneyLabel->setNum(tile_production[Course::BasicResource::MONEY]);
+    m_ui->OreLabel->setNum(tile_production[Course::BasicResource::ORE]);
+    m_ui->StoneLabel->setNum(tile_production[Course::BasicResource::STONE]);
+    m_ui->FoodLabel->setNum(tile_production[Course::BasicResource::FOOD]);
+    m_ui->WoodLabel->setNum(tile_production[Course::BasicResource::WOOD]);
 
 }
 

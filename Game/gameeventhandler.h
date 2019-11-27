@@ -6,6 +6,10 @@
 #include <memory>
 #include <vector>
 #include "interfaces/igameeventhandler.h"
+#include <map>
+#include "resourcelist.h"
+#include "core/basicresources.h"
+#include "tiles/tilebase.h"
 
 namespace Student {
 class TileBase;
@@ -19,6 +23,11 @@ public:
     GameEventHandler();
 
     virtual ~GameEventHandler() = default;
+
+
+
+
+    std::map<Course::BasicResource, int> getProduction(std::shared_ptr<Course::TileBase> tile);
 
 
 
