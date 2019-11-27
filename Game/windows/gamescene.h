@@ -23,9 +23,9 @@ class GameScene : public QGraphicsScene
 
 public:
     GameScene(QWidget* qt_parent = nullptr,
-              int width = 15,
+              int width = 20,
               int height = 15,
-              int scale = 33
+              int scale = 50
             );
 
     ~GameScene() = default;
@@ -49,7 +49,7 @@ public:
     virtual bool event(QEvent* event) override;
 
 signals:
-    void sendtileid(unsigned int id);
+    void sendtileid(Course::Coordinate);
 
 private:
     QGraphicsItem* m_mapBoundRect;

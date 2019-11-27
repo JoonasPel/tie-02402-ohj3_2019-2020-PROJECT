@@ -7,7 +7,8 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->horizontalSlider->setMaximum(225);
+    ui->horizontalSlider->setMaximum(300);
+    ui->horizontalSlider->setMinimum(300);
 }
 
 Dialog::~Dialog()

@@ -60,7 +60,7 @@ public:
 public slots:
 
     void draw_tiles(int value);
-    void print_tile_info(unsigned int tile_id);
+    void print_tile_info(Course::Coordinate coordinates);
 
 
 private:

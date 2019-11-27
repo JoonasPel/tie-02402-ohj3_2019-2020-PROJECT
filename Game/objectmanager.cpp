@@ -3,7 +3,7 @@
 
 namespace Student {
 
-const unsigned int COLUMN_SIZE = 10;
+const unsigned int COLUMN_SIZE = 15;
 
 ObjectManager::ObjectManager()
 {

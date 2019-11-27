@@ -14,9 +14,9 @@ GameScene::GameScene(QWidget* parent,
                      int scale):
     QGraphicsScene(parent),
     m_mapBoundRect(nullptr),
-    m_width(15),
+    m_width(20),
     m_height(15),
-    m_scale(33)
+    m_scale(50)
 {
     setSize(width, height);
     setScale(scale);
@@ -106,13 +106,14 @@ bool GameScene::event(QEvent *event)
                 qDebug() << "Click on map area.";
             }else{
 
-                unsigned int id = static_cast<Course::SimpleMapItem*>(pressed)
-                        ->getBoundObject()->ID;
+                Course::Coordinate coordinates = static_cast<Course::SimpleMapItem*>(pressed)
+                        ->getBoundObject()->getCoordinate();
 
-                qDebug() << "ObjID: " << id << " pressed.";
+                qDebug() << "Object at " << coordinates.x() << coordinates.y() <<
+                            " pressed.";
 
                 //klikatun tiilin id mapwindowin slottiin print_tile_info.
-                emit sendtileid(id);
+                emit sendtileid(coordinates);
 
                 return true;
             }

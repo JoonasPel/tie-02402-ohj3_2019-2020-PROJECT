@@ -30,8 +30,6 @@ MapWindow::MapWindow(QWidget *parent,
     connect(m_gamescene.get(), &Student::GameScene::sendtileid,
                 this, &MapWindow::print_tile_info);
 
-    //connect(m_gamescene.get(), SIGNAL (sendtileid(unsigned int)),
-           // this, SLOT (print_tile_info(unsigned int)));
 
 
 
@@ -41,7 +39,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
     worldGen.addConstructor<Student::Desert>(1);
-    worldGen.generateMap(10,10,312, objectManager, gameEventHandler);
+    worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
 
 
 
@@ -98,6 +96,8 @@ void MapWindow::draw_tiles(int tile_count)
 
 
     tile1->addBuilding(farmi);
+    tile1->addBuilding(farmi);
+
 
     drawItem(farmi);
 
@@ -114,14 +114,70 @@ void MapWindow::draw_tiles(int tile_count)
 
 
 
-
 }
 
-void MapWindow::print_tile_info(unsigned int tile_id)
+void MapWindow::print_tile_info(Course::Coordinate coordinates)
 {
-    auto tile = objectManager->getTile(tile_id);
-    std::string tile_type = tile->getType();
-    std::cout << tile_type << std::endl;
+
+    auto tile = objectManager->getTile(coordinates);
+
+    std::string tile_type = (tile->getType());
+    QString q_tile_type = QString::fromStdString(tile_type);
+    int y_coord = tile->getCoordinate().y();
+    int x_coord = tile->getCoordinate().x();
+
+    std::vector<std::shared_ptr<Course::BuildingBase>> buildings =
+            tile->getBuildings();
+    std::vector<std::shared_ptr<Course::WorkerBase>> workers =
+            tile->getWorkers();
+
+    m_ui->InfoText->setText(q_tile_type+"    ( " +QString::number(x_coord)+
+                            "," + QString::number(y_coord) + " )\n\nOwner: ");
+
+
+    if (tile->getOwner() == nullptr)
+    {
+       QString q_owner = "No owner";
+       m_ui->InfoText->append(q_owner);
+    } else
+    {
+        std::string owner = tile->getOwner()->getName();
+        QString q_owner = QString::fromStdString(owner);
+
+        m_ui->InfoText->append(q_owner);
+    }
+
+
+
+
+    unsigned int build_count = tile->getBuildingCount();
+    unsigned int max_build = tile->MAX_BUILDINGS;
+    m_ui->InfoText->append("\nBuildings:     ( "
+                           + QString::number(build_count) + "/"
+                           + QString::number(max_build)+ " )");
+
+    for(unsigned int i = 0; i < buildings.size(); ++i)
+    {
+        QString building_type = QString::fromStdString(buildings.at(i)->getType());
+        m_ui->InfoText->append(building_type);
+    }
+
+
+
+
+    unsigned int worker_count = tile->getWorkerCount();
+    unsigned int max_workers = tile->MAX_WORKERS;
+    m_ui->InfoText->append("\nWorkers:     ( "
+                           + QString::number(worker_count) + "/"
+                           + QString::number(max_workers)+ " )");
+
+    for(unsigned int i = 0; i < workers.size(); ++i)
+    {
+        QString worker_type = QString::fromStdString(workers.at(i)->getType());
+        m_ui->InfoText->append(worker_type);
+    }
+
+
 
 }
 
