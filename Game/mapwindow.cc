@@ -18,7 +18,8 @@ MapWindow::MapWindow(QWidget *parent,
     m_gamescene(new Student::GameScene(this)),
     gameEventHandler(std::make_shared<Student::GameEventHandler>()),
     objectManager(std::make_shared<Student::ObjectManager>()),
-    player1(std::make_shared<Student::Player>("Player 1"))
+    player1(std::make_shared<Student::Player>("Player 1")),
+    last_clicked_tile(Course::Coordinate(0,0))
 {
     m_ui->setupUi(this);
 
@@ -30,7 +31,8 @@ MapWindow::MapWindow(QWidget *parent,
     connect(m_gamescene.get(), &Student::GameScene::sendtileid,
                 this, &MapWindow::print_tile_info);
 
-
+    connect(m_gamescene.get(), &Student::GameScene::sendtileid,
+                this, &MapWindow::save_activate_tile);
 
 
 
@@ -113,7 +115,6 @@ void MapWindow::draw_tiles(int tile_count)
     drawItem(basicworker);
 
 
-
 }
 
 void MapWindow::print_tile_info(Course::Coordinate coordinates)
@@ -187,6 +188,23 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
     m_ui->FoodLabel->setNum(tile_production[Course::BasicResource::FOOD]);
     m_ui->WoodLabel->setNum(tile_production[Course::BasicResource::WOOD]);
 
+}
+
+void MapWindow::save_activate_tile(Course::Coordinate coordinates)
+{
+    last_clicked_tile = coordinates;
+}
+
+void MapWindow::on_pushButton_4_clicked()
+{
+    std::shared_ptr<Course::Farm> farmi =
+            std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
+
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+    tile->addBuilding(farmi);
+
+    drawItem(farmi);
+    print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
 }
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
