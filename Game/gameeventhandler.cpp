@@ -10,37 +10,28 @@ GameEventHandler::GameEventHandler()
 
 std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared_ptr<Course::TileBase> tile)
 {
+    Course::ResourceMapDouble worker_efficiency;
+    Course::ResourceMap total_production;
+    auto m_workers = tile->getWorkers();
+    auto m_buildings = tile->getBuildings();
 
-    return tile->BASE_PRODUCTION;
+    for( auto worker : m_workers)
+    {
+        Course::ResourceMapDouble efficiency = worker->WORKER_EFFICIENCY;
+        worker_efficiency = mergeResourceMapDoubles(worker_efficiency, efficiency);
+    }
 
+    total_production = multiplyResourceMap(tile->BASE_PRODUCTION, worker_efficiency);
 
+    for( auto building : m_buildings)
+    {
+        Course::ResourceMap production = building->PRODUCTION_EFFECT;
 
-//    ResourceMapDouble worker_efficiency; pitaa hakea workerin tehokkuus
-//    ResourceMap total_production;     tiilen production
-//    auto m_workers = tile->getWorkers();
+        total_production = mergeResourceMaps(total_production,
+                                             production);
+    }
 
-//    for( auto work_it = m_workers.begin();
-//         work_it != m_workers.end();
-//         ++work_it)
-//    {
-//        ResourceMapDouble current_efficiency = work_it->lock()->tileWorkAction();
-
-//        worker_efficiency = mergeResourceMapDoubles(worker_efficiency, current_efficiency);
-//    }
-
-//    total_production = multiplyResourceMap(BASE_PRODUCTION, worker_efficiency);
-
-//    for( auto build_it = m_buildings.begin();
-//         build_it != m_buildings.end();
-//         ++build_it)
-//    {
-//        ResourceMap current_production = build_it->lock()->getProduction();
-
-//        total_production = mergeResourceMaps(total_production,
-//                                             current_production);
-//    }
-
-//    return total_production;
+   return total_production;
 }
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)
