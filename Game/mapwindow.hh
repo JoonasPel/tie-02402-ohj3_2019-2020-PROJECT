@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QEvent>
 #include <QApplication>
+#include "exceptions/illegalaction.h"
 
 #include <math.h>
 #include <map>
@@ -80,6 +81,8 @@ private:
 
 private slots:
     void on_pushButton_4_clicked();
+
+    void on_addBWButton_clicked();
 
 
 

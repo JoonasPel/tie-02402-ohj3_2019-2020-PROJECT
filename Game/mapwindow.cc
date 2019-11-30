@@ -43,8 +43,6 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Student::Desert>(1);
     worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
 
-
-
 }
 
 MapWindow::~MapWindow()
@@ -200,30 +198,91 @@ void MapWindow::on_pushButton_4_clicked()
     std::shared_ptr<Course::Farm> farmi =
             std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
 
+
+
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
-    tile->addBuilding(farmi);
-
-
-    QPixmap farm("G:/farm_image.png");
-    QPainter painter(this);
-    QPoint location;
-
-
-    location = farmi->getCoordinatePtr()->asQpoint();
 
 
 
-    drawItem(farmi);
-    print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+
+
+    try {
+        tile->addBuilding(farmi);
+
+        drawItem(farmi);
+        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+
+    } catch (Course::IllegalAction) {
+        m_ui->statusLabel->setText("There is no space for more buildings!");
+
+    }
 
 
 
-    painter.drawPixmap(location,farm);
+
+
+
+
+
+
+
+
+
+
+//    m_gamescene->addRect(QRectF(0, 0, 100, 200), QPen(Qt::black), QBrush(Qt::green));
+//    QPixmap pixmap;
+//    QPainter painter(&pixmap);
+//    painter.setRenderHint(QPainter::Antialiasing);
+//    m_gamescene->render(&painter);
+//    painter.end();
+
+//    m_gamescene->addPixmap
+//            (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png"));
+
+//    Course::SimpleMapItem::paint(painter, m_gamescene);
+
+
+
+
+
+
+//    QPixmap farm("G:/farm_image.png");
+//   QPainter painter(this);
+//      QPoint location;
+//     location = farmi->getCoordinatePtr()->asQpoint();
+
+//      painter.drawPixmap(location,
+//                         (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png")));
 //    painter.drawImage(farm);
-      m_gamescene->updateItem(farmi);
-      m_gamescene->updateItem(tile);
-      m_gamescene->update();
-      m_ui->graphicsView->update();
+//     m_gamescene->updateItem(farmi);
+//     m_gamescene->updateItem(tile);
+//     m_gamescene->update();
+//     m_ui->graphicsView->update();
+    //   //  m_gamescene->resize();
+}
+
+void MapWindow::on_addBWButton_clicked()
+{
+    std::shared_ptr<Course::BasicWorker> worker =
+            std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
+
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+
+
+    try {
+        tile->setOwner(player1);
+        tile->setOwner(player1);
+        tile->addWorker(worker);
+        drawItem(worker);
+        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+
+    } catch (Course::IllegalAction) {
+        m_ui->statusLabel->setText("There is no space for more workers!");
+
+    }
+
+
+
 
 }
 
