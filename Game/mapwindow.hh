@@ -31,6 +31,8 @@
 
 #include "windows/gamescene.h"
 #include "graphics/simplemapitem.h"
+#include <QPainter>
+#include <QPoint>
 
 namespace Ui {
 class MapWindow;

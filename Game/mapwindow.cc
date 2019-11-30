@@ -5,7 +5,7 @@
 
 #include "graphics/simplemapitem.h"
 #include "core/worldgenerator.h"
-
+#include <QPixmap>
 #include <math.h>
 
 
@@ -203,8 +203,28 @@ void MapWindow::on_pushButton_4_clicked()
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
     tile->addBuilding(farmi);
 
+
+    QPixmap farm("G:/farm_image.png");
+    QPainter painter(this);
+    QPoint location;
+
+
+    location = farmi->getCoordinatePtr()->asQpoint();
+
+
+
     drawItem(farmi);
     print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+
+
+
+    painter.drawPixmap(location,farm);
+//    painter.drawImage(farm);
+      m_gamescene->updateItem(farmi);
+      m_gamescene->updateItem(tile);
+      m_gamescene->update();
+      m_ui->graphicsView->update();
+
 }
 
 void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
