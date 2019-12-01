@@ -21,7 +21,7 @@ Player::Player(const std::string& name,
 
 Course::ResourceMap Player::get_player_resources()
 {
-    //return player_resources;
+    return player_resources;
 }
 
 

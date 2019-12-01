@@ -59,6 +59,8 @@ public:
     void removeItem( std::shared_ptr<Course::GameObject> obj);
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
+    void update_player_resources();
+
 
 public slots:
 
@@ -83,9 +85,6 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_addBWButton_clicked();
-
-
-
 
     void on_TurnButton_clicked();
 };

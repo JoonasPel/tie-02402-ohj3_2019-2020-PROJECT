@@ -76,6 +76,26 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
     m_gamescene->updateItem(obj);
 }
 
+void MapWindow::update_player_resources()
+{
+    Course::ResourceMap resources = player1->get_player_resources();
+
+    m_ui->MoneyPlayerLabel->setText
+            (QString::number(resources[Course::BasicResource::MONEY]));
+
+    m_ui->FoodPlayerLabel->setText
+            (QString::number(resources[Course::BasicResource::FOOD]));
+
+    m_ui->WoodPlayerLabel->setText
+            (QString::number(resources[Course::BasicResource::WOOD]));
+
+    m_ui->StonePlayerLabel->setText
+            (QString::number(resources[Course::BasicResource::STONE]));
+
+    m_ui->OrePlayerLabel->setText
+            (QString::number(resources[Course::BasicResource::ORE]));
+}
+
 void MapWindow::draw_tiles(int tile_count)
 {
 
@@ -294,5 +314,5 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 
 void MapWindow::on_TurnButton_clicked()
 {
-
+    update_player_resources();
 }
