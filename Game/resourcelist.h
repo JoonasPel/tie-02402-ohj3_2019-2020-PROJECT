@@ -27,6 +27,14 @@ const Course::ResourceMap Player_starting_resources = {
     {Course::BasicResource::ORE, 1000}
 };
 
+const Course::ResourceMapDouble worker_satisfactioner = {
+    {Course::BasicResource::MONEY, 1},
+    {Course::BasicResource::FOOD, 1},
+    {Course::BasicResource::WOOD, 1},
+    {Course::BasicResource::STONE, 1},
+    {Course::BasicResource::ORE, 1}
+};
+
 
 
 

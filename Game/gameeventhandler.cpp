@@ -12,17 +12,26 @@ GameEventHandler::GameEventHandler()
 std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared_ptr<Course::TileBase> tile)
 {
     Course::ResourceMapDouble worker_efficiency;
-    Course::ResourceMap total_production;
+
+    Course::ResourceMap total_production = tile->BASE_PRODUCTION;
     auto m_workers = tile->getWorkers();
     auto m_buildings = tile->getBuildings();
 
+    //Olettaa etta workerit ovat tyytyvaisia. "satisfied".
     for( auto worker : m_workers)
     {
         Course::ResourceMapDouble efficiency = worker->WORKER_EFFICIENCY;
+        efficiency = mergeResourceMapDoubles
+                (efficiency,ConstResourceMaps::worker_satisfactioner);
+
+
         worker_efficiency = mergeResourceMapDoubles(worker_efficiency, efficiency);
     }
-
-    total_production = multiplyResourceMap(tile->BASE_PRODUCTION, worker_efficiency);
+    //Jos ei workereita, niin ei kerrota, jotta valtetaan nollalla kertominen.
+    if(m_workers.size() != 0)
+    {
+        total_production = multiplyResourceMap(tile->BASE_PRODUCTION, worker_efficiency);
+    }
 
     for( auto building : m_buildings)
     {
