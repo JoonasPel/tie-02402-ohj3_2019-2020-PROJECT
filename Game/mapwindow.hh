@@ -61,6 +61,8 @@ public:
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
     void update_player_resources();
+    void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);
+    void add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);
 
 
 public slots:

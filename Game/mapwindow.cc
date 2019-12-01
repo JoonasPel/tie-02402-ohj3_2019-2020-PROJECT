@@ -98,6 +98,55 @@ void MapWindow::update_player_resources()
             (QString::number(resources[Course::BasicResource::ORE]));
 }
 
+void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost)
+{
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+
+    try {
+        tile->setOwner(player1);
+        tile->addWorker(worker);
+
+        //Maksu workerista, vahennetaan pelaajalta resursseja.
+        for (auto resource : cost)
+        {
+            gameEventHandler->modifyResource
+                    (player1,resource.first,-resource.second);
+        }
+
+        update_player_resources();
+        drawItem(worker);
+        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+        m_ui->graphicsView->viewport()->update();
+
+
+    } catch (Course::IllegalAction) {
+        m_ui->statusLabel->setText("There is no space for more workers!");
+    }
+}
+
+void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost)
+{
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+
+    try {
+        tile->addBuilding(building);
+
+        //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
+        for (auto resource : cost)
+        {
+            gameEventHandler->modifyResource
+                    (player1,resource.first,-resource.second);
+        }
+        update_player_resources();
+        drawItem(building);
+        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+        m_ui->graphicsView->viewport()->update();
+
+    } catch (Course::IllegalAction) {
+        m_ui->statusLabel->setText("There is no space for more buildings!");
+    }
+}
+
 void MapWindow::draw_tiles(int tile_count)
 {
 
@@ -106,35 +155,6 @@ void MapWindow::draw_tiles(int tile_count)
            auto item = objectManager->getTile(i);
            drawItem(item);
     }
-
-//    farmin lisays testausta, ja sen piirtoa
-
-
-    std::shared_ptr<Course::Farm> farmi =
-            std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
-
-
-    auto tile1 = objectManager->getTile(0);
-
-
-    tile1->addBuilding(farmi);
-    tile1->addBuilding(farmi);
-
-
-    drawItem(farmi);
-
-    // Lisataan worker tileen.
-
-    std::shared_ptr<Course::BasicWorker> basicworker =
-            std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
-
-    tile1->setOwner(player1);
-
-    tile1->addWorker(basicworker);
-
-    drawItem(basicworker);
-
-
 }
 
 void MapWindow::print_tile_info(Course::Coordinate coordinates)
@@ -220,35 +240,7 @@ void MapWindow::on_pushButton_4_clicked()
     std::shared_ptr<Course::Farm> farmi =
             std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
 
-    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
-
-    try {
-        tile->addBuilding(farmi);
-
-        //Maksu buildingista, vahennetaan pelaajalta resursseja.
-        for (auto resource :
-             Course::ConstResourceMaps::FARM_BUILD_COST)
-        {
-            gameEventHandler->modifyResource
-                    (player1,resource.first,-resource.second);
-        }
-
-        update_player_resources();
-        drawItem(farmi);
-        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
-
-    } catch (Course::IllegalAction) {
-        m_ui->statusLabel->setText("There is no space for more buildings!");
-
-    }
-
-
-
-
-
-
-
-
+   add_new_building(farmi, Course::ConstResourceMaps::FARM_BUILD_COST);
 
 
 
@@ -288,31 +280,10 @@ void MapWindow::on_pushButton_4_clicked()
 
 void MapWindow::on_addBWButton_clicked()
 {
-    std::shared_ptr<Course::BasicWorker> worker =
+    std::shared_ptr<Course::BasicWorker> basicworker =
             std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
 
-    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
-
-
-    try {
-        tile->setOwner(player1);
-        tile->addWorker(worker);
-
-        //Maksu workerista, vahennetaan pelaajalta resursseja.
-        for (auto resource :
-             Course::ConstResourceMaps::BW_RECRUITMENT_COST)
-        {
-            gameEventHandler->modifyResource
-                    (player1,resource.first,-resource.second);
-        }
-
-        update_player_resources();
-        drawItem(worker);
-        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
-
-    } catch (Course::IllegalAction) {
-        m_ui->statusLabel->setText("There is no space for more workers!");
-    }
+    add_new_worker(basicworker, Course::ConstResourceMaps::BW_RECRUITMENT_COST);
 
 }
 
