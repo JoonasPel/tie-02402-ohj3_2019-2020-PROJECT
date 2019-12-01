@@ -87,6 +87,7 @@ private slots:
 
 
 
+    void on_TurnButton_clicked();
 };
 
 #endif // MapWINDOW_HH

@@ -8,7 +8,9 @@ Player::Player(const std::string& name,
                const std::vector<std::shared_ptr<Course::GameObject> > objects):
     Course::PlayerBase(name,objects),
     m_name(name),
-    m_objects()
+    m_objects(),
+    player_resources(Course::ResourceMap(Student::ConstResourceMaps::Player_starting_resources))
+
 {
     for( auto it = objects.begin(); it != objects.end(); ++it)
     {
@@ -16,4 +18,11 @@ Player::Player(const std::string& name,
     }
 
 }
+
+Course::ResourceMap Player::get_player_resources()
+{
+    return player_resources;
+}
+
+
 }

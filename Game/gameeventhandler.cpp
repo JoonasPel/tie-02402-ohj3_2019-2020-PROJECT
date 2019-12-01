@@ -1,5 +1,6 @@
 #include "gameeventhandler.h"
 
+
 namespace Student {
 
 
@@ -36,6 +37,14 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)
 {
+
+    std::shared_ptr<Student::Player> pl = std::dynamic_pointer_cast<Student::Player>(player);
+
+    Course::ResourceMap player_resources = pl->get_player_resources();
+
+    player_resources[resource] =+ amount;
+
+
 
 }
 

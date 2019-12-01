@@ -10,6 +10,9 @@
 #include "resourcelist.h"
 #include "core/basicresources.h"
 #include "tiles/tilebase.h"
+#include "player.h"
+#include "core/playerbase.h"
+#include "desert.h"
 
 namespace Student {
 class TileBase;

@@ -19,6 +19,14 @@ const Course::ResourceMap DESERT_BP = {
     {Course::BasicResource::ORE, 2}
 };
 
+const Course::ResourceMap Player_starting_resources = {
+    {Course::BasicResource::MONEY, 1000},
+    {Course::BasicResource::FOOD, 1000},
+    {Course::BasicResource::WOOD, 1000},
+    {Course::BasicResource::STONE, 1000},
+    {Course::BasicResource::ORE, 1000}
+};
+
 
 
 

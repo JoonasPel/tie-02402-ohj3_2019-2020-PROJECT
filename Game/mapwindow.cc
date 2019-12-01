@@ -42,7 +42,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Grassland>(1);
     worldGen.addConstructor<Student::Desert>(1);
     worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
-
+//
 }
 
 MapWindow::~MapWindow()
@@ -271,7 +271,6 @@ void MapWindow::on_addBWButton_clicked()
 
     try {
         tile->setOwner(player1);
-        tile->setOwner(player1);
         tile->addWorker(worker);
         drawItem(worker);
         print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
@@ -280,9 +279,6 @@ void MapWindow::on_addBWButton_clicked()
         m_ui->statusLabel->setText("There is no space for more workers!");
 
     }
-
-
-
 
 }
 
@@ -294,4 +290,9 @@ void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
 void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
     m_gamescene->drawItem(obj);
+}
+
+void MapWindow::on_TurnButton_clicked()
+{
+
 }

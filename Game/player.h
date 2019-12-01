@@ -2,6 +2,8 @@
 #define PLAYER_H
 
 #include "core/playerbase.h"
+#include "core/basicresources.h"
+#include "resourcelist.h"
 
 namespace Student {
 
@@ -16,9 +18,16 @@ public:
 
     virtual ~Player() = default;
 
+    Course::ResourceMap get_player_resources();
+
+
+
+
 private:
     std::string m_name;
     std::vector<std::weak_ptr<Course::GameObject>> m_objects;
+    Course::ResourceMap player_resources;
+
 
 
 };
