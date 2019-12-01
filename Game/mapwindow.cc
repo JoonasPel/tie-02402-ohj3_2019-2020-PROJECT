@@ -42,7 +42,9 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Grassland>(1);
     worldGen.addConstructor<Student::Desert>(1);
     worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
-//
+
+
+    update_player_resources(); //Resurssit nakyviin heti pelin alkaessa.
 }
 
 MapWindow::~MapWindow()
@@ -292,6 +294,11 @@ void MapWindow::on_addBWButton_clicked()
     try {
         tile->setOwner(player1);
         tile->addWorker(worker);
+
+        //Maksu workerista, vahennetaan pelaajalta resursseja.
+        gameEventHandler->modifyResource(player1,Course::BasicResource::MONEY,-10);
+        update_player_resources();
+
         drawItem(worker);
         print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
 

@@ -24,5 +24,10 @@ Course::ResourceMap Player::get_player_resources()
     return player_resources;
 }
 
+void Player::save_player_resources(Course::ResourceMap resources)
+{
+    player_resources = resources;
+}
+
 
 }

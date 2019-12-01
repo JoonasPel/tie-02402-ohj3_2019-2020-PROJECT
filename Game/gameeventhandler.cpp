@@ -51,7 +51,9 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
     Course::ResourceMap player_resources = pl->get_player_resources();
 
-    player_resources[resource] =+ amount;
+    player_resources[resource] += amount;
+
+    pl->save_player_resources(player_resources);
 
 
 

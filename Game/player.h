@@ -19,6 +19,7 @@ public:
     virtual ~Player() = default;
 
     Course::ResourceMap get_player_resources();
+    void save_player_resources(Course::ResourceMap resources); //Tallentaa muuttuneet resurssit.
 
 
 
