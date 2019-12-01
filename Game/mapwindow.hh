@@ -27,6 +27,7 @@
 #include "objectmanager.h"
 #include "gameeventhandler.h"
 #include "core/resourcemaps.h"
+#include "core/basicresources.h"
 #include "workers/basicworker.h"
 #include "player.h"
 
