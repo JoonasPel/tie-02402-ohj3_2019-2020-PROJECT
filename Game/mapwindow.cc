@@ -242,11 +242,6 @@ void MapWindow::save_activate_tile(Course::Coordinate coordinates)
     last_clicked_tile = coordinates;
 }
 
-std::shared_ptr<Student::Player> MapWindow::get_current_player()
-{
-    return current_player;
-}
-
 void MapWindow::on_pushButton_4_clicked()
 {
     std::shared_ptr<Course::Farm> farmi =
@@ -310,7 +305,18 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 }
 
 void MapWindow::on_TurnButton_clicked()
-{
+{   
+    //Generoidaan resurssit pelaajalle, joka lopetti vuoronsa.
+    for(unsigned int i = 0; i < 300; i++)
+    {
+        auto tile = objectManager->getTile(i);
+        if(tile->getOwner() == current_player)
+        {
+            tile->generateResources();
+        }
+    }
+
+    //Vuoro vaihtuu
     if(current_player == player2)
     {
         current_player = player1;
@@ -319,19 +325,10 @@ void MapWindow::on_TurnButton_clicked()
         current_player = player2;
     }
 
+    update_player_resources();
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 
-    for(unsigned int i = 0; i < 300; i++)
-    {
-        auto tile = objectManager->getTile(i);
-        if(tile->getOwner() == current_player)
-        {
-            std::cout << tile->getCoordinate().x() << "." << tile->getCoordinate().y() << std::endl;
-            tile->generateResources();
-        }
-    }
-    update_player_resources();
 }
 
 void MapWindow::on_pushButton_6_clicked()
