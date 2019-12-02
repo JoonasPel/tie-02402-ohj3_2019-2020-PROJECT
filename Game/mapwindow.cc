@@ -6,6 +6,7 @@
 #include "graphics/simplemapitem.h"
 #include "core/worldgenerator.h"
 #include <QPixmap>
+#include <QGraphicsPixmapItem>
 #include <math.h>
 
 
@@ -261,12 +262,6 @@ void MapWindow::on_pushButton_4_clicked()
 //            (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png"));
 
 //    Course::SimpleMapItem::paint(painter, m_gamescene);
-
-
-
-
-
-
 //    QPixmap farm("G:/farm_image.png");
 //   QPainter painter(this);
 //      QPoint location;
@@ -280,6 +275,11 @@ void MapWindow::on_pushButton_4_clicked()
 //     m_gamescene->update();
 //     m_ui->graphicsView->update();
     //   //  m_gamescene->resize();
+
+   QPixmap farm(":/farm_image.png");
+   QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
+   item->setPos(51,51);
+   m_ui->graphicsView->viewport()->update();
 }
 
 void MapWindow::on_addBWButton_clicked()
