@@ -20,6 +20,7 @@ MapWindow::MapWindow(QWidget *parent,
     gameEventHandler(std::make_shared<Student::GameEventHandler>()),
     objectManager(std::make_shared<Student::ObjectManager>()),
     player1(std::make_shared<Student::Player>("Player 1")),
+    player2(std::make_shared<Student::Player>("Player 2")),
     last_clicked_tile(Course::Coordinate(0,0))
 {
     m_ui->setupUi(this);
@@ -44,6 +45,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Student::Desert>(1);
     worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
 
+    current_player = player1; //Kumpi pelaajista aloittaa.
 
     update_player_resources(); //Resurssit nakyviin heti pelin alkaessa.
 }
@@ -81,7 +83,7 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
 
 void MapWindow::update_player_resources()
 {
-    Course::ResourceMap resources = player1->get_player_resources();
+    Course::ResourceMap resources = current_player->get_player_resources();
 
     m_ui->MoneyPlayerLabel->setText
             (QString::number(resources[Course::BasicResource::MONEY]));
@@ -104,17 +106,16 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     try {
-        if(player1->does_have_enough_resources(cost))
+        if(current_player->does_have_enough_resources(cost))
         {
-            tile->setOwner(player1);
-            player1->addObject(worker);
+            tile->setOwner(current_player);
             tile->addWorker(worker);
 
             //Maksu workerista, vahennetaan pelaajalta resursseja.
             for (auto resource : cost)
             {
                 gameEventHandler->modifyResource
-                        (player1,resource.first,-resource.second);
+                        (current_player,resource.first,-resource.second);
             }
 
             update_player_resources();
@@ -132,14 +133,15 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     try {
-        if(player1->does_have_enough_resources(cost))
+        if(current_player->does_have_enough_resources(cost))
         {
+            tile->setOwner(current_player);
             tile->addBuilding(building);
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
             for (auto resource : cost)
             {
                 gameEventHandler->modifyResource
-                        (player1,resource.first,-resource.second);
+                        (current_player,resource.first,-resource.second);
             }
             update_player_resources();
             drawItem(building);
@@ -240,10 +242,15 @@ void MapWindow::save_activate_tile(Course::Coordinate coordinates)
     last_clicked_tile = coordinates;
 }
 
+std::shared_ptr<Student::Player> MapWindow::get_current_player()
+{
+    return current_player;
+}
+
 void MapWindow::on_pushButton_4_clicked()
 {
     std::shared_ptr<Course::Farm> farmi =
-            std::make_shared<Course::Farm>(gameEventHandler,objectManager,player1);
+            std::make_shared<Course::Farm>(gameEventHandler,objectManager,current_player);
 
    add_new_building(farmi, Course::ConstResourceMaps::FARM_BUILD_COST);
 
@@ -276,16 +283,17 @@ void MapWindow::on_pushButton_4_clicked()
 //     m_ui->graphicsView->update();
     //   //  m_gamescene->resize();
 
-   QPixmap farm(":/farm_image.png");
-   QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
-   item->setPos(51,51);
-   m_ui->graphicsView->viewport()->update();
+   //QPixmap farm1(":/farm_image.png");
+   //QPixmap farm = farm1.scaled(QSize(40,40));
+   //QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
+   //item->setPos(51,51);
+   // m_ui->graphicsView->viewport()->update();
 }
 
 void MapWindow::on_addBWButton_clicked()
 {
     std::shared_ptr<Course::BasicWorker> basicworker =
-            std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,player1);
+            std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,current_player);
 
     add_new_worker(basicworker, Course::ConstResourceMaps::BW_RECRUITMENT_COST);
 
@@ -303,10 +311,25 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 
 void MapWindow::on_TurnButton_clicked()
 {
+    if(current_player == player2)
+    {
+        current_player = player1;
+    } else
+    {
+        current_player = player2;
+    }
+
+    m_ui->CurrentPlayerLabel->setText("Current player: "+
+                                      QString::fromStdString(current_player->getName()));
+
     for(unsigned int i = 0; i < 300; i++)
     {
         auto tile = objectManager->getTile(i);
-        tile->generateResources();
+        if(tile->getOwner() == current_player)
+        {
+            std::cout << tile->getCoordinate().x() << "." << tile->getCoordinate().y() << std::endl;
+            tile->generateResources();
+        }
     }
     update_player_resources();
 }
@@ -314,7 +337,7 @@ void MapWindow::on_TurnButton_clicked()
 void MapWindow::on_pushButton_6_clicked()
 {
     std::shared_ptr<Course::HeadQuarters> hq =
-            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,player1);
+            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,current_player);
 
    add_new_building(hq, Course::ConstResourceMaps::HQ_BUILD_COST);
 }
@@ -322,7 +345,7 @@ void MapWindow::on_pushButton_6_clicked()
 void MapWindow::on_pushButton_5_clicked()
 {
     std::shared_ptr<Course::Outpost> outpost =
-            std::make_shared<Course::Outpost>(gameEventHandler,objectManager,player1);
+            std::make_shared<Course::Outpost>(gameEventHandler,objectManager,current_player);
 
    add_new_building(outpost, Course::ConstResourceMaps::OUTPOST_BUILD_COST);
 }
@@ -330,7 +353,7 @@ void MapWindow::on_pushButton_5_clicked()
 void MapWindow::on_addAWButton_clicked()
 {
     std::shared_ptr<Student::AdvancedWorker> advancedworker =
-            std::make_shared<Student::AdvancedWorker>(gameEventHandler,objectManager,player1);
+            std::make_shared<Student::AdvancedWorker>(gameEventHandler,objectManager,current_player);
 
     add_new_worker(advancedworker, Student::ConstResourceMaps::AW_RECRUITMENT_COST);
 }

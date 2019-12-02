@@ -61,11 +61,10 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
 bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> player, Course::ResourceMap resources)
 {
-    if(player == nullptr) //Ei yriteta muokata pelaajan resursseja, jos pelaajaa ei ole.
+    if(player == nullptr) //Jos tilella ei ole omistajaa, player on nullptr.
     {
         return false;
     }
-
     std::shared_ptr<Student::Player> pl = std::dynamic_pointer_cast<Student::Player>(player);
 
     Course::ResourceMap new_resources = mergeResourceMaps(pl->get_player_resources(),resources);
