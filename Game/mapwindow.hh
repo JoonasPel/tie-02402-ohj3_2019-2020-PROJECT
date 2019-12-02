@@ -20,6 +20,7 @@
 #include <tiles/grassland.h>
 #include <desert.h>
 #include "buildings/farm.h"
+#include "buildings/outpost.h"
 #include "buildings/headquarters.h"
 #include "buildings/buildingbase.h"
 #include "interfaces/igameeventhandler.h"
@@ -86,6 +87,8 @@ private:
 
 private slots:
     void on_pushButton_4_clicked();
+    void on_pushButton_5_clicked();
+    void on_pushButton_6_clicked();
 
     void on_addBWButton_clicked();
 

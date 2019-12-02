@@ -301,3 +301,19 @@ void MapWindow::on_TurnButton_clicked()
 {
     update_player_resources();
 }
+
+void MapWindow::on_pushButton_6_clicked()
+{
+    std::shared_ptr<Course::HeadQuarters> hq =
+            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,player1);
+
+   add_new_building(hq, Course::ConstResourceMaps::HQ_BUILD_COST);
+}
+
+void MapWindow::on_pushButton_5_clicked()
+{
+    std::shared_ptr<Course::Outpost> outpost =
+            std::make_shared<Course::Outpost>(gameEventHandler,objectManager,player1);
+
+   add_new_building(outpost, Course::ConstResourceMaps::OUTPOST_BUILD_COST);
+}

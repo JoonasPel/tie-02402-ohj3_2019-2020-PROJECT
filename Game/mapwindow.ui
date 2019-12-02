@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Lisää Outpost</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
@@ -72,7 +72,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Lisää HQ</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_7">
