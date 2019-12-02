@@ -106,6 +106,7 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
         if(player1->does_have_enough_resources(cost))
         {
             tile->setOwner(player1);
+            player1->addObject(worker);
             tile->addWorker(worker);
 
             //Maksu workerista, vahennetaan pelaajalta resursseja.
@@ -302,6 +303,11 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 
 void MapWindow::on_TurnButton_clicked()
 {
+    for(unsigned int i = 0; i < 300; i++)
+    {
+        auto tile = objectManager->getTile(i);
+        tile->generateResources();
+    }
     update_player_resources();
 }
 
