@@ -106,7 +106,9 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     try {
-        if(current_player->does_have_enough_resources(cost))
+        //(Pelaajalla on varaa workeriin) JA (pelaaja omistaa tilen TAI kukaan ei omista).
+        if(current_player->does_have_enough_resources(cost) &&
+                (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
             tile->setOwner(current_player);
             tile->addWorker(worker);
@@ -133,7 +135,9 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     try {
-        if(current_player->does_have_enough_resources(cost))
+        //(Pelaajalla on varaa rakennukseen) JA (pelaaja omistaa tilen TAI kukaan ei omista).
+        if(current_player->does_have_enough_resources(cost) &&
+                (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
             tile->setOwner(current_player);
             tile->addBuilding(building);
