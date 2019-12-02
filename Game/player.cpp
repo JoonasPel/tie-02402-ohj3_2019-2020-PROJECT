@@ -29,5 +29,15 @@ void Player::save_player_resources(Course::ResourceMap resources)
     player_resources = resources;
 }
 
+bool Player::does_have_enough_resources(Course::ResourceMap cost)
+{
+    for (auto resource : cost) {
+        if(player_resources[resource.first] - cost[resource.first] < 0 ) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 }

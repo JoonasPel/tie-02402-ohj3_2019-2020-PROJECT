@@ -20,6 +20,7 @@ public:
 
     Course::ResourceMap get_player_resources();
     void save_player_resources(Course::ResourceMap resources); //Tallentaa muuttuneet resurssit.
+    bool does_have_enough_resources(Course::ResourceMap cost);
 
 
 

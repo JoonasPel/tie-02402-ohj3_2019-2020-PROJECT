@@ -55,7 +55,7 @@ bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player
 
     pl->save_player_resources(player_resources);
 
-
+    return true;
 
 }
 
