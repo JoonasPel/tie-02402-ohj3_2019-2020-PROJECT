@@ -6,6 +6,7 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
+    advancedworker.cpp \
     desert.cpp \
     gameeventhandler.cpp \
     main.cpp \
@@ -16,6 +17,7 @@ SOURCES += \
     windows/gamescene.cpp
 
 HEADERS += \
+    advancedworker.h \
     desert.h \
     gameeventhandler.h \
     mapwindow.hh \

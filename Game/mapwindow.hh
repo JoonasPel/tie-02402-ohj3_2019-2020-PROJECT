@@ -30,6 +30,7 @@
 #include "core/resourcemaps.h"
 #include "core/basicresources.h"
 #include "workers/basicworker.h"
+#include "advancedworker.h"
 #include "player.h"
 
 #include "windows/gamescene.h"
@@ -91,6 +92,7 @@ private slots:
     void on_pushButton_6_clicked();
 
     void on_addBWButton_clicked();
+    void on_addAWButton_clicked();
 
     void on_TurnButton_clicked();
 };

@@ -317,3 +317,11 @@ void MapWindow::on_pushButton_5_clicked()
 
    add_new_building(outpost, Course::ConstResourceMaps::OUTPOST_BUILD_COST);
 }
+
+void MapWindow::on_addAWButton_clicked()
+{
+    std::shared_ptr<Student::AdvancedWorker> advancedworker =
+            std::make_shared<Student::AdvancedWorker>(gameEventHandler,objectManager,player1);
+
+    add_new_worker(advancedworker, Student::ConstResourceMaps::AW_RECRUITMENT_COST);
+}

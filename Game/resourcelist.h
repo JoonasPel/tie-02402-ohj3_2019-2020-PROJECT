@@ -35,6 +35,19 @@ const Course::ResourceMapDouble worker_satisfactioner = {
     {Course::BasicResource::ORE, 1}
 };
 
+const Course::ResourceMapDouble AW_WORKER_EFFICIENCY = {
+    {Course::MONEY, 0.25},
+    {Course::FOOD, 1.15},
+    {Course::WOOD, 1.00},
+    {Course::STONE, 0.75},
+    {Course::ORE, 0.75}
+};
+
+const Course::ResourceMap AW_RECRUITMENT_COST = {
+    {Course::MONEY, 50},
+    {Course::FOOD, 75}
+};
+
 
 
 
