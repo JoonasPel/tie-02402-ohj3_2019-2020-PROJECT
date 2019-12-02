@@ -103,22 +103,23 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     try {
-        tile->setOwner(player1);
-        tile->addWorker(worker);
-
-        //Maksu workerista, vahennetaan pelaajalta resursseja.
-        for (auto resource : cost)
+        if(player1->does_have_enough_resources(cost))
         {
-            gameEventHandler->modifyResource
-                    (player1,resource.first,-resource.second);
+            tile->setOwner(player1);
+            tile->addWorker(worker);
+
+            //Maksu workerista, vahennetaan pelaajalta resursseja.
+            for (auto resource : cost)
+            {
+                gameEventHandler->modifyResource
+                        (player1,resource.first,-resource.second);
+            }
+
+            update_player_resources();
+            drawItem(worker);
+            print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+            m_ui->graphicsView->viewport()->update();
         }
-
-        update_player_resources();
-        drawItem(worker);
-        print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
-        m_ui->graphicsView->viewport()->update();
-
-
     } catch (Course::IllegalAction) {
         m_ui->statusLabel->setText("There is no space for more workers!");
     }
