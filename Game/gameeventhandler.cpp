@@ -11,7 +11,14 @@ GameEventHandler::GameEventHandler()
 
 std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared_ptr<Course::TileBase> tile)
 {
-    Course::ResourceMapDouble worker_efficiency;
+    Course::ResourceMapDouble worker_efficiency = {
+        {Course::BasicResource::NONE, 0},
+        {Course::BasicResource::MONEY, 0},
+        {Course::BasicResource::FOOD, 0},
+        {Course::BasicResource::WOOD, 0},
+        {Course::BasicResource::STONE, 0},
+        {Course::BasicResource::ORE, 0}
+    };
 
     Course::ResourceMap total_production = tile->BASE_PRODUCTION;
     auto m_workers = tile->getWorkers();
@@ -27,18 +34,17 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
 
         worker_efficiency = mergeResourceMapDoubles(worker_efficiency, efficiency);
     }
-    //Jos ei workereita, niin ei kerrota, jotta valtetaan nollalla kertominen.
+
+    total_production = multiplyResourceMap(tile->BASE_PRODUCTION, worker_efficiency);
     if(m_workers.size() != 0)
     {
-        total_production = multiplyResourceMap(tile->BASE_PRODUCTION, worker_efficiency);
-    }
+        for( auto building : m_buildings)
+        {
+            Course::ResourceMap production = building->PRODUCTION_EFFECT;
 
-    for( auto building : m_buildings)
-    {
-        Course::ResourceMap production = building->PRODUCTION_EFFECT;
-
-        total_production = mergeResourceMaps(total_production,
-                                             production);
+            total_production = mergeResourceMaps(total_production,
+                                                 production);
+        }
     }
 
    return total_production;

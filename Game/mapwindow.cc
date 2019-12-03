@@ -113,15 +113,6 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
         if(current_player->does_have_enough_resources(cost) &&
                 (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
-
-
-
-
-
-
-
-
-
             tile->setOwner(current_player);
             tile->addWorker(worker);
 
@@ -151,21 +142,10 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
         if(current_player->does_have_enough_resources(cost) &&
                 (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
-
-
-
-
             //---------- tarkistetaan halutaanko listata tiili pelaajan tiilivektoriin.
             if (!current_player->already_owned(tile)){
                 current_player->addtile(tile);
-
-
-
-
-
             }
-
-
             tile->setOwner(current_player);
             tile->addBuilding(building);
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
@@ -201,8 +181,14 @@ void MapWindow::print_total_production()
     std::vector<std::shared_ptr<Course::TileBase>> player_tiles = current_player->get_tiles();
     for(auto tile : player_tiles)
     {
-        //Course::mergeResourceMaps(total_production,current_pla)
+       total_production =
+               Course::mergeResourceMaps(total_production,gameEventHandler->getProduction(tile));
     }
+    m_ui->MoneyPlayerLabel_2->setNum(total_production[Course::BasicResource::MONEY]);
+    m_ui->FoodPlayerLabel_2->setNum(total_production[Course::BasicResource::FOOD]);
+    m_ui->WoodPlayerLabel_2->setNum(total_production[Course::BasicResource::WOOD]);
+    m_ui->StonePlayerLabel_2->setNum(total_production[Course::BasicResource::STONE]);
+    m_ui->OrePlayerLabel_2->setNum(total_production[Course::BasicResource::ORE]);
 }
 
 void MapWindow::print_tile_info(Course::Coordinate coordinates)
@@ -398,6 +384,7 @@ void MapWindow::on_TurnButton_clicked()
         current_player = player2;
     }
 
+    print_total_production();
     update_player_resources();
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
