@@ -45,7 +45,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
     worldGen.addConstructor<Student::Desert>(1);
-    worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
+    worldGen.generateMap(20,15,time(NULL), objectManager, gameEventHandler);
 
     current_player = player1; //Kumpi pelaajista aloittaa.
 
@@ -113,6 +113,15 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
         if(current_player->does_have_enough_resources(cost) &&
                 (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
+
+
+
+
+
+
+
+
+
             tile->setOwner(current_player);
             tile->addWorker(worker);
 
@@ -142,6 +151,21 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
         if(current_player->does_have_enough_resources(cost) &&
                 (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
+
+
+
+
+            //---------- tarkistetaan halutaanko listata tiili pelaajan tiilivektoriin.
+            if (!current_player->already_owned(tile)){
+                current_player->addtile(tile);
+
+
+
+
+
+            }
+
+
             tile->setOwner(current_player);
             tile->addBuilding(building);
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
@@ -168,6 +192,16 @@ void MapWindow::draw_tiles(int tile_count)
     {
            auto item = objectManager->getTile(i);
            drawItem(item);
+    }
+}
+
+void MapWindow::print_total_production()
+{
+    Course::ResourceMap total_production;
+    std::vector<std::shared_ptr<Course::TileBase>> player_tiles = current_player->get_tiles();
+    for(auto tile : player_tiles)
+    {
+        //Course::mergeResourceMaps(total_production,current_pla)
     }
 }
 
@@ -231,6 +265,19 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
         QString worker_type = QString::fromStdString(workers.at(i)->getType());
         m_ui->InfoText->append(worker_type);
     }
+
+
+
+
+//    for (auto resource : tile->BASE_PRODUCTION) {
+//        QString q_resource_amount = QString::number(resource.second);
+//        resource.first(std::string)::
+//        m_ui->InfoText->append()(q_resource_name+" : "+q_resource_amount);
+
+//    }
+
+//    m_ui->InfoText->append("Money: "+ QString::number(tile->BASE_PRODUCTION);
+//    m_ui->MoneyLabel->setNum(tile->BASE_PRODUCTION[Course::BasicResource::MONEY]);
 
 
     std::map<Course::BasicResource, int> tile_production = gameEventHandler->getProduction(tile);

@@ -7,6 +7,7 @@ namespace Student {
 Player::Player(const std::string& name,
                const std::vector<std::shared_ptr<Course::GameObject> > objects):
     Course::PlayerBase(name,objects),
+    m_tiles(),
     m_name(name),
     m_objects(),
     player_resources(Course::ResourceMap(Student::ConstResourceMaps::Player_starting_resources))
@@ -38,6 +39,35 @@ bool Player::does_have_enough_resources(Course::ResourceMap cost)
     }
     return true;
 }
+
+
+// tarkistaa onko parametri tiili pelaajan tiili vektorissa
+bool Player::already_owned(std::shared_ptr<Course::TileBase> tile)
+{
+
+    for(auto pltile : m_tiles)
+    {
+     if(pltile->getCoordinate().x() == tile->getCoordinate().x()
+             and pltile->getCoordinate().y() == tile->getCoordinate().y()){
+         return true;
+     }
+}
+    return false;
+
+
+}
+
+void Player::addtile(std::shared_ptr<Course::TileBase> tile)
+{
+    m_tiles.push_back(std::shared_ptr<Course::TileBase>(tile));
+}
+
+std::vector<std::shared_ptr<Course::TileBase> > Player::get_tiles()
+{
+    return m_tiles;
+}
+
+
 
 
 }

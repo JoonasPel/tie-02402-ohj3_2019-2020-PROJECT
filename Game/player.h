@@ -4,6 +4,8 @@
 #include "core/playerbase.h"
 #include "core/basicresources.h"
 #include "resourcelist.h"
+#include "tiles/tilebase.h"
+#include <vector>
 
 namespace Student {
 
@@ -21,11 +23,14 @@ public:
     Course::ResourceMap get_player_resources();
     void save_player_resources(Course::ResourceMap resources); //Tallentaa muuttuneet resurssit.
     bool does_have_enough_resources(Course::ResourceMap cost);
-
+    bool already_owned(std::shared_ptr<Course::TileBase> tile);
+    void addtile(std::shared_ptr<Course::TileBase> tile);
+    std::vector<std::shared_ptr<Course::TileBase>> get_tiles();
 
 
 
 private:
+    std::vector<std::shared_ptr<Course::TileBase>> m_tiles;
     std::string m_name;
     std::vector<std::weak_ptr<Course::GameObject>> m_objects;
     Course::ResourceMap player_resources;

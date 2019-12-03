@@ -32,6 +32,9 @@
 #include "workers/basicworker.h"
 #include "advancedworker.h"
 #include "player.h"
+#include <cstdlib>
+#include <stdio.h>
+#include <time.h>
 
 #include "windows/gamescene.h"
 #include "graphics/simplemapitem.h"
@@ -66,6 +69,8 @@ public:
     void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);
     void add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);
     void draw_tiles(int value);
+
+    void print_total_production();
 
 public slots:
 

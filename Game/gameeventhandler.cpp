@@ -21,7 +21,7 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
     for( auto worker : m_workers)
     {
         Course::ResourceMapDouble efficiency = worker->WORKER_EFFICIENCY;
-        efficiency = mergeResourceMapDoubles
+        efficiency = multiplyResourceMapDoubles
                 (efficiency,ConstResourceMaps::worker_satisfactioner);
 
 
