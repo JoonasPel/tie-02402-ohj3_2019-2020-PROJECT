@@ -1,5 +1,6 @@
 #include "dialog.h"
 #include "ui_dialog.h"
+#include <QString>
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -7,8 +8,6 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->horizontalSlider->setMaximum(300);
-    ui->horizontalSlider->setMinimum(300);
 }
 
 Dialog::~Dialog()
@@ -22,7 +21,12 @@ int Dialog::exec()
 
     if(dialog == QDialog::Accepted)
     {
-        emit sendtilecount(ui->horizontalSlider->value());
+        emit sendtilecount(300);
+        QString name1 = ui->pl1_text->text();
+        QString name2 = ui->pl2_text->text();
+        emit sendPlayerName(name1.toStdString(),name2.toStdString());
     }
     return dialog; //
 }
+
+

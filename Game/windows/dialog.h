@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <string>
 
 namespace Ui {
 class Dialog;
@@ -18,7 +19,7 @@ public:
 
 signals:
     void sendtilecount(int tile_count);
-
+    void sendPlayerName(std::string name1,std::string name2);
 
 private:
     Ui::Dialog *ui;

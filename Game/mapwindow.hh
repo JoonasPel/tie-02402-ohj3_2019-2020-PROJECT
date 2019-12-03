@@ -65,15 +65,15 @@ public:
     void update_player_resources();
     void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);
     void add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);
-
+    void draw_tiles(int value);
 
 public slots:
 
-    void draw_tiles(int value);
+
     void print_tile_info(Course::Coordinate coordinates);
     //Tallentaa tilen koordinaatit, jota klikattu viimeksi, eli joka on "aktiivinen".
     void save_activate_tile(Course::Coordinate coordinates);
-
+    void setName(std::string name1, std::string name2);
 
 private:
     Ui::MapWindow* m_ui;

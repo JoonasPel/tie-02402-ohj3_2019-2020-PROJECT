@@ -24,10 +24,12 @@ MapWindow::MapWindow(QWidget *parent,
     last_clicked_tile(Course::Coordinate(0,0))
 {
     m_ui->setupUi(this);
+    this->setWindowTitle("Pirkanmaan valloitus");
 
     Student::GameScene* sgs_rawptr = m_gamescene.get();
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
+
 
 
     connect(m_gamescene.get(), &Student::GameScene::sendtileid,
@@ -46,6 +48,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.generateMap(20,15,312, objectManager, gameEventHandler);
 
     current_player = player1; //Kumpi pelaajista aloittaa.
+
 
     update_player_resources(); //Resurssit nakyviin heti pelin alkaessa.
 }
@@ -246,6 +249,25 @@ void MapWindow::save_activate_tile(Course::Coordinate coordinates)
     last_clicked_tile = coordinates;
 }
 
+void MapWindow::setName(std::string name1, std::string name2)
+{
+    if(name1 == ""){
+        player1->setName("Player 1");
+    } else
+    {
+    player1->setName(name1);
+    }
+    if(name2==""){
+        player2->setName("Player 2");
+    }else
+    {
+    player2->setName(name2);
+    }
+    draw_tiles(300);
+    m_ui->CurrentPlayerLabel->setText("Current player: "+
+                                      QString::fromStdString(current_player->getName()));
+}
+
 void MapWindow::on_pushButton_4_clicked()
 {
     std::shared_ptr<Course::Farm> farmi =
@@ -314,7 +336,7 @@ void MapWindow::on_TurnButton_clicked()
     for(unsigned int i = 0; i < 300; i++)
     {
         auto tile = objectManager->getTile(i);
-        if(tile->getOwner() == current_player)
+        if(tile->getOwner() == current_player and tile->getWorkerCount()!=0)
         {
             tile->generateResources();
         }

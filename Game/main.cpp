@@ -14,8 +14,10 @@ int main(int argc, char* argv[])
     Dialog dia;
     MapWindow mapWindow;
 
-    QObject::connect(&dia, &Dialog::sendtilecount,
-                     &mapWindow, &MapWindow::draw_tiles);
+
+
+    QObject::connect(&dia, &Dialog::sendPlayerName,
+                     &mapWindow, &MapWindow::setName);
 
     if(dia.exec() == QDialog::Accepted)
     {

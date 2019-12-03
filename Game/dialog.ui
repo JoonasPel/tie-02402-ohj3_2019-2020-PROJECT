@@ -29,30 +29,63 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QSlider" name="horizontalSlider">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>130</y>
-     <width>160</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>73</y>
-     <width>151</width>
-     <height>20</height>
+     <x>20</x>
+     <y>20</y>
+     <width>131</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Laattojen määrä 0-100</string>
+    <string>Pelaajien nimet:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Player 1:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Player 2:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pl1_text">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>50</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pl2_text">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>90</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>
