@@ -11,6 +11,7 @@ SOURCES += \
     gameeventhandler.cpp \
     main.cpp \
     mapwindow.cc \
+    mine.cpp \
     objectmanager.cpp \
     player.cpp \
     windows/dialog.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     desert.h \
     gameeventhandler.h \
     mapwindow.hh \
+    mine.h \
     objectmanager.h \
     player.h \
     resourcelist.h \

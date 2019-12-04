@@ -85,7 +85,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Lisää Mine</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="InfoText">

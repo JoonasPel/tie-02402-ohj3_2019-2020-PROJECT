@@ -418,3 +418,11 @@ void MapWindow::on_addAWButton_clicked()
 
     add_new_worker(advancedworker, Student::ConstResourceMaps::AW_RECRUITMENT_COST);
 }
+
+void MapWindow::on_pushButton_7_clicked()
+{
+    std::shared_ptr<Student::Mine> mine =
+            std::make_shared<Student::Mine>(gameEventHandler,objectManager,current_player);
+
+   add_new_building(mine, Student::ConstResourceMaps::MINE_BUILD_COST);
+}
