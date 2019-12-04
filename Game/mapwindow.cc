@@ -113,6 +113,9 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
         if(current_player->does_have_enough_resources(cost) &&
                 (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
+            if (!current_player->already_owned(tile)){
+                current_player->addtile(tile);
+            }
             tile->setOwner(current_player);
             tile->addWorker(worker);
 
@@ -290,8 +293,9 @@ void MapWindow::setName(std::string name1, std::string name2)
     {
     player1->setName(name1);
     }
-    if(name2==""){
-        player2->setName("Player 2");
+    if(name2=="")
+    {
+    player2->setName("Player 2");
     }else
     {
     player2->setName(name2);

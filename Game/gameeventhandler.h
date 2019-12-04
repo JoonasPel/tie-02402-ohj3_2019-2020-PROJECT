@@ -13,6 +13,7 @@
 #include "player.h"
 #include "core/playerbase.h"
 #include "desert.h"
+#include <iostream>
 
 namespace Student {
 class TileBase;
@@ -32,7 +33,7 @@ public:
 
     std::map<Course::BasicResource, int> getProduction(std::shared_ptr<Course::TileBase> tile);
 
-
+    Course::ResourceMap calculate_upkeep(std::vector<std::shared_ptr<Course::WorkerBase>> workers);
 
 
 

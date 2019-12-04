@@ -21,7 +21,6 @@ int Dialog::exec()
 
     if(dialog == QDialog::Accepted)
     {
-        emit sendtilecount(300);
         QString name1 = ui->pl1_text->text();
         QString name2 = ui->pl2_text->text();
         emit sendPlayerName(name1.toStdString(),name2.toStdString());

@@ -18,7 +18,6 @@ public:
     virtual int exec();
 
 signals:
-    void sendtilecount(int tile_count);
     void sendPlayerName(std::string name1,std::string name2);
 
 private:

@@ -1,4 +1,5 @@
 #include "gameeventhandler.h"
+#include "exceptions/baseexception.h"
 
 
 namespace Student {
@@ -19,6 +20,7 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
         {Course::BasicResource::STONE, 0},
         {Course::BasicResource::ORE, 0}
     };
+    Course::ResourceMap workers_upkeep_cost;
 
     Course::ResourceMap total_production = tile->BASE_PRODUCTION;
     auto m_workers = tile->getWorkers();
@@ -27,15 +29,15 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
     //Olettaa etta workerit ovat tyytyvaisia. "satisfied".
     for( auto worker : m_workers)
     {
-        Course::ResourceMapDouble efficiency = worker->WORKER_EFFICIENCY;
+     Course::ResourceMapDouble efficiency = worker->WORKER_EFFICIENCY;
         efficiency = multiplyResourceMapDoubles
                 (efficiency,ConstResourceMaps::worker_satisfactioner);
 
 
         worker_efficiency = mergeResourceMapDoubles(worker_efficiency, efficiency);
     }
-
     total_production = multiplyResourceMap(tile->BASE_PRODUCTION, worker_efficiency);
+
     if(m_workers.size() != 0)
     {
         for( auto building : m_buildings)
@@ -46,8 +48,36 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
                                                  production);
         }
     }
+    //Workerien ruoka- ja rahakulut.
+    workers_upkeep_cost = calculate_upkeep(m_workers);
+    total_production = mergeResourceMaps(total_production,workers_upkeep_cost);
 
-   return total_production;
+    return total_production;
+}
+
+Course::ResourceMap GameEventHandler::calculate_upkeep(std::vector<std::shared_ptr<Course::WorkerBase>> workers)
+{
+    Course::ResourceMap workers_upkeep_cost = {
+        {Course::BasicResource::MONEY, 0},
+        {Course::BasicResource::FOOD, 0},
+    };
+
+    for (auto worker : workers)
+    {
+        if(worker->getType() == "BasicWorker")
+        {
+            workers_upkeep_cost[Course::BasicResource::MONEY] -= 1;
+            workers_upkeep_cost[Course::BasicResource::FOOD] -= 1;
+        } else if(worker->getType() == "AdvancedWorker")
+        {
+            workers_upkeep_cost[Course::BasicResource::MONEY] -= 3;
+            workers_upkeep_cost[Course::BasicResource::FOOD] -= 3;
+        } else
+        {
+            throw Course::BaseException("No upkeep cost for worker in GEhandler calculate_upkeep!");
+        }
+}
+    return workers_upkeep_cost;
 }
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)
