@@ -30,4 +30,10 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const st
 {
 
 }
+
+std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles()
+{
+    return tiles_;
+}
+
 }

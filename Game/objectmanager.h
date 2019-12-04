@@ -37,6 +37,7 @@ public:
      std::vector<std::shared_ptr<Course::TileBase>> getTiles(
             const std::vector<Course::Coordinate>& coordinates);
 
+     std::vector<std::shared_ptr<Course::TileBase>> getTiles();
 
     std::vector<std::shared_ptr<Course::TileBase>> tiles_;
 
