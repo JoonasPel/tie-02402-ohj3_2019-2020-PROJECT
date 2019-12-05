@@ -15,6 +15,7 @@ SOURCES += \
     mine.cpp \
     objectmanager.cpp \
     player.cpp \
+    water.cpp \
     windows/dialog.cpp \
     windows/gamescene.cpp
 
@@ -28,6 +29,7 @@ HEADERS += \
     objectmanager.h \
     player.h \
     resourcelist.h \
+    water.h \
     windows/dialog.h \
     windows/gamescene.h
 

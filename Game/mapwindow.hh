@@ -18,6 +18,7 @@
 #include "tiles/tilebase.h"
 #include <tiles/forest.h>
 #include <tiles/grassland.h>
+#include "water.h"
 #include <desert.h>
 #include "buildings/farm.h"
 #include "buildings/outpost.h"

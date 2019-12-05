@@ -42,10 +42,10 @@ MapWindow::MapWindow(QWidget *parent,
 
 
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
-    worldGen.addConstructor<Course::Forest>(1);
-    worldGen.addConstructor<Course::Grassland>(1);
-    worldGen.addConstructor<Student::Desert>(1);
-//    worldGen.addConstructor<Student::Mine>(1);
+    worldGen.addConstructor<Course::Forest>(20);
+    worldGen.addConstructor<Course::Grassland>(60);
+    worldGen.addConstructor<Student::Desert>(20);
+    worldGen.addConstructor<Student::Water>(7);
     worldGen.generateMap(20,15,time(NULL), objectManager, gameEventHandler);
 
     current_player = player1; //Kumpi pelaajista aloittaa.
@@ -127,9 +127,11 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
             }
 
             update_player_resources();
+            print_total_production();
             drawItem(worker);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
             m_ui->graphicsView->viewport()->update();
+
         }
     } catch (Course::IllegalAction) {
         m_ui->statusLabel->setText("There is no space for more workers!");
@@ -158,6 +160,7 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
                         (current_player,resource.first,-resource.second);
             }
             update_player_resources();
+            print_total_production();
             drawItem(building);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
             m_ui->graphicsView->viewport()->update();
@@ -226,8 +229,6 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
     }
 
 
-
-
     unsigned int build_count = tile->getBuildingCount();
     unsigned int max_build = tile->MAX_BUILDINGS;
     m_ui->InfoText->append("\nBuildings:     ( "
@@ -241,8 +242,6 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
     }
 
 
-
-
     unsigned int worker_count = tile->getWorkerCount();
     unsigned int max_workers = tile->MAX_WORKERS;
     m_ui->InfoText->append("\nWorkers:     ( "
@@ -254,19 +253,6 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
         QString worker_type = QString::fromStdString(workers.at(i)->getType());
         m_ui->InfoText->append(worker_type);
     }
-
-
-
-
-//    for (auto resource : tile->BASE_PRODUCTION) {
-//        QString q_resource_amount = QString::number(resource.second);
-//        resource.first(std::string)::
-//        m_ui->InfoText->append()(q_resource_name+" : "+q_resource_amount);
-
-//    }
-
-//    m_ui->InfoText->append("Money: "+ QString::number(tile->BASE_PRODUCTION);
-//    m_ui->MoneyLabel->setNum(tile->BASE_PRODUCTION[Course::BasicResource::MONEY]);
 
 
     std::map<Course::BasicResource, int> tile_production = gameEventHandler->getProduction(tile);

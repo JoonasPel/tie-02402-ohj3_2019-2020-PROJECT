@@ -10,6 +10,17 @@ namespace ConstResourceMaps {
 const Course::ResourceMap EMPTY = {};
 
 
+
+
+const Course::ResourceMap WATER_BP = {
+    {Course::BasicResource::MONEY, 5},
+    {Course::BasicResource::FOOD, 10},
+    {Course::BasicResource::WOOD, 0},
+    {Course::BasicResource::STONE, 0},
+    {Course::BasicResource::ORE, 0}
+};
+
+
 //Tile-Desert Basic Production
 const Course::ResourceMap DESERT_BP = {
     {Course::BasicResource::MONEY, 1},

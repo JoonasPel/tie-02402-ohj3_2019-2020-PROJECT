@@ -5,7 +5,10 @@
 
 namespace Student{
 
-std::map<std::string, QColor> MapItem::c_mapcolors = {{"Farm", QColor((100), (100), (100))}};
+std::map<std::string, QColor> MapItem::c_mapcolors = {{"Grassland", QColor((134), (232), (125))},
+                                                     {"Desert", QColor((252), (236), (3))},
+                                                     {"Forest", QColor((0), (117), (45))},
+                                                      {"Water", QColor((2), (147), (214))}};
 
 MapItem::MapItem(const std::shared_ptr<Course::GameObject> &obj, int size ):
         m_gameobject(obj),
