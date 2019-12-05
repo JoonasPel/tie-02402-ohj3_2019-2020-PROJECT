@@ -45,6 +45,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Forest>(1);
     worldGen.addConstructor<Course::Grassland>(1);
     worldGen.addConstructor<Student::Desert>(1);
+//    worldGen.addConstructor<Student::Mine>(1);
     worldGen.generateMap(20,15,time(NULL), objectManager, gameEventHandler);
 
     current_player = player1; //Kumpi pelaajista aloittaa.

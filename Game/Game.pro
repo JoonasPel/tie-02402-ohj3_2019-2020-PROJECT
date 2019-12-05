@@ -10,6 +10,7 @@ SOURCES += \
     desert.cpp \
     gameeventhandler.cpp \
     main.cpp \
+    mapitem.cpp \
     mapwindow.cc \
     mine.cpp \
     objectmanager.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     advancedworker.h \
     desert.h \
     gameeventhandler.h \
+    mapitem.h \
     mapwindow.hh \
     mine.h \
     objectmanager.h \
