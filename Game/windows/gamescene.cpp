@@ -1,5 +1,5 @@
 #include "gamescene.h"
-#include "graphics/simplemapitem.h"
+#include "mapitem.h"
 
 #include <QEvent>
 #include <QGraphicsSceneMouseEvent>
@@ -78,7 +78,7 @@ void GameScene::updateItem(std::shared_ptr<Course::GameObject> obj)
         qDebug() << "Nothing to update.";
     } else {
         for ( auto item : items_list ){
-            Course::SimpleMapItem* mapItem = static_cast<Course::SimpleMapItem*>(item);
+            MapItem* mapItem = static_cast<MapItem*>(item);
             if (mapItem->isSameObj(obj)){
                 mapItem->updateLoc();
             }
@@ -106,7 +106,7 @@ bool GameScene::event(QEvent *event)
                 qDebug() << "Click on map area.";
             }else{
 
-                Course::Coordinate coordinates = static_cast<Course::SimpleMapItem*>(pressed)
+                Course::Coordinate coordinates = static_cast<MapItem*>(pressed)
                         ->getBoundObject()->getCoordinate();
 
                 qDebug() << "Object at " << coordinates.x() << coordinates.y() <<
@@ -132,7 +132,7 @@ void GameScene::removeItem(std::shared_ptr<Course::GameObject> obj)
         qDebug() << "Nothing to be removed at the location pointed by given obj.";
     } else {
         for ( auto item : items_list ){
-            Course::SimpleMapItem* mapitem = static_cast<Course::SimpleMapItem*>(item);
+            MapItem* mapitem = static_cast<MapItem*>(item);
             if ( mapitem->isSameObj(obj) ){
                 delete mapitem;
             }
@@ -142,7 +142,7 @@ void GameScene::removeItem(std::shared_ptr<Course::GameObject> obj)
 
 void GameScene::drawItem( std::shared_ptr<Course::GameObject> obj)
 {
-    Course::SimpleMapItem* nItem = new Course::SimpleMapItem(obj, m_scale);
+    MapItem* nItem = new MapItem(obj, m_scale);
     addItem(nItem);
 }
 

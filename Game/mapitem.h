@@ -1,38 +1,52 @@
-//#ifndef MAPITEM_H
-//#define MAPITEM_H
-//#include "graphics/simplemapitem.h"
-//#include <QGraphicsItem>
-//#include <QPainter>
-//#include <QObject>
-//#include "tiles/tilebase.h"
-//#include "buildings/buildingbase.h"
-//#include "objectmanager.h"
-//#include "gameeventhandler.h"
+#ifndef MAPITEM_H
+#define MAPITEM_H
+#include <QGraphicsItem>
+#include <QPainter>
+#include <QObject>
+#include "tiles/tilebase.h"
+#include "buildings/buildingbase.h"
+#include "objectmanager.h"
+#include "gameeventhandler.h"
+#include "buildings/farm.h"
 
 
-//#include <memory>
-//#include <map>
+#include <memory>
+#include <map>
 
-//#include "core/gameobject.h"
-//namespace Student {
+#include "core/gameobject.h"
 
-//class MapItem : public Course::SimpleMapItem
-//{
+namespace Student {
 
-//public:
+class MapItem : public QGraphicsItem
+{
 
-//    MapItem(const std::shared_ptr<Course::GameObject> &obj, int size);
+public:
+    MapItem(const std::shared_ptr<Course::GameObject> &obj, int size);
 
+    QRectF boundingRect() const override;
 
+    void paint(QPainter *painter,
+               const QStyleOptionGraphicsItem *option,
+               QWidget *widget);
 
-//private:
-//    const std::shared_ptr<Course::GameObject> m_gameobject;
-//    QPoint m_scenelocation;
-//    int m_size;
+    const std::shared_ptr<Course::GameObject> &getBoundObject();
 
-//    static std::map<std::string, QColor> c_mapcolors;
-//    static void addNewColor(std::string type);
-//};
+    void updateLoc();
 
-//}
-//#endif // MAPITEM_H
+    bool isSameObj(std::shared_ptr<Course::GameObject> obj);
+
+    int getSize() const;
+
+    void setSize(int size);
+
+private:
+    const std::shared_ptr<Course::GameObject> m_gameobject;
+    QPoint m_scenelocation;
+    int m_size;
+
+    static std::map<std::string, QColor> c_mapcolors;
+    static void addNewColor(std::string type);
+};
+
+}
+#endif // MAPITEM_H
