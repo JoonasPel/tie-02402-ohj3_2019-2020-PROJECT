@@ -29,9 +29,6 @@ public:
 
     virtual std::string getType() const override;
 
-    void addBuilding(const std::shared_ptr<Course::BuildingBase> &building) override;
-
-
 };
 
 
