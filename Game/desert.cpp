@@ -24,13 +24,4 @@ std::string Desert::getType() const
     return "Desert";
 }
 
-void Desert::addBuilding(const std::shared_ptr<Course::BuildingBase> &building)
-{
-    Course::TileBase::addBuilding(building);
-
-   //Tata ei valttamatta tarvita. On Forestissa, ei ole Grasslandissa.
-   //building->addHoldMarkers(1);
-}
-
-
 }

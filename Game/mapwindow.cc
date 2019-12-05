@@ -50,7 +50,6 @@ MapWindow::MapWindow(QWidget *parent,
 
     current_player = player1; //Kumpi pelaajista aloittaa.
 
-
     update_player_resources(); //Resurssit nakyviin heti pelin alkaessa.
 }
 
@@ -369,7 +368,7 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 }
 
 void MapWindow::on_TurnButton_clicked()
-{   
+{
     //Generoidaan resurssit pelaajalle, joka lopetti vuoronsa.
     for(unsigned int i = 0; i < 300; i++)
     {
