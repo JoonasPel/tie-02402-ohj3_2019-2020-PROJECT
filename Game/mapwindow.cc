@@ -163,6 +163,24 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             print_total_production();
             drawItem(building);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+
+
+
+
+
+
+            QPixmap farm1(":/building_image.png");
+            QPixmap farm = farm1.scaled(QSize(49,49));
+            QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
+
+            item->setPos(tile->getCoordinate().x()*50+1,tile->getCoordinate().y()*50 + 1);
+             m_ui->graphicsView->viewport()->update();
+
+
+
+
+
+
             m_ui->graphicsView->viewport()->update();
         }
 
@@ -180,6 +198,8 @@ void MapWindow::draw_tiles(int tile_count)
            drawItem(item);
     }
 }
+
+
 
 void MapWindow::print_total_production()
 {
@@ -299,9 +319,6 @@ void MapWindow::on_pushButton_4_clicked()
    add_new_building(farmi, Course::ConstResourceMaps::FARM_BUILD_COST);
 
 
-
-
-
 //    m_gamescene->addRect(QRectF(0, 0, 100, 200), QPen(Qt::black), QBrush(Qt::green));
 //    QPixmap pixmap;
 //    QPainter painter(&pixmap);
@@ -327,11 +344,7 @@ void MapWindow::on_pushButton_4_clicked()
 //     m_ui->graphicsView->update();
     //   //  m_gamescene->resize();
 
-   //QPixmap farm1(":/farm_image.png");
-   //QPixmap farm = farm1.scaled(QSize(40,40));
-   //QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
-   //item->setPos(51,51);
-   // m_ui->graphicsView->viewport()->update();
+
 }
 
 void MapWindow::on_addBWButton_clicked()
