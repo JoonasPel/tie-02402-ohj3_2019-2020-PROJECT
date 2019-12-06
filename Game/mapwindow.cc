@@ -37,29 +37,6 @@ MapWindow::MapWindow(QWidget *parent,
 
     connect(m_gamescene.get(), &Student::GameScene::sendtileid,
                 this, &MapWindow::save_activate_tile);
-
-
-
-
-    Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
-    worldGen.addConstructor<Course::Forest>(20);
-    worldGen.addConstructor<Course::Grassland>(60);
-    worldGen.addConstructor<Student::Desert>(20);
-    worldGen.addConstructor<Student::Water>(7);
-    worldGen.generateMap(15,11,time(NULL), objectManager, gameEventHandler);
-
-    current_player = player1; //Kumpi pelaajista aloittaa.
-
-    auto tile = objectManager->getTile(164);
-
-    std::shared_ptr<Course::HeadQuarters> hq =
-            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,player1);
-   tile->setOwner(player1);
-   tile->addBuilding(hq);
-   drawItem(hq);
-   paintBuilding(tile);
-   m_ui->graphicsView->viewport()->update();
-
 }
 
 MapWindow::~MapWindow()
@@ -157,7 +134,7 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
 
     if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
     {
-        m_ui->InfoText->setText("Can't add worker here! No building in neighbour.");
+        m_ui->statusLabel->setText("Can't add worker here! No building in neighbour.");
         return;
     }
 
@@ -197,7 +174,7 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
 
     if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
     {
-        m_ui->InfoText->setText("Can't build here! No building in neighbour.");
+        m_ui->statusLabel->setText("Can't build here! No building in neighbour.");
         return;
     }
 
@@ -232,10 +209,10 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
     }
 }
 
-void MapWindow::draw_tiles(int tile_count)
+void MapWindow::draw_tiles()
 {
 
-    for(unsigned int i = 0; i < tile_count; i++)
+    for(unsigned int i = 0; i < 165; i++)
     {
            auto item = objectManager->getTile(i);
            drawItem(item);
@@ -334,7 +311,7 @@ void MapWindow::save_activate_tile(Course::Coordinate coordinates)
     last_clicked_tile = coordinates;
 }
 
-void MapWindow::setName(std::string name1, std::string name2)
+void MapWindow::init_game(std::string name1, std::string name2)
 {
     if(name1 == ""){
         player1->setName("Player 1");
@@ -349,7 +326,38 @@ void MapWindow::setName(std::string name1, std::string name2)
     {
     player2->setName(name2);
     }
-    draw_tiles(165);
+
+    Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
+    worldGen.addConstructor<Course::Forest>(20);
+    worldGen.addConstructor<Course::Grassland>(60);
+    worldGen.addConstructor<Student::Desert>(20);
+    worldGen.addConstructor<Student::Water>(7);
+    worldGen.generateMap(15,11,time(NULL), objectManager, gameEventHandler);
+
+    draw_tiles();
+
+    current_player = player1; //Kumpi pelaajista aloittaa.
+
+    //Pelaajien aloitustiilet.
+    auto tile = objectManager->getTile(152);
+    auto tile2 = objectManager->getTile(12);
+
+    //Aloitus hq:t pelaajille.
+    std::shared_ptr<Course::HeadQuarters> hq =
+            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,player1);
+    std::shared_ptr<Course::HeadQuarters> hq2 =
+            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,player2);
+    tile->setOwner(player1);
+    tile2->setOwner(player2);
+    tile->addBuilding(hq);
+    tile2->addBuilding(hq2);
+    drawItem(hq);
+    drawItem(hq2);
+    paintBuilding(tile);
+    paintBuilding(tile2);
+
+    m_ui->graphicsView->viewport()->update();
+
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 }

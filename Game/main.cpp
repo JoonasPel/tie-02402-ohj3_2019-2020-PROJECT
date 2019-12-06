@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 
 
     QObject::connect(&dia, &Dialog::sendPlayerName,
-                     &mapWindow, &MapWindow::setName);
+                     &mapWindow, &MapWindow::init_game);
 
     if(dia.exec() == QDialog::Accepted)
     {
