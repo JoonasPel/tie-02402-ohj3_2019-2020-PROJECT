@@ -98,6 +98,34 @@ QPixmap MapWindow::getImageByString(std::string building_name)
 
 }
 
+void MapWindow::paintWorker(std::shared_ptr<Course::TileBase> tile)
+{
+    int x = tile->getCoordinate().x();
+    int y = tile->getCoordinate().y();
+    int worker_count = tile->getWorkerCount();
+
+    QPixmap image(":/worker_image.png");
+    QGraphicsPixmapItem* worker_image = m_gamescene->addPixmap(image);
+
+
+    switch (worker_count) {
+
+    case 1: worker_image->setPos(x*70+24,y*70+32); break;
+
+    case 2: worker_image->setPos(x*70+30,y*70+32); break;
+
+    case 3: worker_image->setPos(x*70+36,y*70+32); break;
+
+    case 4: worker_image->setPos(x*70+42,y*70+32); break;
+
+
+    default: break;
+
+    }
+
+    m_ui->graphicsView->viewport()->update();
+}
+
 
 
 void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building)
@@ -183,6 +211,7 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
             print_total_production();
             drawItem(worker);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+            paintWorker(tile);
             m_ui->graphicsView->viewport()->update();
 
         }

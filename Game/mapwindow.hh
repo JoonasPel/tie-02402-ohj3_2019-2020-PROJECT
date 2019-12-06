@@ -68,6 +68,7 @@ public:
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
     QPixmap getImageByString(std::string building_name);
+    void paintWorker(std::shared_ptr<Course::TileBase> tile);
     void paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building);
     void update_player_resources();
     void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);

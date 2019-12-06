@@ -4,5 +4,6 @@
         <file>farmimage.png</file>
         <file>mineimage.png</file>
         <file>outpostimage.png</file>
+        <file>worker_image.png</file>
     </qresource>
 </RCC>
