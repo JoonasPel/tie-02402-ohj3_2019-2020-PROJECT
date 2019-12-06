@@ -66,7 +66,7 @@ public:
     void drawItem( std::shared_ptr<Course::GameObject> obj);
     void removeItem( std::shared_ptr<Course::GameObject> obj);
     void updateItem( std::shared_ptr<Course::GameObject> obj);
-
+    void setStatus(std::string text);
     QPixmap getImageByString(std::string building_name);
     void paintWorker(std::shared_ptr<Course::TileBase> tile);
     void paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building);
