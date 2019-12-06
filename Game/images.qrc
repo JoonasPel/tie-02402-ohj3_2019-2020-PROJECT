@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>farm_image.png</file>
         <file>building_image.png</file>
+        <file>farmimage.png</file>
+        <file>mineimage.png</file>
+        <file>outpostimage.png</file>
     </qresource>
 </RCC>

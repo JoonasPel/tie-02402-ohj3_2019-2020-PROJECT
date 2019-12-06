@@ -62,9 +62,8 @@ FORMS += \
     mapwindow.ui
 
 DISTFILES += \
-    Images/farm_image.png \
+
     farmi.png \
-    images/farm_image.png
 
 RESOURCES += \
     images.qrc \

@@ -67,8 +67,8 @@ public:
     void removeItem( std::shared_ptr<Course::GameObject> obj);
     void updateItem( std::shared_ptr<Course::GameObject> obj);
 
-
-    void paintBuilding(std::shared_ptr<Course::TileBase> tile);
+    QPixmap getImageByString(std::string building_name);
+    void paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building);
     void update_player_resources();
     void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);
     void add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);

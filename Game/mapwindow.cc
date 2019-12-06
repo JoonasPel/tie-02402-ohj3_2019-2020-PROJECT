@@ -70,35 +70,58 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
     m_gamescene->updateItem(obj);
 }
 
-void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile)
+QPixmap MapWindow::getImageByString(std::string building_name)
+{
+    if(building_name == "Farm")
+    {
+        QPixmap building_image(":/farmimage.png");
+        QPixmap building = building_image.scaled(QSize(25,25));
+        return building;
+    } else if (building_name == "HeadQuarters")
+    {
+        QPixmap building_image(":/building_image.png");
+        QPixmap building = building_image.scaled(QSize(25,25));
+        return building;
+
+    } else if (building_name == "Mine")
+    {
+        QPixmap building_image(":/mineimage.png");
+        QPixmap building = building_image.scaled(QSize(25,25));
+        return building;
+    } else if(building_name == "Outpost")
+    {
+        QPixmap building_image(":/outpostimage.png");
+        QPixmap building = building_image.scaled(QSize(25,25));
+        return building;
+    }
+
+
+}
+
+
+
+void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building)
 {
     int x = tile->getCoordinate().x();
     int y = tile->getCoordinate().y();
 
-    QPixmap farm1(":/building_image.png");
-    QPixmap farm = farm1.scaled(QSize(25,25));
-    QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
+
+
+
+
+    QGraphicsPixmapItem* item = m_gamescene->addPixmap(building);
 
     switch (tile->getBuildingCount()) {
 
-    case 1:
-        item->setPos(x*70+6,y*70+6);
-    break;
+    case 1: item->setPos(x*70+6,y*70+6); break;
 
-    case 2:
-        item->setPos(x*70+39,y*70+6);
-        break;
+    case 2: item->setPos(x*70+39,y*70+6); break;
 
-    case 3:
-        item->setPos(x*70+6,y*70+39);
-        break;
+    case 3: item->setPos(x*70+6,y*70+39); break;
 
-    case 4:
-        item->setPos(x*70+39,y*70+39);
-        break;
+    case 4: item->setPos(x*70+39,y*70+39); break;
 
-    default:
-        break;
+    default: break;
 
     }
 
@@ -199,7 +222,9 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             print_total_production();
             drawItem(building);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
-            paintBuilding(tile);
+            std::string building_type = building->getType();
+            QPixmap building_image = MapWindow::getImageByString(building_type);
+            paintBuilding(tile,building_image);
 
             m_ui->graphicsView->viewport()->update();
         }
@@ -329,8 +354,8 @@ void MapWindow::init_game(std::string name1, std::string name2)
 
     Course::WorldGenerator& worldGen = Course::WorldGenerator::getInstance();
     worldGen.addConstructor<Course::Forest>(20);
-    worldGen.addConstructor<Course::Grassland>(60);
-    worldGen.addConstructor<Student::Desert>(20);
+    worldGen.addConstructor<Course::Grassland>(35);
+    worldGen.addConstructor<Student::Desert>(25);
     worldGen.addConstructor<Student::Water>(7);
     worldGen.generateMap(15,11,time(NULL), objectManager, gameEventHandler);
 
@@ -353,8 +378,9 @@ void MapWindow::init_game(std::string name1, std::string name2)
     tile2->addBuilding(hq2);
     drawItem(hq);
     drawItem(hq2);
-    paintBuilding(tile);
-    paintBuilding(tile2);
+
+    paintBuilding(tile,MapWindow::getImageByString("HeadQuarters"));
+    paintBuilding(tile2,MapWindow::getImageByString("HeadQuarters"));
 
     m_ui->graphicsView->viewport()->update();
 
@@ -419,6 +445,8 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 
 void MapWindow::on_TurnButton_clicked()
 {
+
+
     //Generoidaan resurssit pelaajalle, joka lopetti vuoronsa.
     for(unsigned int i = 0; i < 165; i++)
     {

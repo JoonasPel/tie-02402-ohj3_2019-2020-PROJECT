@@ -23,11 +23,11 @@ const Course::ResourceMap WATER_BP = {
 
 //Tile-Desert Basic Production
 const Course::ResourceMap DESERT_BP = {
-    {Course::BasicResource::MONEY, 1},
-    {Course::BasicResource::FOOD, 1},
-    {Course::BasicResource::WOOD, 1},
-    {Course::BasicResource::STONE, 10},
-    {Course::BasicResource::ORE, 1}
+    {Course::BasicResource::MONEY, 0},
+    {Course::BasicResource::FOOD, -5},
+    {Course::BasicResource::WOOD, 0},
+    {Course::BasicResource::STONE, 1},
+    {Course::BasicResource::ORE, 0}
 };
 
 const Course::ResourceMap Player_starting_resources = {
