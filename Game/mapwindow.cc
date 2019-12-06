@@ -70,6 +70,12 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
     m_gamescene->updateItem(obj);
 }
 
+void MapWindow::setStatus(std::string text)
+{
+    QString q_text = QString::fromStdString(text);
+    m_ui->statusLabel->setText(q_text);
+}
+
 QPixmap MapWindow::getImageByString(std::string building_name)
 {
     if(building_name == "Farm")
@@ -210,7 +216,7 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
 
     if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
     {
-        m_ui->statusLabel->setText("Can't add worker here! No building in neighbour.");
+        setStatus("Can't add worker here! No building in neighbour.");
         return;
     }
 
@@ -237,11 +243,16 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
             drawItem(worker);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
             paintWorker(tile);
+
+            std::string status = current_player->getName()+" has hired "+
+                    worker->getType()+" to work on "+tile->getType()+".";
+            setStatus(status);
             m_ui->graphicsView->viewport()->update();
 
         }
     } catch (Course::IllegalAction) {
-        m_ui->statusLabel->setText("There is no space for more workers!");
+        setStatus("There is no space for more workers!");
+
     }
 }
 
@@ -251,7 +262,7 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
 
     if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
     {
-        m_ui->statusLabel->setText("Can't build here! No building in neighbour.");
+        setStatus("Can't build here! No building in neighbour.");
         return;
     }
 
@@ -279,12 +290,14 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             std::string building_type = building->getType();
             QPixmap building_image = MapWindow::getImageByString(building_type);
             paintBuilding(tile,building_image);
-
             m_ui->graphicsView->viewport()->update();
+            std::string status = current_player->getName()+" has built "+
+                    building_type+" on "+tile->getType()+" biome.";
+            setStatus(status);
         }
 
     } catch (Course::IllegalAction) {
-        m_ui->statusLabel->setText("There is no space for more buildings!");
+        setStatus("There is no space for more buildings!");
     }
 }
 
@@ -512,7 +525,7 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 void MapWindow::on_TurnButton_clicked()
 {
 
-
+    setStatus("");
     //Generoidaan resurssit pelaajalle, joka lopetti vuoronsa.
     for(unsigned int i = 0; i < 165; i++)
     {
