@@ -160,6 +160,8 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
             print_total_production();
             drawItem(worker);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
+            //paintWorker(tile);
+            m_ui->statusLabel->setText("Added "+QString::fromStdString(worker->getType()));
             m_ui->graphicsView->viewport()->update();
 
         }
@@ -200,7 +202,7 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             drawItem(building);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
             paintBuilding(tile);
-
+            m_ui->statusLabel->setText("Added "+QString::fromStdString(building->getType()));
             m_ui->graphicsView->viewport()->update();
         }
 
@@ -369,33 +371,6 @@ void MapWindow::on_pushButton_4_clicked()
 
    add_new_building(farmi, Course::ConstResourceMaps::FARM_BUILD_COST);
 
-
-//    m_gamescene->addRect(QRectF(0, 0, 100, 200), QPen(Qt::black), QBrush(Qt::green));
-//    QPixmap pixmap;
-//    QPainter painter(&pixmap);
-//    painter.setRenderHint(QPainter::Antialiasing);
-//    m_gamescene->render(&painter);
-//    painter.end();
-
-//    m_gamescene->addPixmap
-//            (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png"));
-
-//    Course::SimpleMapItem::paint(painter, m_gamescene);
-//    QPixmap farm("G:/farm_image.png");
-//   QPainter painter(this);
-//      QPoint location;
-//     location = farmi->getCoordinatePtr()->asQpoint();
-
-//      painter.drawPixmap(location,
-//                         (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png")));
-//    painter.drawImage(farm);
-//     m_gamescene->updateItem(farmi);
-//     m_gamescene->updateItem(tile);
-//     m_gamescene->update();
-//     m_ui->graphicsView->update();
-    //   //  m_gamescene->resize();
-
-
 }
 
 void MapWindow::on_addBWButton_clicked()
@@ -442,6 +417,7 @@ void MapWindow::on_TurnButton_clicked()
     update_player_resources();
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
+    m_ui->statusLabel->setText("");
 
 }
 

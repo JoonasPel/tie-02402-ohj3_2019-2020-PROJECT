@@ -59,6 +59,19 @@ const Course::ResourceMap AW_RECRUITMENT_COST = {
     {Course::FOOD, 75}
 };
 
+const Course::ResourceMapDouble SOLDIER_EFFICIENCY = {
+    {Course::MONEY, 0.25},
+    {Course::FOOD, 1.15},
+    {Course::WOOD, 1.00},
+    {Course::STONE, 0.75},
+    {Course::ORE, 0.75}
+};
+
+const Course::ResourceMap SOLDIER_RECRUITMENT_COST = {
+    {Course::MONEY, 50},
+    {Course::FOOD, 75}
+};
+
 const Course::ResourceMap MINE_BUILD_COST = {
     {Course::BasicResource::MONEY, 150},
     {Course::BasicResource::FOOD, 190},
