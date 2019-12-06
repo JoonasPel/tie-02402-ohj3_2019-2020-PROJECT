@@ -373,6 +373,31 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
         m_ui->InfoText->append(worker_type);
     }
 
+    //Tilen Base Productionin ilmoitus.
+    for(auto resource : tile->BASE_PRODUCTION)
+    {
+        switch (resource.first) {
+
+        case Course::BasicResource::MONEY:
+            m_ui->InfoText->append("Money: "+QString::number(resource.second)); break;
+
+        case Course::BasicResource::FOOD:
+            m_ui->InfoText->append("Food: "+QString::number(resource.second)); break;
+
+        case Course::BasicResource::WOOD:
+            m_ui->InfoText->append("Wood: "+QString::number(resource.second)); break;
+
+        case Course::BasicResource::STONE:
+            m_ui->InfoText->append("Stone: "+QString::number(resource.second)); break;
+
+        case Course::BasicResource::ORE:
+            m_ui->InfoText->append("Ore: "+QString::number(resource.second)); break;
+
+        default: break;
+
+        }
+    }
+
 
     std::map<Course::BasicResource, int> tile_production = gameEventHandler->getProduction(tile);
 
