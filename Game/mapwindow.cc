@@ -412,6 +412,11 @@ void MapWindow::init_game(std::string name1, std::string name2)
     paintBuilding(tile2,MapWindow::getImageByString("HeadQuarters"));
 
 
+    m_ui->outpost_label->setPixmap(getImageByString("Outpost"));
+    m_ui->farm_label->setPixmap(getImageByString("Farm"));
+    m_ui->mine_label->setPixmap(getImageByString("Mine"));
+    m_ui->hq_label->setPixmap(getImageByString("HeadQuarters"));
+
     m_ui->graphicsView->viewport()->update();
 
     m_ui->CurrentPlayerLabel->setText("Current player: "+
