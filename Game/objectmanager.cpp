@@ -28,7 +28,14 @@ std::shared_ptr<Course::TileBase> ObjectManager::getTile(const Course::ObjectId 
 
 std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const std::vector<Course::Coordinate> &coordinates)
 {
+    std::vector<std::shared_ptr<Course::TileBase>> tiles;
 
+    for(auto coordinate : coordinates)
+    {
+        tiles.push_back(getTile(coordinate));
+    }
+
+    return tiles;
 }
 
 std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles()

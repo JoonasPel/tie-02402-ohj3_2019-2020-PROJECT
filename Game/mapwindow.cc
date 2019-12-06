@@ -271,12 +271,19 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
         if(current_player->does_have_enough_resources(cost) &&
                 (tile->getOwner() == current_player || tile->getOwner() == nullptr))
         {
-            //---------- tarkistetaan halutaanko listata tiili pelaajan tiilivektoriin.
+            //Tarkistetaan halutaanko listata tiili pelaajan tiilivektoriin.
             if (!current_player->already_owned(tile)){
                 current_player->addtile(tile);
             }
             tile->setOwner(current_player);
             tile->addBuilding(building);
+
+            //Outpost claimaa naapuritilet current_playerin omistukseen.
+            if(building->getType() == "Outpost")
+            {
+                building->onBuildAction();
+            }
+
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
             for (auto resource : cost)
             {
