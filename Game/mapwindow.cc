@@ -411,6 +411,7 @@ void MapWindow::init_game(std::string name1, std::string name2)
     paintBuilding(tile,MapWindow::getImageByString("HeadQuarters"));
     paintBuilding(tile2,MapWindow::getImageByString("HeadQuarters"));
 
+
     m_ui->graphicsView->viewport()->update();
 
     m_ui->CurrentPlayerLabel->setText("Current player: "+
@@ -423,32 +424,6 @@ void MapWindow::on_pushButton_4_clicked()
             std::make_shared<Course::Farm>(gameEventHandler,objectManager,current_player);
 
    add_new_building(farmi, Course::ConstResourceMaps::FARM_BUILD_COST);
-
-
-//    m_gamescene->addRect(QRectF(0, 0, 100, 200), QPen(Qt::black), QBrush(Qt::green));
-//    QPixmap pixmap;
-//    QPainter painter(&pixmap);
-//    painter.setRenderHint(QPainter::Antialiasing);
-//    m_gamescene->render(&painter);
-//    painter.end();
-
-//    m_gamescene->addPixmap
-//            (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png"));
-
-//    Course::SimpleMapItem::paint(painter, m_gamescene);
-//    QPixmap farm("G:/farm_image.png");
-//   QPainter painter(this);
-//      QPoint location;
-//     location = farmi->getCoordinatePtr()->asQpoint();
-
-//      painter.drawPixmap(location,
-//                         (QPixmap("C:/Users/zingo/ohj3/master/harjoitus/tiimi-kuusi-6/Game/farm_image.png")));
-//    painter.drawImage(farm);
-//     m_gamescene->updateItem(farmi);
-//     m_gamescene->updateItem(tile);
-//     m_gamescene->update();
-//     m_ui->graphicsView->update();
-    //   //  m_gamescene->resize();
 
 
 }
@@ -532,4 +507,12 @@ void MapWindow::on_pushButton_7_clicked()
             std::make_shared<Student::Mine>(gameEventHandler,objectManager,current_player);
 
    add_new_building(mine, Student::ConstResourceMaps::MINE_BUILD_COST);
+}
+
+void MapWindow::on_addSoldierButton_clicked()
+{
+    std::shared_ptr<Student::AdvancedWorker> soldier =
+            std::make_shared<Student::AdvancedWorker>(gameEventHandler,objectManager,current_player);
+
+    add_new_worker(soldier, Student::ConstResourceMaps::SOLDIER_RECRUITMENT_COST);
 }

@@ -109,6 +109,7 @@ private slots:
     void on_addAWButton_clicked();
 
     void on_TurnButton_clicked();
+    void on_addSoldierButton_clicked();
 };
 
 #endif // MapWINDOW_HH

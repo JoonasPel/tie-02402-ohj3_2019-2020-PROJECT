@@ -39,22 +39,22 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>1245</x>
+      <x>1290</x>
       <y>390</y>
-      <width>141</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Build Farmi</string>
+     <string>Build Farm</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>1085</x>
+      <x>1130</x>
       <y>390</y>
-      <width>141</width>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
@@ -65,9 +65,9 @@
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>1085</x>
+      <x>1130</x>
       <y>420</y>
-      <width>141</width>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
@@ -78,9 +78,9 @@
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>1245</x>
+      <x>1290</x>
       <y>420</y>
-      <width>141</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -271,7 +271,7 @@
      <rect>
       <x>1085</x>
       <y>300</y>
-      <width>141</width>
+      <width>101</width>
       <height>51</height>
      </rect>
     </property>
@@ -282,14 +282,15 @@
    <widget class="QPushButton" name="addAWButton">
     <property name="geometry">
      <rect>
-      <x>1245</x>
+      <x>1190</x>
       <y>300</y>
-      <width>141</width>
+      <width>91</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Add AdvancedWorker</string>
+     <string>Add
+ AdvancedWorker</string>
     </property>
    </widget>
    <widget class="QLabel" name="statusLabel">
@@ -821,6 +822,71 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="outpost_label">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>390</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="hq_label">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>420</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="farm_label">
+    <property name="geometry">
+     <rect>
+      <x>1260</x>
+      <y>390</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="mine_label">
+    <property name="geometry">
+     <rect>
+      <x>1260</x>
+      <y>420</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addSoldierButton">
+    <property name="geometry">
+     <rect>
+      <x>1290</x>
+      <y>300</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Soldier</string>
     </property>
    </widget>
   </widget>
