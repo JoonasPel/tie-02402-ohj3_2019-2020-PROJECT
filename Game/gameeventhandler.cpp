@@ -110,6 +110,34 @@ bool GameEventHandler::modifyResources(std::shared_ptr<Course::PlayerBase> playe
     return true;
 }
 
+bool GameEventHandler::obj_placement_permission(std::shared_ptr<Course::TileBase> tile,
+                                                std::shared_ptr<Course::iObjectManager> ObjectManager,
+                                                std::shared_ptr<Student::Player> current_player)
+{
+    std::vector<Course::Coordinate> neighbours = tile->getCoordinatePtr()->neighbours(1);
+
+    //Lisataan kohde tiili omiin naapureihinsa.
+    neighbours.push_back(tile->getCoordinate());
+
+    for(auto n : neighbours)
+    {
+        try
+        {
+            auto n_tile = ObjectManager->getTile(n);
+            if(n_tile->getBuildingCount() > 0 and
+                    n_tile->getOwner() == current_player)
+            {
+                return true;
+            }
+
+        } catch (...)
+        {
+
+        }
+    }
+    return false;
+}
+
 
 
 

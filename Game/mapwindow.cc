@@ -50,7 +50,16 @@ MapWindow::MapWindow(QWidget *parent,
 
     current_player = player1; //Kumpi pelaajista aloittaa.
 
-    update_player_resources(); //Resurssit nakyviin heti pelin alkaessa.
+    auto tile = objectManager->getTile(164);
+
+    std::shared_ptr<Course::HeadQuarters> hq =
+            std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,player1);
+   tile->setOwner(player1);
+   tile->addBuilding(hq);
+   drawItem(hq);
+   paintBuilding(tile);
+   m_ui->graphicsView->viewport()->update();
+
 }
 
 MapWindow::~MapWindow()
@@ -146,6 +155,12 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
 {
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
+    if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
+    {
+        m_ui->InfoText->setText("Can't add worker here! No building in neighbour.");
+        return;
+    }
+
     try {
         //(Pelaajalla on varaa workeriin) JA (pelaaja omistaa tilen TAI kukaan ei omista).
         if(current_player->does_have_enough_resources(cost) &&
@@ -179,6 +194,12 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
 void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost)
 {
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+
+    if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
+    {
+        m_ui->InfoText->setText("Can't build here! No building in neighbour.");
+        return;
+    }
 
     try {
         //(Pelaajalla on varaa rakennukseen) JA (pelaaja omistaa tilen TAI kukaan ei omista).

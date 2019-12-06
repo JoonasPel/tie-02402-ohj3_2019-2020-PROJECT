@@ -14,6 +14,8 @@
 #include "core/playerbase.h"
 #include "desert.h"
 #include <iostream>
+#include <core/coordinate.h>
+#include "interfaces/iobjectmanager.h"
 
 namespace Student {
 class TileBase;
@@ -44,6 +46,11 @@ public:
 
      bool modifyResources(std::shared_ptr<Course::PlayerBase> player,
                                   Course::ResourceMap resources);
+
+     //Tarkistaa, etta tilen naapurissa on current_playerin talo.
+     bool obj_placement_permission(std::shared_ptr<Course::TileBase> tile,
+                                   std::shared_ptr<Course::iObjectManager> objectmanager,
+                                   std::shared_ptr<Student::Player> current_player);
 
 };
 }
