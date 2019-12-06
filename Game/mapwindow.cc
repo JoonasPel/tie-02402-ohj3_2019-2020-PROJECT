@@ -46,7 +46,7 @@ MapWindow::MapWindow(QWidget *parent,
     worldGen.addConstructor<Course::Grassland>(60);
     worldGen.addConstructor<Student::Desert>(20);
     worldGen.addConstructor<Student::Water>(7);
-    worldGen.generateMap(20,15,time(NULL), objectManager, gameEventHandler);
+    worldGen.generateMap(15,11,time(NULL), objectManager, gameEventHandler);
 
     current_player = player1; //Kumpi pelaajista aloittaa.
 
@@ -84,7 +84,45 @@ void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
     m_gamescene->updateItem(obj);
 }
 
+void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile)
+{
+    int x = tile->getCoordinate().x();
+    int y = tile->getCoordinate().y();
+
+    QPixmap farm1(":/building_image.png");
+    QPixmap farm = farm1.scaled(QSize(25,25));
+    QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
+
+    switch (tile->getBuildingCount()) {
+
+    case 1:
+        item->setPos(x*70+6,y*70+6);
+    break;
+
+    case 2:
+        item->setPos(x*70+39,y*70+6);
+        break;
+
+    case 3:
+        item->setPos(x*70+6,y*70+39);
+        break;
+
+    case 4:
+        item->setPos(x*70+39,y*70+39);
+        break;
+
+    default:
+        break;
+
+    }
+
+     m_ui->graphicsView->viewport()->update();
+}
+
 void MapWindow::update_player_resources()
+
+
+
 {
     Course::ResourceMap resources = current_player->get_player_resources();
 
@@ -163,23 +201,7 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             print_total_production();
             drawItem(building);
             print_tile_info(last_clicked_tile); //Tilen inffot ajantasalle.
-
-
-
-
-
-
-            QPixmap farm1(":/building_image.png");
-            QPixmap farm = farm1.scaled(QSize(49,49));
-            QGraphicsPixmapItem* item = m_gamescene->addPixmap(farm);
-
-            item->setPos(tile->getCoordinate().x()*50+1,tile->getCoordinate().y()*50 + 1);
-             m_ui->graphicsView->viewport()->update();
-
-
-
-
-
+            paintBuilding(tile);
 
             m_ui->graphicsView->viewport()->update();
         }
@@ -306,7 +328,7 @@ void MapWindow::setName(std::string name1, std::string name2)
     {
     player2->setName(name2);
     }
-    draw_tiles(300);
+    draw_tiles(165);
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 }
@@ -369,7 +391,7 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 void MapWindow::on_TurnButton_clicked()
 {
     //Generoidaan resurssit pelaajalle, joka lopetti vuoronsa.
-    for(unsigned int i = 0; i < 300; i++)
+    for(unsigned int i = 0; i < 165; i++)
     {
         auto tile = objectManager->getTile(i);
         if(tile->getOwner() == current_player and tile->getWorkerCount()!=0)

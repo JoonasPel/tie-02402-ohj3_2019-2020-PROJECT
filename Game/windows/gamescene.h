@@ -23,9 +23,9 @@ class GameScene : public QGraphicsScene
 
 public:
     GameScene(QWidget* qt_parent = nullptr,
-              int width = 20,
-              int height = 15,
-              int scale = 50
+              int width = 15,
+              int height = 11,
+              int scale = 70
             );
 
     ~GameScene() = default;
