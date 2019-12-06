@@ -20,6 +20,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -53,13 +54,6 @@ public:
     QPushButton *addAWButton;
     QLabel *statusLabel;
     QLabel *CurrentPlayerLabel;
-    QWidget *gridLayoutWidget_3;
-    QGridLayout *gridLayout_5;
-    QLabel *label_8;
-    QLabel *label_10;
-    QLabel *label_7;
-    QLabel *label_6;
-    QLabel *label_9;
     QWidget *gridLayoutWidget_4;
     QGridLayout *gridLayout_7;
     QLabel *MoneyPlayerLabel;
@@ -95,6 +89,18 @@ public:
     QLabel *farm_label;
     QLabel *mine_label;
     QPushButton *addSoldierButton;
+    QLabel *label_9;
+    QLabel *label_7;
+    QLabel *label_10;
+    QLabel *label_8;
+    QLabel *label_6;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *moneyPic;
+    QLabel *foodPic;
+    QLabel *woodPic;
+    QLabel *stonePic;
+    QLabel *orePic;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -230,56 +236,6 @@ public:
         QFont font3;
         font3.setPointSize(14);
         CurrentPlayerLabel->setFont(font3);
-        gridLayoutWidget_3 = new QWidget(centralwidget);
-        gridLayoutWidget_3->setObjectName(QString::fromUtf8("gridLayoutWidget_3"));
-        gridLayoutWidget_3->setGeometry(QRect(1200, 85, 61, 181));
-        QFont font4;
-        font4.setBold(true);
-        font4.setWeight(75);
-        gridLayoutWidget_3->setFont(font4);
-        gridLayout_5 = new QGridLayout(gridLayoutWidget_3);
-        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        gridLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(gridLayoutWidget_3);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        QFont font5;
-        font5.setFamily(QString::fromUtf8("MS Reference Sans Serif"));
-        font5.setPointSize(11);
-        font5.setBold(true);
-        font5.setWeight(75);
-        label_8->setFont(font5);
-        label_8->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_8, 1, 0, 1, 1);
-
-        label_10 = new QLabel(gridLayoutWidget_3);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setFont(font5);
-        label_10->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_10, 2, 0, 1, 1);
-
-        label_7 = new QLabel(gridLayoutWidget_3);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font5);
-        label_7->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_7, 3, 0, 1, 1);
-
-        label_6 = new QLabel(gridLayoutWidget_3);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font5);
-        label_6->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_6, 0, 0, 1, 1);
-
-        label_9 = new QLabel(gridLayoutWidget_3);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setFont(font5);
-        label_9->setAlignment(Qt::AlignCenter);
-
-        gridLayout_5->addWidget(label_9, 4, 0, 1, 1);
-
         gridLayoutWidget_4 = new QWidget(centralwidget);
         gridLayoutWidget_4->setObjectName(QString::fromUtf8("gridLayoutWidget_4"));
         gridLayoutWidget_4->setGeometry(QRect(1090, 85, 61, 181));
@@ -289,46 +245,46 @@ public:
         gridLayout_7->setContentsMargins(0, 0, 0, 0);
         MoneyPlayerLabel = new QLabel(gridLayoutWidget_4);
         MoneyPlayerLabel->setObjectName(QString::fromUtf8("MoneyPlayerLabel"));
-        QFont font6;
-        font6.setPointSize(12);
-        MoneyPlayerLabel->setFont(font6);
+        QFont font4;
+        font4.setPointSize(12);
+        MoneyPlayerLabel->setFont(font4);
 
         gridLayout_7->addWidget(MoneyPlayerLabel, 0, 0, 1, 1);
 
         FoodPlayerLabel = new QLabel(gridLayoutWidget_4);
         FoodPlayerLabel->setObjectName(QString::fromUtf8("FoodPlayerLabel"));
-        FoodPlayerLabel->setFont(font6);
+        FoodPlayerLabel->setFont(font4);
 
         gridLayout_7->addWidget(FoodPlayerLabel, 1, 0, 1, 1);
 
         OrePlayerLabel = new QLabel(gridLayoutWidget_4);
         OrePlayerLabel->setObjectName(QString::fromUtf8("OrePlayerLabel"));
-        OrePlayerLabel->setFont(font6);
+        OrePlayerLabel->setFont(font4);
 
         gridLayout_7->addWidget(OrePlayerLabel, 4, 0, 1, 1);
 
         WoodPlayerLabel = new QLabel(gridLayoutWidget_4);
         WoodPlayerLabel->setObjectName(QString::fromUtf8("WoodPlayerLabel"));
-        WoodPlayerLabel->setFont(font6);
+        WoodPlayerLabel->setFont(font4);
 
         gridLayout_7->addWidget(WoodPlayerLabel, 2, 0, 1, 1);
 
         StonePlayerLabel = new QLabel(gridLayoutWidget_4);
         StonePlayerLabel->setObjectName(QString::fromUtf8("StonePlayerLabel"));
-        StonePlayerLabel->setFont(font6);
+        StonePlayerLabel->setFont(font4);
 
         gridLayout_7->addWidget(StonePlayerLabel, 3, 0, 1, 1);
 
         TurnButton = new QPushButton(centralwidget);
         TurnButton->setObjectName(QString::fromUtf8("TurnButton"));
         TurnButton->setGeometry(QRect(1080, 736, 321, 51));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("Nirmala UI"));
-        font7.setPointSize(14);
-        font7.setBold(true);
-        font7.setUnderline(false);
-        font7.setWeight(75);
-        TurnButton->setFont(font7);
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("Nirmala UI"));
+        font5.setPointSize(14);
+        font5.setBold(true);
+        font5.setUnderline(false);
+        font5.setWeight(75);
+        TurnButton->setFont(font5);
         TurnButton->setMouseTracking(false);
         gridLayoutWidget_5 = new QWidget(centralwidget);
         gridLayoutWidget_5->setObjectName(QString::fromUtf8("gridLayoutWidget_5"));
@@ -339,44 +295,44 @@ public:
         gridLayout_8->setContentsMargins(0, 0, 0, 0);
         MoneyPlayerLabel_2 = new QLabel(gridLayoutWidget_5);
         MoneyPlayerLabel_2->setObjectName(QString::fromUtf8("MoneyPlayerLabel_2"));
-        MoneyPlayerLabel_2->setFont(font6);
+        MoneyPlayerLabel_2->setFont(font4);
 
         gridLayout_8->addWidget(MoneyPlayerLabel_2, 0, 0, 1, 1);
 
         OrePlayerLabel_2 = new QLabel(gridLayoutWidget_5);
         OrePlayerLabel_2->setObjectName(QString::fromUtf8("OrePlayerLabel_2"));
-        OrePlayerLabel_2->setFont(font6);
+        OrePlayerLabel_2->setFont(font4);
 
         gridLayout_8->addWidget(OrePlayerLabel_2, 4, 0, 1, 1);
 
         StonePlayerLabel_2 = new QLabel(gridLayoutWidget_5);
         StonePlayerLabel_2->setObjectName(QString::fromUtf8("StonePlayerLabel_2"));
-        StonePlayerLabel_2->setFont(font6);
+        StonePlayerLabel_2->setFont(font4);
 
         gridLayout_8->addWidget(StonePlayerLabel_2, 3, 0, 1, 1);
 
         FoodPlayerLabel_2 = new QLabel(gridLayoutWidget_5);
         FoodPlayerLabel_2->setObjectName(QString::fromUtf8("FoodPlayerLabel_2"));
-        FoodPlayerLabel_2->setFont(font6);
+        FoodPlayerLabel_2->setFont(font4);
 
         gridLayout_8->addWidget(FoodPlayerLabel_2, 1, 0, 1, 1);
 
         WoodPlayerLabel_2 = new QLabel(gridLayoutWidget_5);
         WoodPlayerLabel_2->setObjectName(QString::fromUtf8("WoodPlayerLabel_2"));
-        WoodPlayerLabel_2->setFont(font6);
+        WoodPlayerLabel_2->setFont(font4);
 
         gridLayout_8->addWidget(WoodPlayerLabel_2, 2, 0, 1, 1);
 
         label_11 = new QLabel(centralwidget);
         label_11->setObjectName(QString::fromUtf8("label_11"));
         label_11->setGeometry(QRect(1290, 50, 141, 21));
-        QFont font8;
-        font8.setPointSize(10);
-        label_11->setFont(font8);
+        QFont font6;
+        font6.setPointSize(10);
+        label_11->setFont(font6);
         label_12 = new QLabel(centralwidget);
         label_12->setObjectName(QString::fromUtf8("label_12"));
         label_12->setGeometry(QRect(1080, 50, 91, 21));
-        label_12->setFont(font8);
+        label_12->setFont(font6);
         line = new QFrame(centralwidget);
         line->setObjectName(QString::fromUtf8("line"));
         line->setGeometry(QRect(1080, 257, 321, 20));
@@ -457,6 +413,67 @@ public:
         addSoldierButton = new QPushButton(centralwidget);
         addSoldierButton->setObjectName(QString::fromUtf8("addSoldierButton"));
         addSoldierButton->setGeometry(QRect(1290, 300, 91, 51));
+        label_9 = new QLabel(centralwidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(1180, 230, 59, 31));
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("MS Reference Sans Serif"));
+        font7.setPointSize(11);
+        font7.setBold(true);
+        font7.setWeight(75);
+        label_9->setFont(font7);
+        label_9->setAlignment(Qt::AlignCenter);
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(1180, 193, 59, 31));
+        label_7->setFont(font7);
+        label_7->setAlignment(Qt::AlignCenter);
+        label_10 = new QLabel(centralwidget);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(1180, 156, 59, 31));
+        label_10->setFont(font7);
+        label_10->setAlignment(Qt::AlignCenter);
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(1180, 119, 59, 31));
+        label_8->setFont(font7);
+        label_8->setAlignment(Qt::AlignCenter);
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(1180, 82, 59, 31));
+        label_6->setFont(font7);
+        label_6->setAlignment(Qt::AlignCenter);
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(1240, 85, 49, 181));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        moneyPic = new QLabel(verticalLayoutWidget);
+        moneyPic->setObjectName(QString::fromUtf8("moneyPic"));
+
+        verticalLayout->addWidget(moneyPic);
+
+        foodPic = new QLabel(verticalLayoutWidget);
+        foodPic->setObjectName(QString::fromUtf8("foodPic"));
+
+        verticalLayout->addWidget(foodPic);
+
+        woodPic = new QLabel(verticalLayoutWidget);
+        woodPic->setObjectName(QString::fromUtf8("woodPic"));
+
+        verticalLayout->addWidget(woodPic);
+
+        stonePic = new QLabel(verticalLayoutWidget);
+        stonePic->setObjectName(QString::fromUtf8("stonePic"));
+
+        verticalLayout->addWidget(stonePic);
+
+        orePic = new QLabel(verticalLayoutWidget);
+        orePic->setObjectName(QString::fromUtf8("orePic"));
+
+        verticalLayout->addWidget(orePic);
+
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -494,11 +511,6 @@ public:
 " AdvancedWorker", nullptr));
         statusLabel->setText(QString());
         CurrentPlayerLabel->setText(QApplication::translate("MapWindow", "Current player: ", nullptr));
-        label_8->setText(QApplication::translate("MapWindow", "FOOD", nullptr));
-        label_10->setText(QApplication::translate("MapWindow", "WOOD", nullptr));
-        label_7->setText(QApplication::translate("MapWindow", "STONE", nullptr));
-        label_6->setText(QApplication::translate("MapWindow", "MONEY", nullptr));
-        label_9->setText(QApplication::translate("MapWindow", "ORE", nullptr));
         MoneyPlayerLabel->setText(QString());
         FoodPlayerLabel->setText(QString());
         OrePlayerLabel->setText(QString());
@@ -517,6 +529,16 @@ public:
         farm_label->setText(QString());
         mine_label->setText(QString());
         addSoldierButton->setText(QApplication::translate("MapWindow", "Add Soldier", nullptr));
+        label_9->setText(QApplication::translate("MapWindow", "ORE", nullptr));
+        label_7->setText(QApplication::translate("MapWindow", "STONE", nullptr));
+        label_10->setText(QApplication::translate("MapWindow", "WOOD", nullptr));
+        label_8->setText(QApplication::translate("MapWindow", "FOOD", nullptr));
+        label_6->setText(QApplication::translate("MapWindow", "MONEY", nullptr));
+        moneyPic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
+        foodPic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
+        woodPic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
+        stonePic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
+        orePic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

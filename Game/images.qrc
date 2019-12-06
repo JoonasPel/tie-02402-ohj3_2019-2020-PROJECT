@@ -5,5 +5,10 @@
         <file>mineimage.png</file>
         <file>outpostimage.png</file>
         <file>worker_image.png</file>
+        <file>money.png</file>
+        <file>foodimage.png</file>
+        <file>stoneimage.png</file>
+        <file>woodimage.png</file>
+        <file>oreimage.png</file>
     </qresource>
 </RCC>

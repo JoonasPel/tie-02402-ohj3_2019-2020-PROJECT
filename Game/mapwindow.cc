@@ -93,6 +93,31 @@ QPixmap MapWindow::getImageByString(std::string building_name)
         QPixmap building_image(":/outpostimage.png");
         QPixmap building = building_image.scaled(QSize(25,25));
         return building;
+    } else if ( building_name == "Money"){
+        QPixmap building_image(":/money.png");
+        QPixmap building = building_image.scaled(QSize(28,28));
+        return building;
+
+    }else if ( building_name == "Stone"){
+        QPixmap building_image(":/stoneimage.png");
+        QPixmap building = building_image.scaled(QSize(28,28));
+        return building;
+
+    }else if ( building_name == "Wood"){
+        QPixmap building_image(":/woodimage.png");
+        QPixmap building = building_image.scaled(QSize(28,28));
+        return building;
+
+    }else if ( building_name == "Ore"){
+        QPixmap building_image(":/oreimage.png");
+        QPixmap building = building_image.scaled(QSize(28,28));
+        return building;
+
+    }else if ( building_name == "Food"){
+        QPixmap building_image(":/foodimage.png");
+        QPixmap building = building_image.scaled(QSize(28,28));
+        return building;
+
     }
 
 
@@ -416,6 +441,13 @@ void MapWindow::init_game(std::string name1, std::string name2)
     m_ui->farm_label->setPixmap(getImageByString("Farm"));
     m_ui->mine_label->setPixmap(getImageByString("Mine"));
     m_ui->hq_label->setPixmap(getImageByString("HeadQuarters"));
+
+    m_ui->moneyPic->setPixmap(getImageByString("Money"));
+    m_ui->foodPic->setPixmap(getImageByString("Food"));
+    m_ui->woodPic->setPixmap(getImageByString("Wood"));
+    m_ui->stonePic->setPixmap(getImageByString("Stone"));
+    m_ui->orePic->setPixmap(getImageByString("Ore"));
+
 
     m_ui->graphicsView->viewport()->update();
 
