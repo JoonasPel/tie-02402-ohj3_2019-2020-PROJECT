@@ -17,6 +17,7 @@ SOURCES += \
     objectmanager.cpp \
     player.cpp \
     soldier.cpp \
+    studentoutpost.cpp \
     water.cpp \
     windows/dialog.cpp \
     windows/gamescene.cpp
@@ -33,6 +34,7 @@ HEADERS += \
     player.h \
     resourcelist.h \
     soldier.h \
+    studentoutpost.h \
     water.h \
     windows/dialog.h \
     windows/gamescene.h

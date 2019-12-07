@@ -21,7 +21,7 @@
 #include "water.h"
 #include <desert.h>
 #include "buildings/farm.h"
-#include "buildings/outpost.h"
+#include "studentoutpost.h"
 #include "buildings/headquarters.h"
 #include "mine.h"
 #include "nuclearplant.h"

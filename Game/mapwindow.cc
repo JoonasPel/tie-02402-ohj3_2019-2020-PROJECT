@@ -288,8 +288,12 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             //Outpost claimaa naapuritilet current_playerin omistukseen.
             if(building->getType() == "Outpost")
             {
-                building->onBuildAction();
-            }
+                try {
+                    building->onBuildAction();
+                } catch (...) {
+
+                }
+           }
 
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
             for (auto resource : cost)
@@ -599,10 +603,10 @@ void MapWindow::on_pushButton_6_clicked()
 
 void MapWindow::on_pushButton_5_clicked()
 {
-    std::shared_ptr<Course::Outpost> outpost =
-            std::make_shared<Course::Outpost>(gameEventHandler,objectManager,current_player);
+    std::shared_ptr<Student::StudentOutpost> outpost =
+            std::make_shared<Student::StudentOutpost> (gameEventHandler,objectManager,current_player);
 
-   add_new_building(outpost, Course::ConstResourceMaps::OUTPOST_BUILD_COST);
+   add_new_building(outpost, Student::ConstResourceMaps::SOP_BUILD_COST);
 }
 
 void MapWindow::on_addAWButton_clicked()
