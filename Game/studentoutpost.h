@@ -3,6 +3,7 @@
 
 #include "buildings/outpost.h"
 #include "resourcelist.h"
+#include "tiles/tilebase.h"
 
 namespace Student {
 
@@ -28,7 +29,9 @@ public:
 
     virtual std::string getType() const override;
 
-    virtual void onBuildAction() override;
+    //Toimii kuten kurssin Outpostin onBuildAction, mutta palauttaa
+    //"ulkoringissa" olevat tilet, joihin pelaaja sai omistuksen.
+    std::vector<std::shared_ptr<Course::TileBase>> ClaimAndConquer();
 
 
 }; //class

@@ -73,7 +73,7 @@ public:
     void paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building);
     void update_player_resources();
     void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);
-    void add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);
+    bool add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);
     void draw_tiles();
     void print_total_production();
     void gamewon();

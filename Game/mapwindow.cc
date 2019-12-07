@@ -261,14 +261,14 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
     }
 }
 
-void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost)
+bool MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost)
 {
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
     {
         setStatus("Can't build here! No building in neighbour.");
-        return;
+        return false;
     }
 
     try {
@@ -282,12 +282,6 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             }
             tile->setOwner(current_player);
             tile->addBuilding(building);
-
-            //Outpost claimaa naapuritilet current_playerin omistukseen.
-            if(building->getType() == "Outpost")
-            {
-                building->onBuildAction();            
-           }
 
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
             for (auto resource : cost)
@@ -312,11 +306,15 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             {
                 gamewon();
             }
+
+            return true;
         }
 
     } catch (Course::IllegalAction) {
         setStatus("There is no space for more buildings!");
     }
+
+    return false;
 }
 
 void MapWindow::draw_tiles()
@@ -600,7 +598,11 @@ void MapWindow::on_pushButton_5_clicked()
     std::shared_ptr<Student::StudentOutpost> outpost =
             std::make_shared<Student::StudentOutpost> (gameEventHandler,objectManager,current_player);
 
-   add_new_building(outpost, Student::ConstResourceMaps::SOP_BUILD_COST);
+    if(add_new_building(outpost, Student::ConstResourceMaps::SOP_BUILD_COST))
+    {
+        outpost->ClaimAndConquer();
+    }
+
 }
 
 void MapWindow::on_addAWButton_clicked()

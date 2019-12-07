@@ -19,20 +19,16 @@ void ObjectManager::addTiles(const std::vector<std::shared_ptr<Course::TileBase>
 
 std::shared_ptr<Course::TileBase> ObjectManager::getTile(const Course::Coordinate &coordinate)
 {
+    int x = coordinate.x();
+    int y = coordinate.y();
 
-    int tile_id = coordinate.x()*COLUMN_SIZE + coordinate.y();
-
-    int map_size = COLUMN_SIZE*ROW_SIZE;
-
-    if(tile_id < map_size && tile_id >= 0)
+    if((x >= 0) && (x < ROW_SIZE) && (y >= 0) && (y < COLUMN_SIZE))
     {
         return tiles_.at(coordinate.x()*COLUMN_SIZE + coordinate.y());
-
     } else
     {
         throw Course::BaseException("Given coordinates for tile are out of map!");
     }
-
 }
 
 std::shared_ptr<Course::TileBase> ObjectManager::getTile(const Course::ObjectId &id)
@@ -52,7 +48,6 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const st
         } catch (Course::BaseException) {
             //Ei tarvetta toimenpiteille. Jatketaan looppia.
         }
-
     }
     return tiles;
 }
