@@ -84,6 +84,19 @@ const Course::ResourceMap MINE_PRODUCTION = {
     {Course::BasicResource::ORE, 12}
 };
 
+//NP = NuclearPlant
+const Course::ResourceMap NP_BUILD_COST = {
+    {Course::BasicResource::MONEY, 150},
+    {Course::BasicResource::FOOD, 190},
+    {Course::BasicResource::WOOD, 80},
+    {Course::BasicResource::STONE, 200}
+};
+const Course::ResourceMap NP_PRODUCTION = {
+    {Course::BasicResource::MONEY, -1},
+    {Course::BasicResource::FOOD, -2},
+    {Course::BasicResource::ORE, 12}
+};
+
 
 
 

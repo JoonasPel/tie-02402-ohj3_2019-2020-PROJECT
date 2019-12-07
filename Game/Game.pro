@@ -13,6 +13,7 @@ SOURCES += \
     mapitem.cpp \
     mapwindow.cc \
     mine.cpp \
+    nuclearplant.cpp \
     objectmanager.cpp \
     player.cpp \
     soldier.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     mapitem.h \
     mapwindow.hh \
     mine.h \
+    nuclearplant.h \
     objectmanager.h \
     player.h \
     resourcelist.h \
