@@ -32,27 +32,37 @@ public:
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QString::fromUtf8("Dialog"));
-        Dialog->resize(400, 300);
+        Dialog->resize(398, 212);
         buttonBox = new QDialogButtonBox(Dialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setGeometry(QRect(30, 240, 341, 32));
+        buttonBox->setGeometry(QRect(-60, 150, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(Dialog);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 20, 131, 21));
+        label->setGeometry(QRect(10, 10, 381, 31));
+        QFont font;
+        font.setPointSize(15);
+        font.setBold(true);
+        font.setWeight(75);
+        label->setFont(font);
+        label->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(Dialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(20, 50, 41, 21));
+        label_2->setGeometry(QRect(40, 70, 101, 21));
+        QFont font1;
+        font1.setPointSize(12);
+        label_2->setFont(font1);
         label_3 = new QLabel(Dialog);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(20, 80, 51, 21));
+        label_3->setGeometry(QRect(40, 110, 121, 21));
+        label_3->setFont(font1);
         pl1_text = new QLineEdit(Dialog);
         pl1_text->setObjectName(QString::fromUtf8("pl1_text"));
-        pl1_text->setGeometry(QRect(100, 50, 113, 20));
+        pl1_text->setGeometry(QRect(130, 70, 161, 20));
         pl2_text = new QLineEdit(Dialog);
         pl2_text->setObjectName(QString::fromUtf8("pl2_text"));
-        pl2_text->setGeometry(QRect(100, 90, 113, 20));
+        pl2_text->setGeometry(QRect(130, 110, 161, 20));
 
         retranslateUi(Dialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog, SLOT(accept()));
@@ -64,7 +74,7 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", nullptr));
-        label->setText(QApplication::translate("Dialog", "Pelaajien nimet:", nullptr));
+        label->setText(QApplication::translate("Dialog", "Choose player names", nullptr));
         label_2->setText(QApplication::translate("Dialog", "Player 1:", nullptr));
         label_3->setText(QApplication::translate("Dialog", "Player 2:", nullptr));
     } // retranslateUi

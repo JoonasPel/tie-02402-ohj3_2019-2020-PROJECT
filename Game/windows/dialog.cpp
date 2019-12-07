@@ -5,10 +5,12 @@
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
+
 {
     ui->setupUi(this);
 
 }
+
 
 Dialog::~Dialog()
 {
@@ -29,3 +31,8 @@ int Dialog::exec()
 }
 
 
+
+void Dialog::on_buttonBox_destroyed()
+{
+    return;
+}

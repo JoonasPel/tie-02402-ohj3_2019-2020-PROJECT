@@ -20,6 +20,9 @@ public:
 signals:
     void sendPlayerName(std::string name1,std::string name2);
 
+private slots:
+    void on_buttonBox_destroyed();
+
 private:
     Ui::Dialog *ui;
 };

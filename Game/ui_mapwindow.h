@@ -111,6 +111,7 @@ public:
         if (MapWindow->objectName().isEmpty())
             MapWindow->setObjectName(QString::fromUtf8("MapWindow"));
         MapWindow->resize(1420, 871);
+        MapWindow->setLayoutDirection(Qt::LeftToRight);
         centralwidget = new QWidget(MapWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
