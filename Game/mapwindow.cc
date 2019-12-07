@@ -99,6 +99,13 @@ QPixmap MapWindow::getImageByString(std::string building_name)
         QPixmap building_image(":/outpostimage.png");
         QPixmap building = building_image.scaled(QSize(25,25));
         return building;
+
+    } else if(building_name == "NuclearPlant")
+    {
+        QPixmap building_image(":/outpostimage.png");
+        QPixmap building = building_image.scaled(QSize(25,25));
+        return building;
+
     } else if ( building_name == "Money"){
         QPixmap building_image(":/money.png");
         QPixmap building = building_image.scaled(QSize(28,28));
@@ -298,9 +305,15 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             QPixmap building_image = MapWindow::getImageByString(building_type);
             paintBuilding(tile,building_image);
             m_ui->graphicsView->viewport()->update();
+
             std::string status = current_player->getName()+" has built "+
                     building_type+" on "+tile->getType()+" biome.";
             setStatus(status);
+
+            if(building->getType() == "NuclearPlant")
+            {
+                gamewon();
+            }
         }
 
     } catch (Course::IllegalAction) {
@@ -334,6 +347,20 @@ void MapWindow::print_total_production()
     m_ui->WoodPlayerLabel_2->setNum(total_production[Course::BasicResource::WOOD]);
     m_ui->StonePlayerLabel_2->setNum(total_production[Course::BasicResource::STONE]);
     m_ui->OrePlayerLabel_2->setNum(total_production[Course::BasicResource::ORE]);
+}
+
+void MapWindow::gamewon()
+{
+    setStatus(current_player->getName() + " has won the game by building Nuclear Plant!");
+    m_ui->TurnButton->setDisabled(true);
+    m_ui->addAWButton->setDisabled(true);
+    m_ui->addBWButton->setDisabled(true);
+    m_ui->addSoldierButton->setDisabled(true);
+    m_ui->pushButton_4->setDisabled(true);
+    m_ui->pushButton_5->setDisabled(true);
+    m_ui->pushButton_6->setDisabled(true);
+    m_ui->pushButton_7->setDisabled(true);
+
 }
 
 void MapWindow::print_tile_info(Course::Coordinate coordinates)
@@ -590,6 +617,14 @@ void MapWindow::on_pushButton_7_clicked()
 
    add_new_building(mine, Student::ConstResourceMaps::MINE_BUILD_COST);
 }
+
+//void MapWindow::on_pushButton_8_clicked()
+//{
+//    std::shared_ptr<Student::NuclearPlant> np =
+//            std::make_shared<Student::NuclearPlant>(gameEventHandler,objectManager,current_player);
+
+//   add_new_building(np, Student::ConstResourceMaps::NP_BUILD_COST);
+//}
 
 void MapWindow::on_addSoldierButton_clicked()
 {

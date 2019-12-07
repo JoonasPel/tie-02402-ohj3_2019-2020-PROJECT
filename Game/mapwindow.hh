@@ -24,6 +24,7 @@
 #include "buildings/outpost.h"
 #include "buildings/headquarters.h"
 #include "mine.h"
+#include "nuclearplant.h"
 #include "buildings/buildingbase.h"
 #include "interfaces/igameeventhandler.h"
 #include "graphics/simplegamescene.h"
@@ -74,8 +75,8 @@ public:
     void add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost);
     void add_new_building(std::shared_ptr<Course::BuildingBase> building, Course::ResourceMap cost);
     void draw_tiles();
-
     void print_total_production();
+    void gamewon();
 
 public slots:
 
