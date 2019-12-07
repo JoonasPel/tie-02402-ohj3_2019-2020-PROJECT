@@ -479,6 +479,7 @@ void MapWindow::init_game(std::string name1, std::string name2)
     worldGen.addConstructor<Course::Grassland>(35);
     worldGen.addConstructor<Student::Desert>(25);
     worldGen.addConstructor<Student::Water>(7);
+    worldGen.addConstructor<Student::rocky_mountains>(7);
     worldGen.generateMap(15,11,time(NULL), objectManager, gameEventHandler);
 
     draw_tiles();

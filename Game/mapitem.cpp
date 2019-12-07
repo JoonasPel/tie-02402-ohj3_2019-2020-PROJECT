@@ -8,6 +8,7 @@ namespace Student{
 std::map<std::string, QColor> MapItem::c_mapcolors = {{"Grassland", QColor((134), (232), (125))},
                                                      {"Desert", QColor((252), (236), (3))},
                                                      {"Forest", QColor((0), (117), (45))},
+                                                     {"Rocky mountains",QColor((149),(150),(150))},
                                                      {"Water", QColor((2), (147), (214))},
                                                      {"Farm", QColor("transparent")},
                                                      {"Outpost", QColor("transparent")},

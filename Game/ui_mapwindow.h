@@ -137,10 +137,10 @@ public:
         pushButton_7->setGeometry(QRect(1273, 400, 111, 31));
         InfoText = new QTextBrowser(centralwidget);
         InfoText->setObjectName(QString::fromUtf8("InfoText"));
-        InfoText->setGeometry(QRect(1080, 529, 151, 181));
+        InfoText->setGeometry(QRect(1080, 539, 151, 181));
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(1250, 529, 61, 181));
+        gridLayoutWidget->setGeometry(QRect(1250, 539, 61, 181));
         gridLayout_4 = new QGridLayout(gridLayoutWidget);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
         gridLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -178,7 +178,7 @@ public:
 
         gridLayoutWidget_2 = new QWidget(centralwidget);
         gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
-        gridLayoutWidget_2->setGeometry(QRect(1320, 529, 61, 181));
+        gridLayoutWidget_2->setGeometry(QRect(1320, 539, 61, 181));
         gridLayout_6 = new QGridLayout(gridLayoutWidget_2);
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         gridLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -214,7 +214,7 @@ public:
 
         TileTypeLabel = new QLabel(centralwidget);
         TileTypeLabel->setObjectName(QString::fromUtf8("TileTypeLabel"));
-        TileTypeLabel->setGeometry(QRect(1150, 479, 171, 41));
+        TileTypeLabel->setGeometry(QRect(1090, 489, 301, 41));
         QFont font1;
         font1.setPointSize(16);
         TileTypeLabel->setFont(font1);
@@ -280,7 +280,7 @@ public:
 
         TurnButton = new QPushButton(centralwidget);
         TurnButton->setObjectName(QString::fromUtf8("TurnButton"));
-        TurnButton->setGeometry(QRect(1080, 736, 321, 51));
+        TurnButton->setGeometry(QRect(1080, 750, 321, 51));
         QFont font5;
         font5.setFamily(QString::fromUtf8("Nirmala UI"));
         font5.setPointSize(14);
@@ -368,32 +368,32 @@ public:
         line_6->setFrameShadow(QFrame::Sunken);
         line_7 = new QFrame(centralwidget);
         line_7->setObjectName(QString::fromUtf8("line_7"));
-        line_7->setGeometry(QRect(1242, 554, 151, 20));
+        line_7->setGeometry(QRect(1242, 564, 151, 20));
         line_7->setFrameShape(QFrame::HLine);
         line_7->setFrameShadow(QFrame::Sunken);
         line_8 = new QFrame(centralwidget);
         line_8->setObjectName(QString::fromUtf8("line_8"));
-        line_8->setGeometry(QRect(1242, 590, 151, 20));
+        line_8->setGeometry(QRect(1242, 600, 151, 20));
         line_8->setFrameShape(QFrame::HLine);
         line_8->setFrameShadow(QFrame::Sunken);
         line_9 = new QFrame(centralwidget);
         line_9->setObjectName(QString::fromUtf8("line_9"));
-        line_9->setGeometry(QRect(1242, 628, 151, 20));
+        line_9->setGeometry(QRect(1242, 638, 151, 20));
         line_9->setFrameShape(QFrame::HLine);
         line_9->setFrameShadow(QFrame::Sunken);
         line_10 = new QFrame(centralwidget);
         line_10->setObjectName(QString::fromUtf8("line_10"));
-        line_10->setGeometry(QRect(1242, 665, 151, 20));
+        line_10->setGeometry(QRect(1242, 675, 151, 20));
         line_10->setFrameShape(QFrame::HLine);
         line_10->setFrameShadow(QFrame::Sunken);
         line_11 = new QFrame(centralwidget);
         line_11->setObjectName(QString::fromUtf8("line_11"));
-        line_11->setGeometry(QRect(1242, 699, 151, 20));
+        line_11->setGeometry(QRect(1242, 709, 151, 20));
         line_11->setFrameShape(QFrame::HLine);
         line_11->setFrameShadow(QFrame::Sunken);
         line_12 = new QFrame(centralwidget);
         line_12->setObjectName(QString::fromUtf8("line_12"));
-        line_12->setGeometry(QRect(1242, 520, 151, 20));
+        line_12->setGeometry(QRect(1242, 530, 151, 20));
         line_12->setFrameShape(QFrame::HLine);
         line_12->setFrameShadow(QFrame::Sunken);
         line_13 = new QFrame(centralwidget);

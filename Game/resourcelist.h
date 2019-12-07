@@ -30,6 +30,16 @@ const Course::ResourceMap DESERT_BP = {
     {Course::BasicResource::ORE, 0}
 };
 
+const Course::ResourceMap ROCKY_MOUNTAINS_BP = {
+    {Course::BasicResource::MONEY, 0},
+    {Course::BasicResource::FOOD, -5},
+    {Course::BasicResource::WOOD, 0},
+    {Course::BasicResource::STONE, 1},
+    {Course::BasicResource::ORE, 0}
+};
+
+
+
 const Course::ResourceMap Player_starting_resources = {
     {Course::BasicResource::MONEY, 10000},
     {Course::BasicResource::FOOD, 10000},

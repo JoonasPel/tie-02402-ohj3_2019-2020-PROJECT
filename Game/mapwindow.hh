@@ -20,6 +20,7 @@
 #include <tiles/grassland.h>
 #include "water.h"
 #include <desert.h>
+#include "rocky_mountains.h"
 #include "buildings/farm.h"
 #include "studentoutpost.h"
 #include "buildings/headquarters.h"
@@ -110,7 +111,7 @@ private slots:
     void on_addAWButton_clicked();
 
     void on_TurnButton_clicked();
-    void on_addSoldierButton_clicked();
+//    void on_addSoldierButton_clicked();
     void on_pushButton_8_clicked();
 };
 

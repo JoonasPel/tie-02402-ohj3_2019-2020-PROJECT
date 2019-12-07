@@ -16,6 +16,7 @@ SOURCES += \
     nuclearplant.cpp \
     objectmanager.cpp \
     player.cpp \
+    rocky_mountains.cpp \
     soldier.cpp \
     studentoutpost.cpp \
     water.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     objectmanager.h \
     player.h \
     resourcelist.h \
+    rocky_mountains.h \
     soldier.h \
     studentoutpost.h \
     water.h \

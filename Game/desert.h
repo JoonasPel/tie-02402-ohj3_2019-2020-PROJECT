@@ -25,8 +25,6 @@ public:
 
 
     virtual ~Desert() = default;
-
-
     virtual std::string getType() const override;
 
 };

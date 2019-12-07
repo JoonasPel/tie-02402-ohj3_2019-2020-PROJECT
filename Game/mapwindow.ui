@@ -95,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>1080</x>
-      <y>529</y>
+      <y>539</y>
       <width>151</width>
       <height>181</height>
      </rect>
@@ -105,7 +105,7 @@
     <property name="geometry">
      <rect>
       <x>1250</x>
-      <y>529</y>
+      <y>539</y>
       <width>61</width>
       <height>181</height>
      </rect>
@@ -177,7 +177,7 @@
     <property name="geometry">
      <rect>
       <x>1320</x>
-      <y>529</y>
+      <y>539</y>
       <width>61</width>
       <height>181</height>
      </rect>
@@ -248,9 +248,9 @@
    <widget class="QLabel" name="TileTypeLabel">
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>479</y>
-      <width>171</width>
+      <x>1090</x>
+      <y>489</y>
+      <width>301</width>
       <height>41</height>
      </rect>
     </property>
@@ -416,7 +416,7 @@
     <property name="geometry">
      <rect>
       <x>1080</x>
-      <y>736</y>
+      <y>750</y>
       <width>321</width>
       <height>51</height>
      </rect>
@@ -632,7 +632,7 @@
     <property name="geometry">
      <rect>
       <x>1242</x>
-      <y>554</y>
+      <y>564</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -645,7 +645,7 @@
     <property name="geometry">
      <rect>
       <x>1242</x>
-      <y>590</y>
+      <y>600</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -658,7 +658,7 @@
     <property name="geometry">
      <rect>
       <x>1242</x>
-      <y>628</y>
+      <y>638</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -671,7 +671,7 @@
     <property name="geometry">
      <rect>
       <x>1242</x>
-      <y>665</y>
+      <y>675</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -684,7 +684,7 @@
     <property name="geometry">
      <rect>
       <x>1242</x>
-      <y>699</y>
+      <y>709</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -697,7 +697,7 @@
     <property name="geometry">
      <rect>
       <x>1242</x>
-      <y>520</y>
+      <y>530</y>
       <width>151</width>
       <height>20</height>
      </rect>
