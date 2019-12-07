@@ -88,7 +88,7 @@ public:
     QLabel *hq_label;
     QLabel *farm_label;
     QLabel *mine_label;
-    QPushButton *addSoldierButton;
+    QPushButton *addEWButton;
     QLabel *label_9;
     QLabel *label_7;
     QLabel *label_10;
@@ -103,6 +103,7 @@ public:
     QLabel *orePic;
     QPushButton *pushButton_8;
     QLabel *np_label;
+    QFrame *line_14;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -125,16 +126,16 @@ public:
         graphicsView->setMinimumSize(QSize(1040, 675));
         pushButton_4 = new QPushButton(centralwidget);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(1273, 370, 111, 31));
+        pushButton_4->setGeometry(QRect(1273, 373, 111, 31));
         pushButton_5 = new QPushButton(centralwidget);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(1113, 370, 121, 31));
+        pushButton_5->setGeometry(QRect(1113, 373, 121, 31));
         pushButton_6 = new QPushButton(centralwidget);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(1113, 400, 121, 31));
+        pushButton_6->setGeometry(QRect(1113, 403, 121, 31));
         pushButton_7 = new QPushButton(centralwidget);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
-        pushButton_7->setGeometry(QRect(1273, 400, 111, 31));
+        pushButton_7->setGeometry(QRect(1273, 403, 111, 31));
         InfoText = new QTextBrowser(centralwidget);
         InfoText->setObjectName(QString::fromUtf8("InfoText"));
         InfoText->setGeometry(QRect(1080, 539, 151, 181));
@@ -222,10 +223,10 @@ public:
         TileTypeLabel->setAlignment(Qt::AlignCenter);
         addBWButton = new QPushButton(centralwidget);
         addBWButton->setObjectName(QString::fromUtf8("addBWButton"));
-        addBWButton->setGeometry(QRect(1085, 300, 101, 51));
+        addBWButton->setGeometry(QRect(1080, 300, 101, 41));
         addAWButton = new QPushButton(centralwidget);
         addAWButton->setObjectName(QString::fromUtf8("addAWButton"));
-        addAWButton->setGeometry(QRect(1190, 300, 91, 51));
+        addAWButton->setGeometry(QRect(1190, 300, 101, 41));
         statusLabel = new QLabel(centralwidget);
         statusLabel->setObjectName(QString::fromUtf8("statusLabel"));
         statusLabel->setGeometry(QRect(10, 808, 1051, 31));
@@ -398,24 +399,24 @@ public:
         line_12->setFrameShadow(QFrame::Sunken);
         line_13 = new QFrame(centralwidget);
         line_13->setObjectName(QString::fromUtf8("line_13"));
-        line_13->setGeometry(QRect(1080, 360, 321, 20));
+        line_13->setGeometry(QRect(1080, 350, 321, 20));
         line_13->setFrameShape(QFrame::HLine);
         line_13->setFrameShadow(QFrame::Sunken);
         outpost_label = new QLabel(centralwidget);
         outpost_label->setObjectName(QString::fromUtf8("outpost_label"));
-        outpost_label->setGeometry(QRect(1083, 370, 31, 31));
+        outpost_label->setGeometry(QRect(1083, 373, 31, 31));
         hq_label = new QLabel(centralwidget);
         hq_label->setObjectName(QString::fromUtf8("hq_label"));
-        hq_label->setGeometry(QRect(1083, 400, 31, 31));
+        hq_label->setGeometry(QRect(1083, 403, 31, 31));
         farm_label = new QLabel(centralwidget);
         farm_label->setObjectName(QString::fromUtf8("farm_label"));
-        farm_label->setGeometry(QRect(1243, 370, 31, 31));
+        farm_label->setGeometry(QRect(1243, 373, 31, 31));
         mine_label = new QLabel(centralwidget);
         mine_label->setObjectName(QString::fromUtf8("mine_label"));
-        mine_label->setGeometry(QRect(1243, 400, 31, 31));
-        addSoldierButton = new QPushButton(centralwidget);
-        addSoldierButton->setObjectName(QString::fromUtf8("addSoldierButton"));
-        addSoldierButton->setGeometry(QRect(1290, 300, 91, 51));
+        mine_label->setGeometry(QRect(1243, 403, 31, 31));
+        addEWButton = new QPushButton(centralwidget);
+        addEWButton->setObjectName(QString::fromUtf8("addEWButton"));
+        addEWButton->setGeometry(QRect(1300, 300, 101, 41));
         label_9 = new QLabel(centralwidget);
         label_9->setObjectName(QString::fromUtf8("label_9"));
         label_9->setGeometry(QRect(1180, 230, 59, 31));
@@ -479,10 +480,15 @@ public:
 
         pushButton_8 = new QPushButton(centralwidget);
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
-        pushButton_8->setGeometry(QRect(1273, 430, 111, 31));
+        pushButton_8->setGeometry(QRect(1273, 433, 111, 31));
         np_label = new QLabel(centralwidget);
         np_label->setObjectName(QString::fromUtf8("np_label"));
         np_label->setGeometry(QRect(1240, 430, 31, 31));
+        line_14 = new QFrame(centralwidget);
+        line_14->setObjectName(QString::fromUtf8("line_14"));
+        line_14->setGeometry(QRect(1080, 460, 321, 20));
+        line_14->setFrameShape(QFrame::HLine);
+        line_14->setFrameShadow(QFrame::Sunken);
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -515,9 +521,10 @@ public:
         OreLabel->setText(QString());
         WoodLabel->setText(QString());
         TileTypeLabel->setText(QString());
-        addBWButton->setText(QApplication::translate("MapWindow", "Add BasicWorker", nullptr));
+        addBWButton->setText(QApplication::translate("MapWindow", "Add \n"
+"Basic Worker", nullptr));
         addAWButton->setText(QApplication::translate("MapWindow", "Add\n"
-" AdvancedWorker", nullptr));
+" Advanced worker", nullptr));
         statusLabel->setText(QString());
         CurrentPlayerLabel->setText(QApplication::translate("MapWindow", "Current player: ", nullptr));
         MoneyPlayerLabel->setText(QString());
@@ -537,7 +544,8 @@ public:
         hq_label->setText(QString());
         farm_label->setText(QString());
         mine_label->setText(QString());
-        addSoldierButton->setText(QApplication::translate("MapWindow", "Add Soldier", nullptr));
+        addEWButton->setText(QApplication::translate("MapWindow", "Add \n"
+" Elite worker", nullptr));
         label_9->setText(QApplication::translate("MapWindow", "ORE", nullptr));
         label_7->setText(QApplication::translate("MapWindow", "STONE", nullptr));
         label_10->setText(QApplication::translate("MapWindow", "WOOD", nullptr));

@@ -8,6 +8,7 @@ CONFIG += c++14
 SOURCES += \
     advancedworker.cpp \
     desert.cpp \
+    eliteworker.cpp \
     gameeventhandler.cpp \
     main.cpp \
     mapitem.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 HEADERS += \
     advancedworker.h \
     desert.h \
+    eliteworker.h \
     gameeventhandler.h \
     mapitem.h \
     mapwindow.hh \

@@ -70,14 +70,19 @@ Course::ResourceMap GameEventHandler::calculate_upkeep(std::vector<std::shared_p
             workers_upkeep_cost[Course::BasicResource::FOOD] -= 1;
         } else if(worker->getType() == "AdvancedWorker")
         {
+            workers_upkeep_cost[Course::BasicResource::MONEY] -= 2;
+            workers_upkeep_cost[Course::BasicResource::FOOD] -= 2;
+        } else if(worker->getType() == "EliteWorker")
+        {
             workers_upkeep_cost[Course::BasicResource::MONEY] -= 3;
             workers_upkeep_cost[Course::BasicResource::FOOD] -= 3;
-        } else
-        {
+        } else {
+
             throw Course::BaseException("No upkeep cost for worker in GEhandler calculate_upkeep!");
-        }
 }
+
     return workers_upkeep_cost;
+}
 }
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)

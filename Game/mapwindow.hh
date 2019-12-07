@@ -35,6 +35,7 @@
 #include "core/basicresources.h"
 #include "workers/basicworker.h"
 #include "advancedworker.h"
+#include "eliteworker.h"
 #include "player.h"
 #include <cstdlib>
 #include <stdio.h>
@@ -111,7 +112,7 @@ private slots:
     void on_addAWButton_clicked();
 
     void on_TurnButton_clicked();
-//    void on_addSoldierButton_clicked();
+    void on_addEWButton_clicked();
     void on_pushButton_8_clicked();
 };
 

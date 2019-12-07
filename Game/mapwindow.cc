@@ -350,7 +350,7 @@ void MapWindow::gamewon()
     m_ui->TurnButton->setDisabled(true);
     m_ui->addAWButton->setDisabled(true);
     m_ui->addBWButton->setDisabled(true);
-    m_ui->addSoldierButton->setDisabled(true);
+    m_ui->addEWButton->setDisabled(true);
     m_ui->pushButton_4->setDisabled(true);
     m_ui->pushButton_5->setDisabled(true);
     m_ui->pushButton_6->setDisabled(true);
@@ -583,6 +583,17 @@ void MapWindow::on_TurnButton_clicked()
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 
+}
+
+void MapWindow::on_addEWButton_clicked()
+{
+
+
+    std::shared_ptr<Student::EliteWorker> new_worker =
+            std::make_shared<Student::EliteWorker>(gameEventHandler,objectManager,current_player);
+
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+    add_new_worker(new_worker, Student::ConstResourceMaps::ELITE_WORKER_COST, tile);
 }
 
 void MapWindow::on_pushButton_6_clicked()
