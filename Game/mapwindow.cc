@@ -288,11 +288,9 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             //Outpost claimaa naapuritilet current_playerin omistukseen.
             if(building->getType() == "Outpost")
             {
-                try {
-                    building->onBuildAction();
-                } catch (...) {
+                building->onBuildAction();
+            }
 
-                }
            }
 
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.

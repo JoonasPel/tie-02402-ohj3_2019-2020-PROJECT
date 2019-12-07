@@ -1,9 +1,10 @@
 #include "objectmanager.h"
-#include <iostream>
+#include "exceptions/baseexception.h"
 
 namespace Student {
 
 const unsigned int COLUMN_SIZE = 11;
+const unsigned int ROW_SIZE = 15;
 
 ObjectManager::ObjectManager()
 {
@@ -18,7 +19,20 @@ void ObjectManager::addTiles(const std::vector<std::shared_ptr<Course::TileBase>
 
 std::shared_ptr<Course::TileBase> ObjectManager::getTile(const Course::Coordinate &coordinate)
 {
-    return tiles_.at(coordinate.x()*COLUMN_SIZE + coordinate.y());
+
+    int tile_id = coordinate.x()*COLUMN_SIZE + coordinate.y();
+
+    int map_size = COLUMN_SIZE*ROW_SIZE;
+
+    if(tile_id < map_size)
+    {
+        return tiles_.at(coordinate.x()*COLUMN_SIZE + coordinate.y());
+
+    } else
+    {
+        throw Course::BaseException("Given coordinates for tile are out of map!");
+    }
+
 }
 
 std::shared_ptr<Course::TileBase> ObjectManager::getTile(const Course::ObjectId &id)
@@ -32,9 +46,14 @@ std::vector<std::shared_ptr<Course::TileBase> > ObjectManager::getTiles(const st
 
     for(auto coordinate : coordinates)
     {
-        tiles.push_back(getTile(coordinate));
-    }
+        try {
+            tiles.push_back(getTile(coordinate));
 
+        } catch (Course::BaseException) {
+            //Ei tarvetta toimenpiteille. Jatketaan looppia.
+        }
+
+    }
     return tiles;
 }
 
