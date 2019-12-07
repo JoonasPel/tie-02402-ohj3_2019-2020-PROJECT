@@ -102,7 +102,7 @@ QPixmap MapWindow::getImageByString(std::string building_name)
 
     } else if(building_name == "NuclearPlant")
     {
-        QPixmap building_image(":/outpostimage.png");
+        QPixmap building_image(":/npimage.png");
         QPixmap building = building_image.scaled(QSize(25,25));
         return building;
 
@@ -360,6 +360,7 @@ void MapWindow::gamewon()
     m_ui->pushButton_5->setDisabled(true);
     m_ui->pushButton_6->setDisabled(true);
     m_ui->pushButton_7->setDisabled(true);
+    m_ui->pushButton_8->setDisabled(true);
 
 }
 
@@ -513,12 +514,14 @@ void MapWindow::init_game(std::string name1, std::string name2)
     m_ui->farm_label->setPixmap(getImageByString("Farm"));
     m_ui->mine_label->setPixmap(getImageByString("Mine"));
     m_ui->hq_label->setPixmap(getImageByString("HeadQuarters"));
+    m_ui->np_label->setPixmap(getImageByString("NuclearPlant"));
 
     m_ui->moneyPic->setPixmap(getImageByString("Money"));
     m_ui->foodPic->setPixmap(getImageByString("Food"));
     m_ui->woodPic->setPixmap(getImageByString("Wood"));
     m_ui->stonePic->setPixmap(getImageByString("Stone"));
     m_ui->orePic->setPixmap(getImageByString("Ore"));
+
 
 
     m_ui->graphicsView->viewport()->update();
@@ -618,13 +621,14 @@ void MapWindow::on_pushButton_7_clicked()
    add_new_building(mine, Student::ConstResourceMaps::MINE_BUILD_COST);
 }
 
-//void MapWindow::on_pushButton_8_clicked()
-//{
-//    std::shared_ptr<Student::NuclearPlant> np =
-//            std::make_shared<Student::NuclearPlant>(gameEventHandler,objectManager,current_player);
 
-//   add_new_building(np, Student::ConstResourceMaps::NP_BUILD_COST);
-//}
+void MapWindow::on_pushButton_8_clicked()
+{
+    std::shared_ptr<Student::NuclearPlant> np =
+            std::make_shared<Student::NuclearPlant>(gameEventHandler,objectManager,current_player);
+
+   add_new_building(np, Student::ConstResourceMaps::NP_BUILD_COST);
+}
 
 void MapWindow::on_addSoldierButton_clicked()
 {

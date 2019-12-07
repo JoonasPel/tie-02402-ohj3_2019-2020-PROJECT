@@ -101,6 +101,8 @@ public:
     QLabel *woodPic;
     QLabel *stonePic;
     QLabel *orePic;
+    QPushButton *pushButton_8;
+    QLabel *np_label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -122,16 +124,16 @@ public:
         graphicsView->setMinimumSize(QSize(1040, 675));
         pushButton_4 = new QPushButton(centralwidget);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(1290, 390, 111, 31));
+        pushButton_4->setGeometry(QRect(1273, 370, 111, 31));
         pushButton_5 = new QPushButton(centralwidget);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(1130, 390, 121, 31));
+        pushButton_5->setGeometry(QRect(1113, 370, 121, 31));
         pushButton_6 = new QPushButton(centralwidget);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(1130, 420, 121, 31));
+        pushButton_6->setGeometry(QRect(1113, 400, 121, 31));
         pushButton_7 = new QPushButton(centralwidget);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
-        pushButton_7->setGeometry(QRect(1290, 420, 111, 31));
+        pushButton_7->setGeometry(QRect(1273, 400, 111, 31));
         InfoText = new QTextBrowser(centralwidget);
         InfoText->setObjectName(QString::fromUtf8("InfoText"));
         InfoText->setGeometry(QRect(1080, 529, 151, 181));
@@ -400,16 +402,16 @@ public:
         line_13->setFrameShadow(QFrame::Sunken);
         outpost_label = new QLabel(centralwidget);
         outpost_label->setObjectName(QString::fromUtf8("outpost_label"));
-        outpost_label->setGeometry(QRect(1100, 390, 31, 31));
+        outpost_label->setGeometry(QRect(1083, 370, 31, 31));
         hq_label = new QLabel(centralwidget);
         hq_label->setObjectName(QString::fromUtf8("hq_label"));
-        hq_label->setGeometry(QRect(1100, 420, 31, 31));
+        hq_label->setGeometry(QRect(1083, 400, 31, 31));
         farm_label = new QLabel(centralwidget);
         farm_label->setObjectName(QString::fromUtf8("farm_label"));
-        farm_label->setGeometry(QRect(1260, 390, 31, 31));
+        farm_label->setGeometry(QRect(1243, 370, 31, 31));
         mine_label = new QLabel(centralwidget);
         mine_label->setObjectName(QString::fromUtf8("mine_label"));
-        mine_label->setGeometry(QRect(1260, 420, 31, 31));
+        mine_label->setGeometry(QRect(1243, 400, 31, 31));
         addSoldierButton = new QPushButton(centralwidget);
         addSoldierButton->setObjectName(QString::fromUtf8("addSoldierButton"));
         addSoldierButton->setGeometry(QRect(1290, 300, 91, 51));
@@ -474,6 +476,12 @@ public:
 
         verticalLayout->addWidget(orePic);
 
+        pushButton_8 = new QPushButton(centralwidget);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setGeometry(QRect(1273, 430, 111, 31));
+        np_label = new QLabel(centralwidget);
+        np_label->setObjectName(QString::fromUtf8("np_label"));
+        np_label->setGeometry(QRect(1240, 430, 31, 31));
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -539,6 +547,8 @@ public:
         woodPic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
         stonePic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
         orePic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
+        pushButton_8->setText(QApplication::translate("MapWindow", "Build Nuclearplant", nullptr));
+        np_label->setText(QString());
     } // retranslateUi
 
 };

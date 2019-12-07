@@ -10,5 +10,6 @@
         <file>stoneimage.png</file>
         <file>woodimage.png</file>
         <file>oreimage.png</file>
+        <file>npimage.png</file>
     </qresource>
 </RCC>

@@ -13,6 +13,7 @@ std::map<std::string, QColor> MapItem::c_mapcolors = {{"Grassland", QColor((134)
                                                      {"Outpost", QColor("transparent")},
                                                      {"HeadQuarters", QColor("transparent")},
                                                      {"Mine", QColor("transparent")},
+                                                     {"NuclearPlant", QColor("transparent")},
                                                      {"AdvancedWorker", QColor("transparent")},
                                                      {"BasicWorker", QColor("transparent")}
                                                      };
