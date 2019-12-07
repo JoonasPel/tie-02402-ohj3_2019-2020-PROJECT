@@ -27,12 +27,6 @@ int Dialog::exec()
         QString name2 = ui->pl2_text->text();
         emit sendPlayerName(name1.toStdString(),name2.toStdString());
     }
-    return dialog; //
-}
 
-
-
-void Dialog::on_buttonBox_destroyed()
-{
-    return;
+    return dialog;
 }

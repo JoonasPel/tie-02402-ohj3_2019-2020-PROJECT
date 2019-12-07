@@ -18,11 +18,17 @@ int main(int argc, char* argv[])
 
     QObject::connect(&dia, &Dialog::sendPlayerName,
                      &mapWindow, &MapWindow::init_game);
+
     dia.setWindowTitle("Settings");
+
     if(dia.exec() == QDialog::Accepted)
     {
         mapWindow.show();
+        return app.exec();
+    } else
+    {
+        app.exit(0);
     }
 
-    return app.exec();
+    return 0;
 }
