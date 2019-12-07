@@ -215,9 +215,8 @@ void MapWindow::update_player_resources()
             (QString::number(resources[Course::BasicResource::ORE]));
 }
 
-void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost)
+void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost, std::shared_ptr<Course::TileBase> tile)
 {
-    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
 
     if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
     {
@@ -540,8 +539,8 @@ void MapWindow::on_addBWButton_clicked()
 {
     std::shared_ptr<Course::BasicWorker> basicworker =
             std::make_shared<Course::BasicWorker>(gameEventHandler,objectManager,current_player);
-
-    add_new_worker(basicworker, Course::ConstResourceMaps::BW_RECRUITMENT_COST);
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+    add_new_worker(basicworker, Course::ConstResourceMaps::BW_RECRUITMENT_COST, tile);
 
 }
 
@@ -600,8 +599,11 @@ void MapWindow::on_pushButton_5_clicked()
 
     if(add_new_building(outpost, Student::ConstResourceMaps::SOP_BUILD_COST))
     {
-        outpost->ClaimAndConquer();
+        auto neighbour_tiles = outpost->ClaimAndConquer();
     }
+
+    //tänne for ja sit kaydaan neighbour_tiles lapi ja addadaa soldierei
+
 
 }
 
@@ -610,7 +612,8 @@ void MapWindow::on_addAWButton_clicked()
     std::shared_ptr<Student::AdvancedWorker> advancedworker =
             std::make_shared<Student::AdvancedWorker>(gameEventHandler,objectManager,current_player);
 
-    add_new_worker(advancedworker, Student::ConstResourceMaps::AW_RECRUITMENT_COST);
+    std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
+    add_new_worker(advancedworker, Student::ConstResourceMaps::AW_RECRUITMENT_COST, tile);
 }
 
 void MapWindow::on_pushButton_7_clicked()
@@ -628,12 +631,4 @@ void MapWindow::on_pushButton_8_clicked()
             std::make_shared<Student::NuclearPlant>(gameEventHandler,objectManager,current_player);
 
    add_new_building(np, Student::ConstResourceMaps::NP_BUILD_COST);
-}
-
-void MapWindow::on_addSoldierButton_clicked()
-{
-    std::shared_ptr<Student::AdvancedWorker> soldier =
-            std::make_shared<Student::AdvancedWorker>(gameEventHandler,objectManager,current_player);
-
-    add_new_worker(soldier, Student::ConstResourceMaps::SOLDIER_RECRUITMENT_COST);
 }
