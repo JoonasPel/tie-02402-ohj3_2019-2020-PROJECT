@@ -24,7 +24,7 @@ std::shared_ptr<Course::TileBase> ObjectManager::getTile(const Course::Coordinat
 
     int map_size = COLUMN_SIZE*ROW_SIZE;
 
-    if(tile_id < map_size)
+    if(tile_id < map_size && tile_id >= 0)
     {
         return tiles_.at(coordinate.x()*COLUMN_SIZE + coordinate.y());
 

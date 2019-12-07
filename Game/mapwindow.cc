@@ -145,7 +145,6 @@ void MapWindow::paintWorker(std::shared_ptr<Course::TileBase> tile)
     QPixmap image(":/worker_image.png");
     QGraphicsPixmapItem* worker_image = m_gamescene->addPixmap(image);
 
-
     switch (worker_count) {
 
     case 1: worker_image->setPos(x*70+24,y*70+32); break;
@@ -155,7 +154,6 @@ void MapWindow::paintWorker(std::shared_ptr<Course::TileBase> tile)
     case 3: worker_image->setPos(x*70+36,y*70+32); break;
 
     case 4: worker_image->setPos(x*70+42,y*70+32); break;
-
 
     default: break;
 
@@ -288,9 +286,7 @@ void MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
             //Outpost claimaa naapuritilet current_playerin omistukseen.
             if(building->getType() == "Outpost")
             {
-                building->onBuildAction();
-            }
-
+                building->onBuildAction();            
            }
 
             //Maksu rakennuksesta, vahennetaan pelaajalta resursseja.
