@@ -218,7 +218,9 @@ void MapWindow::update_player_resources()
 void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Course::ResourceMap cost, std::shared_ptr<Course::TileBase> tile)
 {
 
-    if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player))
+
+    if(!gameEventHandler->obj_placement_permission(tile, objectManager, current_player)
+            and worker->getType() != "Soldier")
     {
         setStatus("Can't add worker here! No building in neighbour.");
         return;
