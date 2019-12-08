@@ -41,6 +41,7 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <time.h>
+#include <QTimer>
 
 #include "windows/gamescene.h"
 #include "graphics/simplemapitem.h"
@@ -91,6 +92,7 @@ public slots:
 
 private:
     Ui::MapWindow* m_ui;
+    QTimer *timer;
     std::shared_ptr<Course::iGameEventHandler> m_GEHandler = nullptr;
     std::shared_ptr<Student::GameScene> m_gamescene = nullptr;
 
@@ -101,7 +103,7 @@ private:
     std::shared_ptr<Student::Player> player2;
     std::shared_ptr<Student::Player> current_player;
 
-    Course::Coordinate last_clicked_tile;
+    Course::Coordinate last_clicked_tile; 
 
 private slots:
     void on_pushButton_4_clicked();
@@ -115,6 +117,8 @@ private slots:
     void on_TurnButton_clicked();
     void on_addEWButton_clicked();
     void on_pushButton_8_clicked();
+
+    void timer_event();
 };
 
 #endif // MapWINDOW_HH

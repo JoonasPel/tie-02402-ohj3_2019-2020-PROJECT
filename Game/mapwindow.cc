@@ -30,7 +30,8 @@ MapWindow::MapWindow(QWidget *parent,
 
     m_ui->graphicsView->setScene(dynamic_cast<QGraphicsScene*>(sgs_rawptr));
 
-
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(timer_event()));
 
     connect(m_gamescene.get(), &Student::GameScene::sendtileid,
                 this, &MapWindow::print_tile_info);
@@ -526,6 +527,7 @@ void MapWindow::init_game(std::string name1, std::string name2)
 
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
+    timer->start(15000);
 }
 
 void MapWindow::on_pushButton_4_clicked()
@@ -652,5 +654,11 @@ void MapWindow::on_pushButton_8_clicked()
     std::shared_ptr<Student::NuclearPlant> np =
             std::make_shared<Student::NuclearPlant>(gameEventHandler,objectManager,current_player);
 
-   add_new_building(np, Student::ConstResourceMaps::NP_BUILD_COST);
+    add_new_building(np, Student::ConstResourceMaps::NP_BUILD_COST);
+}
+
+void MapWindow::timer_event()
+{
+    //Kutsuu slottia, joka vaihtaa pelaajan vuoron toiselle.
+    on_TurnButton_clicked();
 }
