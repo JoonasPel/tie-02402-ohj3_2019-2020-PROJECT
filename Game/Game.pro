@@ -6,42 +6,42 @@ QT += core gui widgets
 CONFIG += c++14
 
 SOURCES += \
-    buildings/mine.cpp \
-    buildings/nuclearplant.cpp \
-    buildings/studentoutpost.cpp \
+    advancedworker.cpp \
+    desert.cpp \
+    eliteworker.cpp \
     gameeventhandler.cpp \
     main.cpp \
     mapitem.cpp \
     mapwindow.cc \
+    mine.cpp \
+    nuclearplant.cpp \
     objectmanager.cpp \
     player.cpp \
-    tiles/desert.cpp \
-    tiles/rocky_mountains.cpp \
-    tiles/water.cpp \
+    rocky_mountains.cpp \
+    soldier.cpp \
+    studentoutpost.cpp \
+    water.cpp \
     windows/dialog.cpp \
-    windows/gamescene.cpp \
-    workers/advancedworker.cpp \
-    workers/eliteworker.cpp \
-    workers/soldier.cpp
+    windows/gamescene.cpp
 
 HEADERS += \
-    buildings/mine.h \
-    buildings/nuclearplant.h \
-    buildings/studentoutpost.h \
+    advancedworker.h \
+    desert.h \
+    eliteworker.h \
     gameeventhandler.h \
     mapitem.h \
     mapwindow.hh \
+    mine.h \
+    nuclearplant.h \
     objectmanager.h \
     player.h \
     resourcelist.h \
-    tiles/desert.h \
-    tiles/rocky_mountains.h \
-    tiles/water.h \
+    rocky_mountains.h \
+    soldier.h \
+    studentoutpost.h \
+    water.h \
     windows/dialog.h \
-    windows/gamescene.h \
-    workers/advancedworker.h \
-    workers/eliteworker.h \
-    workers/soldier.h
+    windows/gamescene.h
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
