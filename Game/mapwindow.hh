@@ -36,6 +36,7 @@
 #include "workers/basicworker.h"
 #include "advancedworker.h"
 #include "eliteworker.h"
+#include "soldier.h"
 #include "player.h"
 #include <cstdlib>
 #include <stdio.h>

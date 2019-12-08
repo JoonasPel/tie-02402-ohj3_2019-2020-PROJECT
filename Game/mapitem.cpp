@@ -17,7 +17,8 @@ std::map<std::string, QColor> MapItem::c_mapcolors = {{"Grassland", QColor((134)
                                                      {"NuclearPlant", QColor("transparent")},
                                                      {"AdvancedWorker", QColor("transparent")},
                                                      {"BasicWorker", QColor("transparent")},
-                                                     {"EliteWorker", QColor("transparent")}
+                                                     {"EliteWorker", QColor("transparent")},
+                                                     {"Soldier", QColor("transparent")}
                                                      };
 
 MapItem::MapItem(const std::shared_ptr<Course::GameObject> &obj, int size ):

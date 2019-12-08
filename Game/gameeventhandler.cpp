@@ -76,7 +76,10 @@ Course::ResourceMap GameEventHandler::calculate_upkeep(std::vector<std::shared_p
         {
             workers_upkeep_cost[Course::BasicResource::MONEY] -= 3;
             workers_upkeep_cost[Course::BasicResource::FOOD] -= 3;
-        } else {
+        } else if(worker->getType() == "Soldier"){
+            workers_upkeep_cost[Course::BasicResource::MONEY] -= 0;
+            workers_upkeep_cost[Course::BasicResource::FOOD] -= 0;
+        } else{
 
             throw Course::BaseException("No upkeep cost for worker in GEhandler calculate_upkeep!");
 }
