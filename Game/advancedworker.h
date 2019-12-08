@@ -7,7 +7,9 @@
 namespace Student {
 
 
-
+/*!
+ * \brief The AdvancedWorker class
+ */
 class AdvancedWorker : public Course::WorkerBase
 {
 public:

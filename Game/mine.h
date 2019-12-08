@@ -27,6 +27,7 @@ public:
 
     virtual ~Mine() = default;
 
+
     virtual std::string getType() const override;
 
 

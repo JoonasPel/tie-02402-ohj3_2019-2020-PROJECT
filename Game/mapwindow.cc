@@ -588,7 +588,6 @@ void MapWindow::on_TurnButton_clicked()
                                       QString::fromStdString(current_player->getName()));
 
     timer->start(15000);
-
 }
 
 void MapWindow::on_addEWButton_clicked()

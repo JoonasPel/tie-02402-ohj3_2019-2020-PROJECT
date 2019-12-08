@@ -41,11 +41,11 @@ const Course::ResourceMap ROCKY_MOUNTAINS_BP = {
 
 
 const Course::ResourceMap Player_starting_resources = {
-    {Course::BasicResource::MONEY, 1000},
-    {Course::BasicResource::FOOD, 1000},
-    {Course::BasicResource::WOOD, 1000},
-    {Course::BasicResource::STONE, 1000},
-    {Course::BasicResource::ORE, 1000}
+    {Course::BasicResource::MONEY, 10000},
+    {Course::BasicResource::FOOD, 10000},
+    {Course::BasicResource::WOOD, 10000},
+    {Course::BasicResource::STONE, 10000},
+    {Course::BasicResource::ORE, 10000}
 };
 
 const Course::ResourceMapDouble worker_satisfactioner = {

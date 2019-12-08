@@ -12,7 +12,15 @@ class NuclearPlant : public Course::BuildingBase
 {
 public:
     NuclearPlant();
-
+    /*!
+     * \brief NuclearPlant
+     * \param eventhandler
+     * \param objectmanager
+     * \param owner
+     * \param tilespaces
+     * \param buildcost
+     * \param production
+     */
     explicit NuclearPlant(
             const std::shared_ptr<Course::iGameEventHandler>& eventhandler,
             const std::shared_ptr<Course::iObjectManager>& objectmanager,
