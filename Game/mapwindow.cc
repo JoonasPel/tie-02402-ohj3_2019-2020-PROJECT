@@ -617,7 +617,7 @@ void MapWindow::on_pushButton_5_clicked()
 
         for(auto tile : neighbour_tiles){
             std::shared_ptr<Student::Soldier> soldier = std::make_shared
-            <Student::Soldier>(gameEventHandler,objectManager,current_player);
+                    <Student::Soldier>(gameEventHandler,objectManager,current_player);
 
             add_new_worker(soldier,
                            Student::ConstResourceMaps::SOLDIER_RECRUITMENT_COST,
@@ -625,8 +625,6 @@ void MapWindow::on_pushButton_5_clicked()
         }
     }
 
-
-    //tänne for ja sit kaydaan neighbour_tiles lapi ja addadaa soldierei
 
 
 }

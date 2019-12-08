@@ -41,11 +41,11 @@ const Course::ResourceMap ROCKY_MOUNTAINS_BP = {
 
 
 const Course::ResourceMap Player_starting_resources = {
-    {Course::BasicResource::MONEY, 10000},
-    {Course::BasicResource::FOOD, 10000},
-    {Course::BasicResource::WOOD, 10000},
-    {Course::BasicResource::STONE, 10000},
-    {Course::BasicResource::ORE, 10000}
+    {Course::BasicResource::MONEY, 1000},
+    {Course::BasicResource::FOOD, 1000},
+    {Course::BasicResource::WOOD, 1000},
+    {Course::BasicResource::STONE, 1000},
+    {Course::BasicResource::ORE, 1000}
 };
 
 const Course::ResourceMapDouble worker_satisfactioner = {
@@ -108,10 +108,10 @@ const Course::ResourceMap MINE_PRODUCTION = {
 
 //NP = NuclearPlant
 const Course::ResourceMap NP_BUILD_COST = {
-    {Course::BasicResource::MONEY, 150},
-    {Course::BasicResource::FOOD, 190},
-    {Course::BasicResource::WOOD, 80},
-    {Course::BasicResource::STONE, 200}
+    {Course::BasicResource::MONEY, 4050},
+    {Course::BasicResource::FOOD, 3900},
+    {Course::BasicResource::WOOD, 2800},
+    {Course::BasicResource::STONE, 4500}
 };
 const Course::ResourceMap NP_PRODUCTION = {
     {Course::BasicResource::MONEY, -1},
