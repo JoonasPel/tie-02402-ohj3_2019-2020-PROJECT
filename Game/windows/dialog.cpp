@@ -25,7 +25,8 @@ int Dialog::exec()
     {
         QString name1 = ui->pl1_text->text();
         QString name2 = ui->pl2_text->text();
-        emit sendPlayerName(name1.toStdString(),name2.toStdString());
+        int interval = ui->TimerspinBox->value();
+        emit sendSettings(name1.toStdString(),name2.toStdString(), interval);
     }
 
     return dialog;

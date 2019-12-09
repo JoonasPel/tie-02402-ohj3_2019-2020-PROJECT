@@ -91,7 +91,7 @@ public slots:
     void print_tile_info(Course::Coordinate coordinates);
     //Tallentaa tilen koordinaatit, jota klikattu viimeksi, eli joka on "aktiivinen".
     void save_activate_tile(Course::Coordinate coordinates);
-    void init_game(std::string name1, std::string name2);
+    void init_game(std::string name1, std::string name2, int interval);
 
 private:
     Ui::MapWindow* m_ui;
@@ -106,7 +106,10 @@ private:
     std::shared_ptr<Student::Player> player2;
     std::shared_ptr<Student::Player> current_player;
 
-    Course::Coordinate last_clicked_tile; 
+    Course::Coordinate last_clicked_tile;
+
+    int timer_interval;
+    int time_used_counter;
 
 private slots:
     void on_pushButton_4_clicked();

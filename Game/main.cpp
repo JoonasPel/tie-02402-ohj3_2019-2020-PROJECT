@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 
 
 
-    QObject::connect(&dia, &Dialog::sendPlayerName,
+    QObject::connect(&dia, &Dialog::sendSettings,
                      &mapWindow, &MapWindow::init_game);
 
     dia.setWindowTitle("Settings");

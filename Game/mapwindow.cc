@@ -21,7 +21,8 @@ MapWindow::MapWindow(QWidget *parent,
     objectManager(std::make_shared<Student::ObjectManager>()),
     player1(std::make_shared<Student::Player>("Player 1")),
     player2(std::make_shared<Student::Player>("Player 2")),
-    last_clicked_tile(Course::Coordinate(0,0))
+    last_clicked_tile(Course::Coordinate(0,0)),
+    time_used_counter(0)
 {
     m_ui->setupUi(this);
     this->setWindowTitle("Pirkanmaan valloitus");
@@ -461,7 +462,7 @@ void MapWindow::save_activate_tile(Course::Coordinate coordinates)
     last_clicked_tile = coordinates;
 }
 
-void MapWindow::init_game(std::string name1, std::string name2)
+void MapWindow::init_game(std::string name1, std::string name2, int interval)
 {
     if(name1 == ""){
         player1->setName("Player 1");
@@ -527,7 +528,13 @@ void MapWindow::init_game(std::string name1, std::string name2)
 
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
-    timer->start(15000);
+
+    if(interval != 0)
+    {
+        timer_interval = interval;
+        //peliin paivittyy sekunnin valein jaljella oleva aika.
+        timer->start(1000);
+    }
 }
 
 void MapWindow::on_pushButton_4_clicked()
@@ -587,7 +594,8 @@ void MapWindow::on_TurnButton_clicked()
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 
-    timer->start(15000);
+    time_used_counter = 0;
+    timer->start(1000);
 }
 
 void MapWindow::on_addEWButton_clicked()
@@ -660,6 +668,14 @@ void MapWindow::on_pushButton_8_clicked()
 
 void MapWindow::timer_event()
 {
-    //Kutsuu slottia, joka vaihtaa pelaajan vuoron toiselle.
-    on_TurnButton_clicked();
+    time_used_counter += 1;
+
+    //m_ui->tahan_joku_widget->settext?(timer_interval - time_used_counter);
+    //m_ui->graphicsView->viewport()->update();
+
+    if(time_used_counter == timer_interval)
+    {
+        on_TurnButton_clicked();
+    }
+
 }

@@ -21,7 +21,7 @@ public:
     virtual int exec();
 
 signals:
-    void sendPlayerName(std::string name1,std::string name2);
+    void sendSettings(std::string name1,std::string name2, int timer_interval);
 
 private:
     Ui::Dialog *ui;
