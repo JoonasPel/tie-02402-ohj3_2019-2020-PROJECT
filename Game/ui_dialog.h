@@ -16,6 +16,7 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QSpinBox>
 
 QT_BEGIN_NAMESPACE
 
@@ -29,8 +30,9 @@ public:
     QLineEdit *pl1_text;
     QLineEdit *pl2_text;
     QLabel *label_4;
-    QLineEdit *pl2_text_2;
+    QLineEdit *timer_text;
     QFrame *line;
+    QSpinBox *TimerspinBox;
 
     void setupUi(QDialog *Dialog)
     {
@@ -73,14 +75,20 @@ public:
         QFont font2;
         font2.setPointSize(9);
         label_4->setFont(font2);
-        pl2_text_2 = new QLineEdit(Dialog);
-        pl2_text_2->setObjectName(QString::fromUtf8("pl2_text_2"));
-        pl2_text_2->setGeometry(QRect(180, 170, 161, 20));
+        timer_text = new QLineEdit(Dialog);
+        timer_text->setObjectName(QString::fromUtf8("timer_text"));
+        timer_text->setGeometry(QRect(180, 170, 161, 20));
         line = new QFrame(Dialog);
         line->setObjectName(QString::fromUtf8("line"));
         line->setGeometry(QRect(30, 140, 341, 20));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
+        TimerspinBox = new QSpinBox(Dialog);
+        TimerspinBox->setObjectName(QString::fromUtf8("TimerspinBox"));
+        TimerspinBox->setGeometry(QRect(310, 211, 61, 51));
+        QFont font3;
+        font3.setPointSize(15);
+        TimerspinBox->setFont(font3);
 
         retranslateUi(Dialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog, SLOT(accept()));
@@ -96,7 +104,7 @@ public:
         label_2->setText(QApplication::translate("Dialog", "Player 1:", nullptr));
         label_3->setText(QApplication::translate("Dialog", "Player 2:", nullptr));
         label_4->setText(QApplication::translate("Dialog", "Time till turn changes \n"
-"    (0 for no time)", nullptr));
+" (0 for no infinitetime)", nullptr));
     } // retranslateUi
 
 };
