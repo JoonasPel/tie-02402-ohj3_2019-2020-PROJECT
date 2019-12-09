@@ -621,10 +621,8 @@ void MapWindow::on_pushButton_5_clicked()
                                                        " and cannot built another!";
         setStatus(status);
         return;
-    } else
-    {
-        current_player->player_built_outpost();
     }
+
     std::shared_ptr<Student::StudentOutpost> outpost =
             std::make_shared<Student::StudentOutpost> (gameEventHandler,objectManager,current_player);
 
@@ -640,6 +638,8 @@ void MapWindow::on_pushButton_5_clicked()
                            Student::ConstResourceMaps::SOLDIER_RECRUITMENT_COST,
                            tile);
         }
+        current_player->player_built_outpost();
+
         auto tile = objectManager->getTile(last_clicked_tile);
         std::string status = current_player->getName()+" has built Outpost"+
                 " on "+tile->getType()+" biome and hired Soldiers to protect it.";
