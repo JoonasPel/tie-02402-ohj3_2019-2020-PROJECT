@@ -568,7 +568,6 @@ void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
 
 void MapWindow::on_TurnButton_clicked()
 {
-
     setStatus("");
     //Generoidaan resurssit pelaajalle, joka lopetti vuoronsa.
     for(unsigned int i = 0; i < 165; i++)
@@ -579,7 +578,6 @@ void MapWindow::on_TurnButton_clicked()
             tile->generateResources();
         }
     }
-
     //Vuoro vaihtuu
     if(current_player == player2)
     {
@@ -600,8 +598,6 @@ void MapWindow::on_TurnButton_clicked()
 
 void MapWindow::on_addEWButton_clicked()
 {
-
-
     std::shared_ptr<Student::EliteWorker> new_worker =
             std::make_shared<Student::EliteWorker>(gameEventHandler,objectManager,current_player);
 
@@ -619,6 +615,16 @@ void MapWindow::on_pushButton_6_clicked()
 
 void MapWindow::on_pushButton_5_clicked()
 {
+    if(current_player->does_player_have_outpost())
+    {
+        std::string status = current_player->getName()+" already owns an Outpost"
+                                                       " and cannot built another!";
+        setStatus(status);
+        return;
+    } else
+    {
+        current_player->player_built_outpost();
+    }
     std::shared_ptr<Student::StudentOutpost> outpost =
             std::make_shared<Student::StudentOutpost> (gameEventHandler,objectManager,current_player);
 
@@ -634,10 +640,11 @@ void MapWindow::on_pushButton_5_clicked()
                            Student::ConstResourceMaps::SOLDIER_RECRUITMENT_COST,
                            tile);
         }
+        auto tile = objectManager->getTile(last_clicked_tile);
+        std::string status = current_player->getName()+" has built Outpost"+
+                " on "+tile->getType()+" biome and hired Soldiers to protect it.";
+        setStatus(status);
     }
-
-
-
 }
 
 void MapWindow::on_addAWButton_clicked()

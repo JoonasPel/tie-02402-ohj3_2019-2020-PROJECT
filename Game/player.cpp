@@ -10,6 +10,7 @@ Player::Player(const std::string& name,
     m_tiles(),
     m_name(name),
     m_objects(),
+    has_outpost(false),
     player_resources(Course::ResourceMap(Student::ConstResourceMaps::Player_starting_resources))
 
 {
@@ -65,6 +66,16 @@ void Player::addtile(std::shared_ptr<Course::TileBase> tile)
 std::vector<std::shared_ptr<Course::TileBase> > Player::get_tiles()
 {
     return m_tiles;
+}
+
+void Player::player_built_outpost()
+{
+    has_outpost = true;
+}
+
+bool Player::does_player_have_outpost()
+{
+    return has_outpost;
 }
 
 

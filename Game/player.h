@@ -28,6 +28,8 @@ public:
     bool already_owned(std::shared_ptr<Course::TileBase> tile);
     void addtile(std::shared_ptr<Course::TileBase> tile);
     std::vector<std::shared_ptr<Course::TileBase>> get_tiles();
+    void player_built_outpost();
+    bool does_player_have_outpost();
 
 
 
@@ -36,6 +38,7 @@ private:
     std::string m_name;
     std::vector<std::weak_ptr<Course::GameObject>> m_objects;
     Course::ResourceMap player_resources;
+    bool has_outpost; //Pelaajalla voi olla vain yksi Outpost!
 
 
 
