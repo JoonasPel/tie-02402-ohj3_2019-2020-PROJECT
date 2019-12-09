@@ -40,6 +40,12 @@ public:
      std::vector<std::shared_ptr<Course::TileBase>> getTiles(
             const std::vector<Course::Coordinate>& coordinates);
 
+
+     /*!
+      * \brief getTiles, palauttaa tiles_ vectorin johon on tallennettu kaikki
+      * tiilet
+      * \return
+      */
      std::vector<std::shared_ptr<Course::TileBase>> getTiles();
 
     std::vector<std::shared_ptr<Course::TileBase>> tiles_;

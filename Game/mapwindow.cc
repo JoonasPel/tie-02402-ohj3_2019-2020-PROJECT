@@ -53,56 +53,56 @@ void MapWindow::setStatus(std::string text)
     m_ui->statusLabel->setText(q_text);
 }
 
-QPixmap MapWindow::getImageByString(std::string building_name)
+QPixmap MapWindow::getImageByString(std::string object_name)
 {
-    if(building_name == "Farm")
+    if(object_name == "Farm")
     {
         QPixmap building_image(":/farmimage.png");
         return building_image.scaled(QSize(25,25));
 
-    } else if (building_name == "HeadQuarters")
+    } else if (object_name == "HeadQuarters")
     {
         QPixmap building_image(":/building_image.png");
          return building_image.scaled(QSize(25,25));
 
 
-    } else if (building_name == "Mine")
+    } else if (object_name == "Mine")
     {
         QPixmap building_image(":/mineimage.png");
         return building_image.scaled(QSize(25,25));
 
-    } else if(building_name == "Outpost")
+    } else if(object_name == "Outpost")
     {
         QPixmap building_image(":/outpostimage.png");
         return building_image.scaled(QSize(25,25));
 
 
-    } else if(building_name == "NuclearPlant")
+    } else if(object_name == "NuclearPlant")
     {
         QPixmap building_image(":/npimage.png");
         return building_image.scaled(QSize(25,25));
 
 
-    } else if ( building_name == "Money"){
+    } else if ( object_name == "Money"){
         QPixmap building_image(":/money.png");
         return building_image.scaled(QSize(28,28));
 
 
-    }else if ( building_name == "Stone"){
+    }else if ( object_name == "Stone"){
         QPixmap building_image(":/stoneimage.png");
         return building_image.scaled(QSize(28,28));
 
-    }else if ( building_name == "Wood"){
+    }else if ( object_name == "Wood"){
         QPixmap building_image(":/woodimage.png");
         return building_image.scaled(QSize(28,28));
 
 
-    }else if ( building_name == "Ore"){
+    }else if ( object_name == "Ore"){
         QPixmap building_image(":/oreimage.png");
          return building_image.scaled(QSize(28,28));
 
 
-    }else if ( building_name == "Food"){
+    }else if ( object_name == "Food"){
         QPixmap building_image(":/foodimage.png");
          return building_image.scaled(QSize(28,28));
 

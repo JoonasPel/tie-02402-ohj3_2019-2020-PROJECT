@@ -36,8 +36,6 @@ std::vector<std::shared_ptr<Course::TileBase> > StudentOutpost::ClaimAndConquer(
     std::vector< std::shared_ptr<Course::TileBase> > neighbours =
             lockObjectManager()->getTiles(getCoordinatePtr()->neighbours(2));
 
-    std::vector< std::shared_ptr<Course::TileBase> > inside_neighbours =
-            lockObjectManager()->getTiles(getCoordinatePtr()->neighbours(1));
 
     for(auto it = neighbours.begin(); it != neighbours.end(); ++it)
     {
@@ -48,19 +46,6 @@ std::vector<std::shared_ptr<Course::TileBase> > StudentOutpost::ClaimAndConquer(
         }
     }
     lockObjectManager()->getTile(getCoordinate())->setOwner(getOwner());
-
-//    //Kay lapi outpostin naapurit ja poistaa "sisalla" olevat. Jaljelle jatetaan "ulkorinki".
-//    for(auto tile : neighbours)
-//    {
-//        auto it = std::find(inside_neighbours.begin(), inside_neighbours.end(), tile);
-
-//        int index = std::distance(neighbours.begin(), it);
-
-//        if (it != inside_neighbours.end())
-//        {
-//            neighbours.erase(neighbours.begin() + index);
-//        }
-//    }
 
     return neighbours;
 }

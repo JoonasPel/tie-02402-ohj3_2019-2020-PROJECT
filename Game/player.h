@@ -22,13 +22,61 @@ public:
 
     virtual ~Player() = default;
 
+
+    /*!
+     * \brief get_player_resources, palauttaa pelaajan resurssit
+     * \return
+     */
     Course::ResourceMap get_player_resources();
-    void save_player_resources(Course::ResourceMap resources); //Tallentaa muuttuneet resurssit.
+
+
+    /*!
+     * \brief save_player_resources, tallentaa pelaajan muuttuneet resurssit
+     * \param resources
+     */
+    void save_player_resources(Course::ResourceMap resources);
+
+
+    /*!
+     * \brief does_have_enough_resources, tarkistaa onko pelaajalla tarpeeksi
+     * resursseja
+     * \param cost, hinta, johon pelaajan resursseja verrataan.
+     * \return
+     */
     bool does_have_enough_resources(Course::ResourceMap cost);
+
+
+    /*!
+     * \brief already_owned, tarkistaa onko kyseinen tiili jo pelaajan omassa
+     * tiilivektorissa
+     * \param tile, tarkistettavan tiilen pointteri
+     * \return totuusarvo
+     */
     bool already_owned(std::shared_ptr<Course::TileBase> tile);
+
+    /*!
+     * \brief addtile, lisää tiilipointterin pelaajan tiilivektoriin
+     * \param tile, lisättävä tiilipointteri
+     */
     void addtile(std::shared_ptr<Course::TileBase> tile);
+
+    /*!
+     * \brief get_tiles, palauttaa pelaajan omistuksessa olevat tiilet
+     * \return vektori tiilistä jotka pelaaja omistaa
+     */
     std::vector<std::shared_ptr<Course::TileBase>> get_tiles();
+
+    /*!
+     * \brief player_built_outpost, jos outpousti rakennetaan, asetetaan
+     * has_outpost trueksi
+     */
     void player_built_outpost();
+
+    /*!
+     * \brief does_player_have_outpost, tarkistaa onko pelaaja rakentanut
+     * outpostin.
+     * \return
+     */
     bool does_player_have_outpost();
 
 

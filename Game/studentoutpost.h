@@ -31,8 +31,13 @@ public:
 
     virtual std::string getType() const override;
 
-    //Toimii kuten kurssin Outpostin onBuildAction, mutta palauttaa
-    //"ulkoringissa" olevat tilet, joihin pelaaja sai omistuksen.
+
+
+    /*!
+     * \brief ClaimAndConquer, Toimii kuten kurssin Outpostin onBuildAction,
+     * mutta rangena 2.
+     * \return
+     */
     std::vector<std::shared_ptr<Course::TileBase>> ClaimAndConquer();
 
 

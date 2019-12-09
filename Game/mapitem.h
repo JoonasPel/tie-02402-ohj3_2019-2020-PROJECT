@@ -47,7 +47,11 @@ private:
     QPoint m_scenelocation;
     int m_size;
 
+
+    // mappi johon on lisätty jokaiselle peliobjektille väri (R,G,B)
     static std::map<std::string, QColor> c_mapcolors;
+
+
     static void addNewColor(std::string type);
 };
 
