@@ -104,17 +104,17 @@ private:
     int time_used_counter;
 
 private slots:
-    void on_pushButton_4_clicked();
-    void on_pushButton_5_clicked();
-    void on_pushButton_6_clicked();
-    void on_pushButton_7_clicked();
+    void on_add_farm_button_clicked();
+    void on_add_outpost_button_clicked();
+    void on_add_hq_button_clicked();
+    void on_add_mine_button_clicked();
 
     void on_addBWButton_clicked();
     void on_addAWButton_clicked();
 
     void on_TurnButton_clicked();
     void on_addEWButton_clicked();
-    void on_pushButton_8_clicked();
+    void on_add_np_button_clicked();
 
     void timer_event();
 };

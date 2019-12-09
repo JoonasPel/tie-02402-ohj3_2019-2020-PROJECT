@@ -11,7 +11,7 @@ Player::Player(const std::string& name,
     m_name(name),
     m_objects(),
     has_outpost(false),
-    player_resources(Course::ResourceMap(Student::ConstResourceMaps::Player_starting_resources))
+    player_resources(Course::ResourceMap(Student::ConstResourceMaps::PLAYER_STARTING_RESOURCES))
 
 {
     for( auto it = objects.begin(); it != objects.end(); ++it)

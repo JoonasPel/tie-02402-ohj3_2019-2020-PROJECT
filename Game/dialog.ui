@@ -164,6 +164,9 @@
      <pointsize>15</pointsize>
     </font>
    </property>
+   <property name="singleStep">
+    <number>5</number>
+   </property>
   </widget>
  </widget>
  <resources/>

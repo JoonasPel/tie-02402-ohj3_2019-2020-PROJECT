@@ -31,7 +31,7 @@ std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared
     {
      Course::ResourceMapDouble efficiency = worker->WORKER_EFFICIENCY;
         efficiency = multiplyResourceMapDoubles
-                (efficiency,ConstResourceMaps::worker_satisfactioner);
+                (efficiency,ConstResourceMaps::WORKER_SATISFACTIONER);
 
 
         worker_efficiency = mergeResourceMapDoubles(worker_efficiency, efficiency);
@@ -84,8 +84,9 @@ Course::ResourceMap GameEventHandler::calculate_upkeep(std::vector<std::shared_p
             throw Course::BaseException("No upkeep cost for worker in GEhandler calculate_upkeep!");
 }
 
-    return workers_upkeep_cost;
+
 }
+     return workers_upkeep_cost;
 }
 
 bool GameEventHandler::modifyResource(std::shared_ptr<Course::PlayerBase> player, Course::BasicResource resource, int amount)

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1420</width>
-    <height>871</height>
+    <width>1424</width>
+    <height>890</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="add_farm_button">
     <property name="geometry">
      <rect>
       <x>1273</x>
@@ -52,7 +52,7 @@
      <string>Build Farm</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="add_outpost_button">
     <property name="geometry">
      <rect>
       <x>1113</x>
@@ -65,7 +65,7 @@
      <string>Build Outpost</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="add_hq_button">
     <property name="geometry">
      <rect>
       <x>1113</x>
@@ -78,7 +78,7 @@
      <string>Build HQ</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="add_mine_button">
     <property name="geometry">
      <rect>
       <x>1273</x>
@@ -730,7 +730,7 @@ Basic Worker</string>
      </rect>
     </property>
     <property name="text">
-     <string>2</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="hq_label">
@@ -953,7 +953,7 @@ Basic Worker</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="add_np_button">
     <property name="geometry">
      <rect>
       <x>1273</x>
@@ -992,13 +992,49 @@ Basic Worker</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>807</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Time left:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="time_left_label">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>807</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1420</width>
+     <width>1424</width>
      <height>21</height>
     </rect>
    </property>

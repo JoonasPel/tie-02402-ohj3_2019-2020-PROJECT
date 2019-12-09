@@ -89,6 +89,7 @@ public:
         QFont font3;
         font3.setPointSize(15);
         TimerspinBox->setFont(font3);
+        TimerspinBox->setSingleStep(5);
 
         retranslateUi(Dialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog, SLOT(accept()));

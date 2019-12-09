@@ -30,10 +30,10 @@ class Ui_MapWindow
 public:
     QWidget *centralwidget;
     QGraphicsView *graphicsView;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_7;
+    QPushButton *add_farm_button;
+    QPushButton *add_outpost_button;
+    QPushButton *add_hq_button;
+    QPushButton *add_mine_button;
     QTextBrowser *InfoText;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout_4;
@@ -101,9 +101,11 @@ public:
     QLabel *woodPic;
     QLabel *stonePic;
     QLabel *orePic;
-    QPushButton *pushButton_8;
+    QPushButton *add_np_button;
     QLabel *np_label;
     QFrame *line_14;
+    QLabel *label_13;
+    QLabel *time_left_label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -111,7 +113,7 @@ public:
     {
         if (MapWindow->objectName().isEmpty())
             MapWindow->setObjectName(QString::fromUtf8("MapWindow"));
-        MapWindow->resize(1420, 871);
+        MapWindow->resize(1424, 890);
         MapWindow->setLayoutDirection(Qt::LeftToRight);
         centralwidget = new QWidget(MapWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -124,18 +126,18 @@ public:
         sizePolicy.setHeightForWidth(graphicsView->sizePolicy().hasHeightForWidth());
         graphicsView->setSizePolicy(sizePolicy);
         graphicsView->setMinimumSize(QSize(1040, 675));
-        pushButton_4 = new QPushButton(centralwidget);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(1273, 373, 111, 31));
-        pushButton_5 = new QPushButton(centralwidget);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(1113, 373, 121, 31));
-        pushButton_6 = new QPushButton(centralwidget);
-        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(1113, 403, 121, 31));
-        pushButton_7 = new QPushButton(centralwidget);
-        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
-        pushButton_7->setGeometry(QRect(1273, 403, 111, 31));
+        add_farm_button = new QPushButton(centralwidget);
+        add_farm_button->setObjectName(QString::fromUtf8("add_farm_button"));
+        add_farm_button->setGeometry(QRect(1273, 373, 111, 31));
+        add_outpost_button = new QPushButton(centralwidget);
+        add_outpost_button->setObjectName(QString::fromUtf8("add_outpost_button"));
+        add_outpost_button->setGeometry(QRect(1113, 373, 121, 31));
+        add_hq_button = new QPushButton(centralwidget);
+        add_hq_button->setObjectName(QString::fromUtf8("add_hq_button"));
+        add_hq_button->setGeometry(QRect(1113, 403, 121, 31));
+        add_mine_button = new QPushButton(centralwidget);
+        add_mine_button->setObjectName(QString::fromUtf8("add_mine_button"));
+        add_mine_button->setGeometry(QRect(1273, 403, 111, 31));
         InfoText = new QTextBrowser(centralwidget);
         InfoText->setObjectName(QString::fromUtf8("InfoText"));
         InfoText->setGeometry(QRect(1080, 539, 151, 181));
@@ -478,9 +480,9 @@ public:
 
         verticalLayout->addWidget(orePic);
 
-        pushButton_8 = new QPushButton(centralwidget);
-        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
-        pushButton_8->setGeometry(QRect(1273, 433, 111, 31));
+        add_np_button = new QPushButton(centralwidget);
+        add_np_button->setObjectName(QString::fromUtf8("add_np_button"));
+        add_np_button->setGeometry(QRect(1273, 433, 111, 31));
         np_label = new QLabel(centralwidget);
         np_label->setObjectName(QString::fromUtf8("np_label"));
         np_label->setGeometry(QRect(1240, 430, 31, 31));
@@ -489,10 +491,18 @@ public:
         line_14->setGeometry(QRect(1080, 460, 321, 20));
         line_14->setFrameShape(QFrame::HLine);
         line_14->setFrameShadow(QFrame::Sunken);
+        label_13 = new QLabel(centralwidget);
+        label_13->setObjectName(QString::fromUtf8("label_13"));
+        label_13->setGeometry(QRect(1170, 807, 81, 41));
+        label_13->setFont(font4);
+        time_left_label = new QLabel(centralwidget);
+        time_left_label->setObjectName(QString::fromUtf8("time_left_label"));
+        time_left_label->setGeometry(QRect(1270, 807, 81, 41));
+        time_left_label->setFont(font4);
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1420, 21));
+        menubar->setGeometry(QRect(0, 0, 1424, 21));
         MapWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MapWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -506,10 +516,10 @@ public:
     void retranslateUi(QMainWindow *MapWindow)
     {
         MapWindow->setWindowTitle(QApplication::translate("MapWindow", "MainWindow", nullptr));
-        pushButton_4->setText(QApplication::translate("MapWindow", "Build Farm", nullptr));
-        pushButton_5->setText(QApplication::translate("MapWindow", "Build Outpost", nullptr));
-        pushButton_6->setText(QApplication::translate("MapWindow", "Build HQ", nullptr));
-        pushButton_7->setText(QApplication::translate("MapWindow", "Build Mine", nullptr));
+        add_farm_button->setText(QApplication::translate("MapWindow", "Build Farm", nullptr));
+        add_outpost_button->setText(QApplication::translate("MapWindow", "Build Outpost", nullptr));
+        add_hq_button->setText(QApplication::translate("MapWindow", "Build HQ", nullptr));
+        add_mine_button->setText(QApplication::translate("MapWindow", "Build Mine", nullptr));
         label->setText(QApplication::translate("MapWindow", "MONEY", nullptr));
         label_2->setText(QApplication::translate("MapWindow", "STONE", nullptr));
         label_3->setText(QApplication::translate("MapWindow", "FOOD", nullptr));
@@ -540,7 +550,7 @@ public:
         WoodPlayerLabel_2->setText(QString());
         label_11->setText(QApplication::translate("MapWindow", "Current production", nullptr));
         label_12->setText(QApplication::translate("MapWindow", "Total resources", nullptr));
-        outpost_label->setText(QApplication::translate("MapWindow", "2", nullptr));
+        outpost_label->setText(QString());
         hq_label->setText(QString());
         farm_label->setText(QString());
         mine_label->setText(QString());
@@ -556,8 +566,10 @@ public:
         woodPic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
         stonePic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
         orePic->setText(QApplication::translate("MapWindow", "TextLabel", nullptr));
-        pushButton_8->setText(QApplication::translate("MapWindow", "Build Nuclearplant", nullptr));
+        add_np_button->setText(QApplication::translate("MapWindow", "Build Nuclearplant", nullptr));
         np_label->setText(QString());
+        label_13->setText(QApplication::translate("MapWindow", "Time left:", nullptr));
+        time_left_label->setText(QString());
     } // retranslateUi
 
 };

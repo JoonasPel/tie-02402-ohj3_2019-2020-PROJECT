@@ -34,6 +34,7 @@ MapWindow::MapWindow(QWidget *parent,
     timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(timer_event()));
 
+
     connect(m_gamescene.get(), &Student::GameScene::sendtileid,
                 this, &MapWindow::print_tile_info);
 
@@ -57,55 +58,54 @@ QPixmap MapWindow::getImageByString(std::string building_name)
     if(building_name == "Farm")
     {
         QPixmap building_image(":/farmimage.png");
-        QPixmap building = building_image.scaled(QSize(25,25));
-        return building;
+        return building_image.scaled(QSize(25,25));
+
     } else if (building_name == "HeadQuarters")
     {
         QPixmap building_image(":/building_image.png");
-        QPixmap building = building_image.scaled(QSize(25,25));
-        return building;
+         return building_image.scaled(QSize(25,25));
+
 
     } else if (building_name == "Mine")
     {
         QPixmap building_image(":/mineimage.png");
-        QPixmap building = building_image.scaled(QSize(25,25));
-        return building;
+        return building_image.scaled(QSize(25,25));
+
     } else if(building_name == "Outpost")
     {
         QPixmap building_image(":/outpostimage.png");
-        QPixmap building = building_image.scaled(QSize(25,25));
-        return building;
+        return building_image.scaled(QSize(25,25));
+
 
     } else if(building_name == "NuclearPlant")
     {
         QPixmap building_image(":/npimage.png");
-        QPixmap building = building_image.scaled(QSize(25,25));
-        return building;
+        return building_image.scaled(QSize(25,25));
+
 
     } else if ( building_name == "Money"){
         QPixmap building_image(":/money.png");
-        QPixmap building = building_image.scaled(QSize(28,28));
-        return building;
+        return building_image.scaled(QSize(28,28));
+
 
     }else if ( building_name == "Stone"){
         QPixmap building_image(":/stoneimage.png");
-        QPixmap building = building_image.scaled(QSize(28,28));
-        return building;
+        return building_image.scaled(QSize(28,28));
 
     }else if ( building_name == "Wood"){
         QPixmap building_image(":/woodimage.png");
-        QPixmap building = building_image.scaled(QSize(28,28));
-        return building;
+        return building_image.scaled(QSize(28,28));
+
 
     }else if ( building_name == "Ore"){
         QPixmap building_image(":/oreimage.png");
-        QPixmap building = building_image.scaled(QSize(28,28));
-        return building;
+         return building_image.scaled(QSize(28,28));
+
 
     }else if ( building_name == "Food"){
         QPixmap building_image(":/foodimage.png");
-        QPixmap building = building_image.scaled(QSize(28,28));
-        return building;
+         return building_image.scaled(QSize(28,28));
+
 
     } else
     {
@@ -315,11 +315,11 @@ void MapWindow::gamewon()
     m_ui->addAWButton->setDisabled(true);
     m_ui->addBWButton->setDisabled(true);
     m_ui->addEWButton->setDisabled(true);
-    m_ui->pushButton_4->setDisabled(true);
-    m_ui->pushButton_5->setDisabled(true);
-    m_ui->pushButton_6->setDisabled(true);
-    m_ui->pushButton_7->setDisabled(true);
-    m_ui->pushButton_8->setDisabled(true);
+    m_ui->add_hq_button->setDisabled(true);
+    m_ui->add_farm_button->setDisabled(true);
+    m_ui->add_mine_button->setDisabled(true);
+    m_ui->add_outpost_button->setDisabled(true);
+    m_ui->add_np_button->setDisabled(true);
     timer->stop();
 
 }
@@ -386,7 +386,7 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
         switch (resource.first) {
 
         case Course::BasicResource::MONEY:
-            m_ui->InfoText->append("\nBase Production:\nMoney: "+QString::number(resource.second)); break;
+            m_ui->InfoText->append("\n\nBase Production:\nMoney: "+QString::number(resource.second)); break;
 
         case Course::BasicResource::FOOD:
             m_ui->InfoText->append("Food: "+QString::number(resource.second)); break;
@@ -492,7 +492,7 @@ void MapWindow::init_game(std::string name1, std::string name2, int interval)
     }
 }
 
-void MapWindow::on_pushButton_4_clicked()
+void MapWindow::on_add_farm_button_clicked()
 {
     std::shared_ptr<Course::Farm> farmi =
             std::make_shared<Course::Farm>(gameEventHandler,objectManager,current_player);
@@ -555,7 +555,7 @@ void MapWindow::on_addEWButton_clicked()
     add_new_worker(new_worker, Student::ConstResourceMaps::ELITE_WORKER_COST, tile);
 }
 
-void MapWindow::on_pushButton_6_clicked()
+void MapWindow::on_add_hq_button_clicked()
 {
     std::shared_ptr<Course::HeadQuarters> hq =
             std::make_shared<Course::HeadQuarters>(gameEventHandler,objectManager,current_player);
@@ -563,7 +563,7 @@ void MapWindow::on_pushButton_6_clicked()
    add_new_building(hq, Course::ConstResourceMaps::HQ_BUILD_COST);
 }
 
-void MapWindow::on_pushButton_5_clicked()
+void MapWindow::on_add_outpost_button_clicked()
 {
     if(current_player->does_player_have_outpost())
     {
@@ -606,7 +606,7 @@ void MapWindow::on_addAWButton_clicked()
     add_new_worker(advancedworker, Student::ConstResourceMaps::AW_RECRUITMENT_COST, tile);
 }
 
-void MapWindow::on_pushButton_7_clicked()
+void MapWindow::on_add_mine_button_clicked()
 {
     std::shared_ptr<Student::Mine> mine =
             std::make_shared<Student::Mine>(gameEventHandler,objectManager,current_player);
@@ -615,7 +615,7 @@ void MapWindow::on_pushButton_7_clicked()
 }
 
 
-void MapWindow::on_pushButton_8_clicked()
+void MapWindow::on_add_np_button_clicked()
 {
     std::shared_ptr<Student::NuclearPlant> np =
             std::make_shared<Student::NuclearPlant>(gameEventHandler,objectManager,current_player);
@@ -627,8 +627,8 @@ void MapWindow::timer_event()
 {
     time_used_counter += 1;
 
-    //m_ui->tahan_joku_widget->settext?(timer_interval - time_used_counter);
-    //m_ui->graphicsView->viewport()->update();
+    m_ui->time_left_label->setNum(timer_interval - time_used_counter);
+    m_ui->graphicsView->viewport()->update();
 
     if(time_used_counter == timer_interval)
     {

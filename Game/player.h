@@ -37,8 +37,9 @@ private:
     std::vector<std::shared_ptr<Course::TileBase>> m_tiles;
     std::string m_name;
     std::vector<std::weak_ptr<Course::GameObject>> m_objects;
-    Course::ResourceMap player_resources;
     bool has_outpost; //Pelaajalla voi olla vain yksi Outpost!
+    Course::ResourceMap player_resources;
+
 
 
 
