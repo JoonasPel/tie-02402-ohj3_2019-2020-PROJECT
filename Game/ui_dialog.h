@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 
@@ -27,15 +28,18 @@ public:
     QLabel *label_3;
     QLineEdit *pl1_text;
     QLineEdit *pl2_text;
+    QLabel *label_4;
+    QLineEdit *pl2_text_2;
+    QFrame *line;
 
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QString::fromUtf8("Dialog"));
-        Dialog->resize(398, 212);
+        Dialog->resize(408, 294);
         buttonBox = new QDialogButtonBox(Dialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setGeometry(QRect(-60, 150, 341, 32));
+        buttonBox->setGeometry(QRect(-70, 220, 341, 32));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(Dialog);
@@ -59,10 +63,24 @@ public:
         label_3->setFont(font1);
         pl1_text = new QLineEdit(Dialog);
         pl1_text->setObjectName(QString::fromUtf8("pl1_text"));
-        pl1_text->setGeometry(QRect(130, 70, 161, 20));
+        pl1_text->setGeometry(QRect(180, 70, 161, 20));
         pl2_text = new QLineEdit(Dialog);
         pl2_text->setObjectName(QString::fromUtf8("pl2_text"));
-        pl2_text->setGeometry(QRect(130, 110, 161, 20));
+        pl2_text->setGeometry(QRect(180, 110, 161, 20));
+        label_4 = new QLabel(Dialog);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(40, 160, 131, 41));
+        QFont font2;
+        font2.setPointSize(9);
+        label_4->setFont(font2);
+        pl2_text_2 = new QLineEdit(Dialog);
+        pl2_text_2->setObjectName(QString::fromUtf8("pl2_text_2"));
+        pl2_text_2->setGeometry(QRect(180, 170, 161, 20));
+        line = new QFrame(Dialog);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setGeometry(QRect(30, 140, 341, 20));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
 
         retranslateUi(Dialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), Dialog, SLOT(accept()));
@@ -77,6 +95,8 @@ public:
         label->setText(QApplication::translate("Dialog", "Choose player names", nullptr));
         label_2->setText(QApplication::translate("Dialog", "Player 1:", nullptr));
         label_3->setText(QApplication::translate("Dialog", "Player 2:", nullptr));
+        label_4->setText(QApplication::translate("Dialog", "Time till turn changes \n"
+"    (0 for no time)", nullptr));
     } // retranslateUi
 
 };
