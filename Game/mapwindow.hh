@@ -65,15 +65,7 @@ public:
                        );
     ~MapWindow();
 
-    void setGEHandler(std::shared_ptr<Course::iGameEventHandler> nHandler);
-
-    void setSize(int width, int height);
-    void setScale(int scale);
-    void resize();
-
     void drawItem( std::shared_ptr<Course::GameObject> obj);
-    void removeItem( std::shared_ptr<Course::GameObject> obj);
-    void updateItem( std::shared_ptr<Course::GameObject> obj);
     void setStatus(std::string text);
     QPixmap getImageByString(std::string building_name);
     void paintWorker(std::shared_ptr<Course::TileBase> tile);

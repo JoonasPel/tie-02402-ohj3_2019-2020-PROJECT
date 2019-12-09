@@ -46,32 +46,6 @@ MapWindow::~MapWindow()
     delete m_ui;
 }
 
-void MapWindow::setGEHandler(
-        std::shared_ptr<Course::iGameEventHandler> nHandler)
-{
-    m_GEHandler = nHandler;
-}
-
-void MapWindow::setSize(int width, int height)
-{
-    m_gamescene->setSize(width, height);
-}
-
-void MapWindow::setScale(int scale)
-{
-    m_gamescene->setScale(scale);
-}
-
-void MapWindow::resize()
-{
-    m_gamescene->resize();
-}
-
-void MapWindow::updateItem(std::shared_ptr<Course::GameObject> obj)
-{
-    m_gamescene->updateItem(obj);
-}
-
 void MapWindow::setStatus(std::string text)
 {
     QString q_text = QString::fromStdString(text);
@@ -133,21 +107,21 @@ QPixmap MapWindow::getImageByString(std::string building_name)
         QPixmap building = building_image.scaled(QSize(28,28));
         return building;
 
+    } else
+    {
+        throw Course::BaseException("No image for object found!");
     }
-
-
 }
 
 void MapWindow::paintWorker(std::shared_ptr<Course::TileBase> tile)
 {
     int x = tile->getCoordinate().x();
     int y = tile->getCoordinate().y();
-    int worker_count = tile->getWorkerCount();
 
     QPixmap image(":/worker_image.png");
     QGraphicsPixmapItem* worker_image = m_gamescene->addPixmap(image);
 
-    switch (worker_count) {
+    switch (tile->getWorkerCount()) {
 
     case 1: worker_image->setPos(x*70+24,y*70+32); break;
 
@@ -160,20 +134,13 @@ void MapWindow::paintWorker(std::shared_ptr<Course::TileBase> tile)
     default: break;
 
     }
-
     m_ui->graphicsView->viewport()->update();
 }
-
-
 
 void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building)
 {
     int x = tile->getCoordinate().x();
     int y = tile->getCoordinate().y();
-
-
-
-
 
     QGraphicsPixmapItem* item = m_gamescene->addPixmap(building);
 
@@ -190,14 +157,10 @@ void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap bui
     default: break;
 
     }
-
      m_ui->graphicsView->viewport()->update();
 }
 
 void MapWindow::update_player_resources()
-
-
-
 {
     Course::ResourceMap resources = current_player->get_player_resources();
 
@@ -322,15 +285,12 @@ bool MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
 
 void MapWindow::draw_tiles()
 {
-
     for(unsigned int i = 0; i < 165; i++)
     {
-           auto item = objectManager->getTile(i);
-           drawItem(item);
+        auto item = objectManager->getTile(i);
+        drawItem(item);
     }
 }
-
-
 
 void MapWindow::print_total_production()
 {
@@ -360,6 +320,7 @@ void MapWindow::gamewon()
     m_ui->pushButton_6->setDisabled(true);
     m_ui->pushButton_7->setDisabled(true);
     m_ui->pushButton_8->setDisabled(true);
+    timer->stop();
 
 }
 
@@ -420,13 +381,12 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
         m_ui->InfoText->append(worker_type);
     }
 
-    //Tilen Base Productionin ilmoitus.
     for(auto resource : tile->BASE_PRODUCTION)
     {
         switch (resource.first) {
 
         case Course::BasicResource::MONEY:
-            m_ui->InfoText->append("Money: "+QString::number(resource.second)); break;
+            m_ui->InfoText->append("\nBase Production:\nMoney: "+QString::number(resource.second)); break;
 
         case Course::BasicResource::FOOD:
             m_ui->InfoText->append("Food: "+QString::number(resource.second)); break;
@@ -441,13 +401,10 @@ void MapWindow::print_tile_info(Course::Coordinate coordinates)
             m_ui->InfoText->append("Ore: "+QString::number(resource.second)); break;
 
         default: break;
-
         }
     }
 
-
     std::map<Course::BasicResource, int> tile_production = gameEventHandler->getProduction(tile);
-
 
     m_ui->MoneyLabel->setNum(tile_production[Course::BasicResource::MONEY]);
     m_ui->OreLabel->setNum(tile_production[Course::BasicResource::ORE]);
@@ -522,12 +479,10 @@ void MapWindow::init_game(std::string name1, std::string name2, int interval)
     m_ui->stonePic->setPixmap(getImageByString("Stone"));
     m_ui->orePic->setPixmap(getImageByString("Ore"));
 
-
-
-    m_ui->graphicsView->viewport()->update();
-
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
+
+    m_ui->graphicsView->viewport()->update();
 
     if(interval != 0)
     {
@@ -554,11 +509,6 @@ void MapWindow::on_addBWButton_clicked()
     std::shared_ptr<Course::TileBase> tile = objectManager->getTile(last_clicked_tile);
     add_new_worker(basicworker, Course::ConstResourceMaps::BW_RECRUITMENT_COST, tile);
 
-}
-
-void MapWindow::removeItem(std::shared_ptr<Course::GameObject> obj)
-{
-    m_gamescene->removeItem(obj);
 }
 
 void MapWindow::drawItem( std::shared_ptr<Course::GameObject> obj)
@@ -684,5 +634,4 @@ void MapWindow::timer_event()
     {
         on_TurnButton_clicked();
     }
-
 }
