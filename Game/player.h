@@ -11,7 +11,9 @@ namespace Student {
 
 
 
-
+/*!
+ * \brief The Player class
+ */
 class Player : public Course::PlayerBase
 {
 public:

@@ -8,7 +8,9 @@
 namespace Student {
 
 
-
+/*!
+ * \brief The StudentOutpost class
+ */
 class StudentOutpost : public Course::Outpost
 {
 

@@ -23,6 +23,9 @@ class PlayerBase;
 class GameObject;
 class Coordinate;
 
+/*!
+ * \brief The GameEventHandler class
+ */
 class GameEventHandler : public Course::iGameEventHandler
 {
 public:

@@ -7,7 +7,9 @@
 namespace Student {
 
 
-
+/*!
+ * \brief The NuclearPlant class
+ */
 class NuclearPlant : public Course::BuildingBase
 {
 public:

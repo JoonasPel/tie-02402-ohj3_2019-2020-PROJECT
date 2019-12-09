@@ -6,7 +6,9 @@
 
 namespace Student {
 
-
+/*!
+ * \brief The Desert class
+ */
 class Desert : public Course::TileBase
 {
 public:

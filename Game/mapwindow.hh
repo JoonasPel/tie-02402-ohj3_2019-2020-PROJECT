@@ -52,6 +52,9 @@ namespace Ui {
 class MapWindow;
 }
 
+/*!
+ * \brief The MapWindow class
+ */
 class MapWindow : public QMainWindow
 {
     Q_OBJECT

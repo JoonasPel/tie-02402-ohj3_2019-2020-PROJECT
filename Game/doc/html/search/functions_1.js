@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eobjectmanager_38',['~ObjectManager',['../class_student_1_1_object_manager.html#a73e68075cbf3d11bfee4b4cb067b4ce4',1,'Student::ObjectManager']]]
+  ['boundingrect_293',['boundingRect',['../class_student_1_1_map_item.html#a096a468a4e3e0b65c3a2b80389aeb7bb',1,'Student::MapItem']]]
 ];

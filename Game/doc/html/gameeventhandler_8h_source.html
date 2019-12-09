@@ -22,9 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Game
-   &#160;<span id="projectnumber">1.00</span>
    </div>
-   <div id="projectbrief">...</div>
   </td>
  </tr>
  </tbody>
@@ -71,7 +69,7 @@ $(function() {
 <div class="title">gameeventhandler.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GAMEEVENTHANDLER_H</span></div>
+<a href="gameeventhandler_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GAMEEVENTHANDLER_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GAMEEVENTHANDLER_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#endif // GAMEEVENTHANDLER_H</span></div>
@@ -80,55 +78,78 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;interfaces/igameeventhandler.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;resourcelist.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="resourcelist_8h.html">resourcelist.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;core/basicresources.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;tiles/tilebase.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;player.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="player_8h.html">player.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;core/playerbase.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;desert.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="desert_8h.html">desert.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;core/coordinate.h&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;interfaces/iobjectmanager.h&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>Student {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_student.html">Student</a> {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>TileBase;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span>PlayerBase;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span>GameObject;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>Coordinate;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_student_1_1_game_event_handler.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_student_1_1_game_event_handler.html">GameEventHandler</a> : <span class="keyword">public</span> Course::iGameEventHandler</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_student_1_1_game_event_handler.html">GameEventHandler</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_student_1_1_game_event_handler.html">GameEventHandler</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_student_1_1_game_event_handler.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_student_1_1_game_event_handler.html">GameEventHandler</a> : <span class="keyword">public</span> Course::iGameEventHandler</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_student_1_1_game_event_handler.html#a831bd81e18876b7f83622f54d53a6c35">GameEventHandler</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_student_1_1_game_event_handler.html#ae101ce1be8beecb64949d2e18b714d0f">~GameEventHandler</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::map&lt;Course::BasicResource, int&gt; getProduction(std::shared_ptr&lt;Course::TileBase&gt; tile);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    Course::ResourceMap calculate_upkeep(std::vector&lt;std::shared_ptr&lt;Course::WorkerBase&gt;&gt; workers);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::map&lt;Course::BasicResource, int&gt; <a class="code" href="class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8">getProduction</a>(std::shared_ptr&lt;Course::TileBase&gt; tile);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;     <span class="keywordtype">bool</span> modifyResource(std::shared_ptr&lt;Course::PlayerBase&gt; player,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                 Course::BasicResource resource,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                 <span class="keywordtype">int</span> amount);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;     <span class="keywordtype">bool</span> modifyResources(std::shared_ptr&lt;Course::PlayerBase&gt; player,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                  Course::ResourceMap resources);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Course::ResourceMap <a class="code" href="class_student_1_1_game_event_handler.html#a82d6fdfd9a235f3e28b50596afdc785f">calculate_upkeep</a>(std::vector&lt;std::shared_ptr&lt;Course::WorkerBase&gt;&gt; workers);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <span class="keywordtype">bool</span> <a class="code" href="class_student_1_1_game_event_handler.html#a92edc6db12061490ffbc7c638392d1e5">modifyResource</a>(std::shared_ptr&lt;Course::PlayerBase&gt; player,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                 Course::BasicResource resource,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                 <span class="keywordtype">int</span> amount);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;     <span class="comment">//Tarkistaa, etta tilen naapurissa on current_playerin talo.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;     <span class="keywordtype">bool</span> obj_placement_permission(std::shared_ptr&lt;Course::TileBase&gt; tile,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                   std::shared_ptr&lt;Course::iObjectManager&gt; objectmanager,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   std::shared_ptr&lt;Student::Player&gt; current_player);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;     <span class="keywordtype">bool</span> <a class="code" href="class_student_1_1_game_event_handler.html#ac8185974ba298464382adccaad45f797">modifyResources</a>(std::shared_ptr&lt;Course::PlayerBase&gt; player,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                  Course::ResourceMap resources);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     <span class="comment">//Tarkistaa, etta tilen naapurissa on current_playerin talo.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;     <span class="keywordtype">bool</span> <a class="code" href="class_student_1_1_game_event_handler.html#aed7e65b2c601dc9b1bd1d4c3466d5b2c">obj_placement_permission</a>(std::shared_ptr&lt;Course::TileBase&gt; tile,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                   std::shared_ptr&lt;Course::iObjectManager&gt; objectmanager,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                   std::shared_ptr&lt;Student::Player&gt; current_player);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_student_1_1_game_event_handler_html"><div class="ttname"><a href="class_student_1_1_game_event_handler.html">Student::GameEventHandler</a></div><div class="ttdef"><b>Definition:</b> gameeventhandler.h:26</div></div>
+<div class="ttc" id="aresourcelist_8h_html"><div class="ttname"><a href="resourcelist_8h.html">resourcelist.h</a></div></div>
+<div class="ttc" id="aclass_map_window_html"><div class="ttname"><a href="class_map_window.html">MapWindow</a></div><div class="ttdoc">The MapWindow class.</div><div class="ttdef"><b>Definition:</b> mapwindow.hh:58</div></div>
+<div class="ttc" id="a_game_2main_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="_game_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> main.cpp:6</div></div>
+<div class="ttc" id="aclass_map_window_html_a69b31759697a6d1734f78c1f9375d8f6"><div class="ttname"><a href="class_map_window.html#a69b31759697a6d1734f78c1f9375d8f6">MapWindow::init_game</a></div><div class="ttdeci">void init_game(std::string name1, std::string name2)</div><div class="ttdef"><b>Definition:</b> mapwindow.cc:464</div></div>
+<div class="ttc" id="adesert_8h_html"><div class="ttname"><a href="desert_8h.html">desert.h</a></div></div>
+<div class="ttc" id="aclass_student_1_1_object_manager_html_ada954ec27963f047dc1dcbeb50cfd5af"><div class="ttname"><a href="class_student_1_1_object_manager.html#ada954ec27963f047dc1dcbeb50cfd5af">Student::ObjectManager::getTile</a></div><div class="ttdeci">std::shared_ptr&lt; Course::TileBase &gt; getTile(const Course::Coordinate &amp;coordinate)</div><div class="ttdef"><b>Definition:</b> objectmanager.cpp:20</div></div>
+<div class="ttc" id="aclass_student_1_1_object_manager_html"><div class="ttname"><a href="class_student_1_1_object_manager.html">Student::ObjectManager</a></div><div class="ttdoc">The ObjectManager class.</div><div class="ttdef"><b>Definition:</b> objectmanager.h:19</div></div>
+<div class="ttc" id="aclass_dialog_html_a0c491bf85ea48fe298206ffc99ed2730"><div class="ttname"><a href="class_dialog.html#a0c491bf85ea48fe298206ffc99ed2730">Dialog::sendPlayerName</a></div><div class="ttdeci">void sendPlayerName(std::string name1, std::string name2)</div></div>
+<div class="ttc" id="agameeventhandler_8h_html"><div class="ttname"><a href="gameeventhandler_8h.html">gameeventhandler.h</a></div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_aed7e65b2c601dc9b1bd1d4c3466d5b2c"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#aed7e65b2c601dc9b1bd1d4c3466d5b2c">Student::GameEventHandler::obj_placement_permission</a></div><div class="ttdeci">bool obj_placement_permission(std::shared_ptr&lt; Course::TileBase &gt; tile, std::shared_ptr&lt; Course::iObjectManager &gt; objectmanager, std::shared_ptr&lt; Student::Player &gt; current_player)</div><div class="ttdef"><b>Definition:</b> gameeventhandler.cpp:121</div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_a82d6fdfd9a235f3e28b50596afdc785f"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#a82d6fdfd9a235f3e28b50596afdc785f">Student::GameEventHandler::calculate_upkeep</a></div><div class="ttdeci">Course::ResourceMap calculate_upkeep(std::vector&lt; std::shared_ptr&lt; Course::WorkerBase &gt;&gt; workers)</div><div class="ttdef"><b>Definition:</b> gameeventhandler.cpp:58</div></div>
+<div class="ttc" id="adialog_8h_html"><div class="ttname"><a href="dialog_8h.html">dialog.h</a></div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html"><div class="ttname"><a href="class_student_1_1_game_event_handler.html">Student::GameEventHandler</a></div><div class="ttdoc">The GameEventHandler class.</div><div class="ttdef"><b>Definition:</b> gameeventhandler.h:29</div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_ac0d216b3db9fc7710b50ae6d4ece14f8"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8">Student::GameEventHandler::getProduction</a></div><div class="ttdeci">std::map&lt; Course::BasicResource, int &gt; getProduction(std::shared_ptr&lt; Course::TileBase &gt; tile)</div><div class="ttdef"><b>Definition:</b> gameeventhandler.cpp:13</div></div>
+<div class="ttc" id="aclass_dialog_html"><div class="ttname"><a href="class_dialog.html">Dialog</a></div><div class="ttdoc">The Dialog class.</div><div class="ttdef"><b>Definition:</b> dialog.h:14</div></div>
+<div class="ttc" id="aplayer_8h_html"><div class="ttname"><a href="player_8h.html">player.h</a></div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_ae101ce1be8beecb64949d2e18b714d0f"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#ae101ce1be8beecb64949d2e18b714d0f">Student::GameEventHandler::~GameEventHandler</a></div><div class="ttdeci">virtual ~GameEventHandler()=default</div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_a831bd81e18876b7f83622f54d53a6c35"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#a831bd81e18876b7f83622f54d53a6c35">Student::GameEventHandler::GameEventHandler</a></div><div class="ttdeci">GameEventHandler()</div><div class="ttdef"><b>Definition:</b> gameeventhandler.cpp:8</div></div>
+<div class="ttc" id="aclass_dialog_html_ab6a4db9e31e8e43126b3f74f433c58d9"><div class="ttname"><a href="class_dialog.html#ab6a4db9e31e8e43126b3f74f433c58d9">Dialog::exec</a></div><div class="ttdeci">virtual int exec()</div><div class="ttdef"><b>Definition:</b> dialog.cpp:20</div></div>
+<div class="ttc" id="amapwindow_8hh_html"><div class="ttname"><a href="mapwindow_8hh.html">mapwindow.hh</a></div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_a92edc6db12061490ffbc7c638392d1e5"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#a92edc6db12061490ffbc7c638392d1e5">Student::GameEventHandler::modifyResource</a></div><div class="ttdeci">bool modifyResource(std::shared_ptr&lt; Course::PlayerBase &gt; player, Course::BasicResource resource, int amount)</div><div class="ttdef"><b>Definition:</b> gameeventhandler.cpp:91</div></div>
+<div class="ttc" id="anamespace_student_1_1_const_resource_maps_html_a5b7be4ceb5ea57e140b619cca2e0fb60"><div class="ttname"><a href="namespace_student_1_1_const_resource_maps.html#a5b7be4ceb5ea57e140b619cca2e0fb60">Student::ConstResourceMaps::worker_satisfactioner</a></div><div class="ttdeci">const Course::ResourceMapDouble worker_satisfactioner</div><div class="ttdef"><b>Definition:</b> resourcelist.h:51</div></div>
+<div class="ttc" id="anamespace_student_html"><div class="ttname"><a href="namespace_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> advancedworker.cpp:6</div></div>
+<div class="ttc" id="aclass_student_1_1_game_event_handler_html_ac8185974ba298464382adccaad45f797"><div class="ttname"><a href="class_student_1_1_game_event_handler.html#ac8185974ba298464382adccaad45f797">Student::GameEventHandler::modifyResources</a></div><div class="ttdeci">bool modifyResources(std::shared_ptr&lt; Course::PlayerBase &gt; player, Course::ResourceMap resources)</div><div class="ttdef"><b>Definition:</b> gameeventhandler.cpp:106</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

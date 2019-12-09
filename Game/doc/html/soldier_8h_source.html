@@ -22,9 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Game
-   &#160;<span id="projectnumber">1.00</span>
    </div>
-   <div id="projectbrief">...</div>
   </td>
  </tr>
  </tbody>
@@ -71,54 +69,64 @@ $(function() {
 <div class="title">soldier.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SOLDIER_H</span></div>
+<a href="soldier_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SOLDIER_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SOLDIER_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;workers/workerbase.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;resourcelist.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="resourcelist_8h.html">resourcelist.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>Student {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_student.html">Student</a> {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_student_1_1_soldier.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_student_1_1_soldier.html">Soldier</a> : <span class="keyword">public</span> Course::WorkerBase</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_student_1_1_soldier.html">Soldier</a>() = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_student_1_1_soldier.html">Soldier</a>(<span class="keyword">const</span> std::shared_ptr&lt;Course::iGameEventHandler&gt;&amp; eventhandler,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                   <span class="keyword">const</span> std::shared_ptr&lt;Course::iObjectManager&gt;&amp; objectmanager,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                   <span class="keyword">const</span> std::shared_ptr&lt;Course::PlayerBase&gt;&amp; owner,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                   <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; tilespaces = 1,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                   <span class="keyword">const</span> Course::ResourceMap&amp; cost =</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                       ConstResourceMaps::SOLDIER_RECRUITMENT_COST,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                   <span class="keyword">const</span> Course::ResourceMapDouble&amp; efficiency =</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                       ConstResourceMaps::SOLDIER_EFFICIENCY</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                );</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_student_1_1_soldier.html">Soldier</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_student_1_1_soldier.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_student_1_1_soldier.html">Soldier</a> : <span class="keyword">public</span> Course::WorkerBase</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_student_1_1_soldier.html#a36c4812142d4bbcc2966f4eb787b1fe2">Soldier</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_student_1_1_soldier.html#a36c4812142d4bbcc2966f4eb787b1fe2">Soldier</a>(<span class="keyword">const</span> std::shared_ptr&lt;Course::iGameEventHandler&gt;&amp; eventhandler,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                   <span class="keyword">const</span> std::shared_ptr&lt;Course::iObjectManager&gt;&amp; objectmanager,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                   <span class="keyword">const</span> std::shared_ptr&lt;Course::PlayerBase&gt;&amp; owner,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                   <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; tilespaces = 1,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                   <span class="keyword">const</span> Course::ResourceMap&amp; cost =</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                       <a class="code" href="namespace_student_1_1_const_resource_maps.html#a90ea9ec65547a5030edf967c743d38e5">ConstResourceMaps::SOLDIER_RECRUITMENT_COST</a>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                   <span class="keyword">const</span> Course::ResourceMapDouble&amp; efficiency =</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                       <a class="code" href="namespace_student_1_1_const_resource_maps.html#ad80f4b239bd1c14b51a7ba09fe0ce482">ConstResourceMaps::SOLDIER_EFFICIENCY</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                );</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> canBePlacedOnTile(</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keyword">const</span> std::shared_ptr&lt;Course::TileBase&gt; &amp;target) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> doSpecialAction() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_student_1_1_soldier.html#ae308b7d4fb285f3fd77d5b3764e2c7a9">~Soldier</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_student_1_1_soldier.html#aa39f549b03591d2641bd90a51299366e">canBePlacedOnTile</a>(</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">const</span> std::shared_ptr&lt;Course::TileBase&gt; &amp;target) <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> std::string getType() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_student_1_1_soldier.html#a109a633e68c1ec3f5ec3ee27285f3555">doSpecialAction</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> Course::ResourceMapDouble tileWorkAction() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_student_1_1_soldier.html#a4339c81cdf40a1dba28f6fcffb555d33">getType</a>() <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keyword">const</span> Course::ResourceMapDouble <a class="code" href="class_student_1_1_soldier.html#a4d435b46cc8726c67ed2f47cfaf12fbd">tileWorkAction</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}; <span class="comment">//class</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">//namescape)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif // SOLDIER_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}; <span class="comment">//class</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">//namescape)</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // SOLDIER_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_student_1_1_soldier_html"><div class="ttname"><a href="class_student_1_1_soldier.html">Student::Soldier</a></div><div class="ttdef"><b>Definition:</b> soldier.h:12</div></div>
+<div class="ttc" id="aresourcelist_8h_html"><div class="ttname"><a href="resourcelist_8h.html">resourcelist.h</a></div></div>
+<div class="ttc" id="asoldier_8h_html"><div class="ttname"><a href="soldier_8h.html">soldier.h</a></div></div>
+<div class="ttc" id="anamespace_student_1_1_const_resource_maps_html_a90ea9ec65547a5030edf967c743d38e5"><div class="ttname"><a href="namespace_student_1_1_const_resource_maps.html#a90ea9ec65547a5030edf967c743d38e5">Student::ConstResourceMaps::SOLDIER_RECRUITMENT_COST</a></div><div class="ttdeci">const Course::ResourceMap SOLDIER_RECRUITMENT_COST</div><div class="ttdef"><b>Definition:</b> resourcelist.h:95</div></div>
+<div class="ttc" id="anamespace_student_1_1_const_resource_maps_html_ad80f4b239bd1c14b51a7ba09fe0ce482"><div class="ttname"><a href="namespace_student_1_1_const_resource_maps.html#ad80f4b239bd1c14b51a7ba09fe0ce482">Student::ConstResourceMaps::SOLDIER_EFFICIENCY</a></div><div class="ttdeci">const Course::ResourceMapDouble SOLDIER_EFFICIENCY</div><div class="ttdef"><b>Definition:</b> resourcelist.h:87</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html_a4d435b46cc8726c67ed2f47cfaf12fbd"><div class="ttname"><a href="class_student_1_1_soldier.html#a4d435b46cc8726c67ed2f47cfaf12fbd">Student::Soldier::tileWorkAction</a></div><div class="ttdeci">virtual const Course::ResourceMapDouble tileWorkAction() override</div><div class="ttdef"><b>Definition:</b> soldier.cpp:43</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html_a109a633e68c1ec3f5ec3ee27285f3555"><div class="ttname"><a href="class_student_1_1_soldier.html#a109a633e68c1ec3f5ec3ee27285f3555">Student::Soldier::doSpecialAction</a></div><div class="ttdeci">virtual void doSpecialAction() override</div><div class="ttdef"><b>Definition:</b> soldier.cpp:37</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html_aa39f549b03591d2641bd90a51299366e"><div class="ttname"><a href="class_student_1_1_soldier.html#aa39f549b03591d2641bd90a51299366e">Student::Soldier::canBePlacedOnTile</a></div><div class="ttdeci">virtual bool canBePlacedOnTile(const std::shared_ptr&lt; Course::TileBase &gt; &amp;target) const override</div><div class="ttdef"><b>Definition:</b> soldier.cpp:31</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html_a4339c81cdf40a1dba28f6fcffb555d33"><div class="ttname"><a href="class_student_1_1_soldier.html#a4339c81cdf40a1dba28f6fcffb555d33">Student::Soldier::getType</a></div><div class="ttdeci">virtual std::string getType() const override</div><div class="ttdef"><b>Definition:</b> soldier.cpp:26</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html"><div class="ttname"><a href="class_student_1_1_soldier.html">Student::Soldier</a></div><div class="ttdoc">The Soldier class.</div><div class="ttdef"><b>Definition:</b> soldier.h:14</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html_ae308b7d4fb285f3fd77d5b3764e2c7a9"><div class="ttname"><a href="class_student_1_1_soldier.html#ae308b7d4fb285f3fd77d5b3764e2c7a9">Student::Soldier::~Soldier</a></div><div class="ttdeci">virtual ~Soldier()=default</div></div>
+<div class="ttc" id="anamespace_student_html"><div class="ttname"><a href="namespace_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> advancedworker.cpp:6</div></div>
+<div class="ttc" id="aclass_student_1_1_soldier_html_a36c4812142d4bbcc2966f4eb787b1fe2"><div class="ttname"><a href="class_student_1_1_soldier.html#a36c4812142d4bbcc2966f4eb787b1fe2">Student::Soldier::Soldier</a></div><div class="ttdeci">Soldier()=delete</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

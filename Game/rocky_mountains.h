@@ -5,6 +5,9 @@
 
 namespace Student {
 
+/*!
+ * \brief The rocky_mountains class
+ */
 class rocky_mountains : public Course::TileBase
 {
 public:

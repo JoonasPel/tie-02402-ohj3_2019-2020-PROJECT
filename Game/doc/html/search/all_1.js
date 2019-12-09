@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['desert_1',['Desert',['../class_student_1_1_desert.html',1,'Student']]],
-  ['dialog_2',['Dialog',['../class_dialog.html',1,'Dialog'],['../class_ui_1_1_dialog.html',1,'Ui::Dialog']]]
+  ['boundingrect_13',['boundingRect',['../class_student_1_1_map_item.html#a096a468a4e3e0b65c3a2b80389aeb7bb',1,'Student::MapItem']]],
+  ['buttonbox_14',['buttonBox',['../class_ui___dialog.html#a271a59402f80983c2722bb455db37365',1,'Ui_Dialog']]]
 ];

@@ -13,6 +13,9 @@ namespace Student {
 class TileBase;
 class Coordinate;
 
+/*!
+ * \brief The ObjectManager class
+ */
 class ObjectManager : public Course::iObjectManager
 {
 public:

@@ -7,7 +7,9 @@
 namespace Student {
 
 
-
+/*!
+ * \brief The Mine class
+ */
 class Mine : public Course::BuildingBase
 {
 public:

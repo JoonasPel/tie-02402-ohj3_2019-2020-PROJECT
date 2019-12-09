@@ -6,6 +6,10 @@
 
 
 namespace Student{
+
+/*!
+ * \brief The Water class
+ */
 class Water : public Course::TileBase
 {
 public:

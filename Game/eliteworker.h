@@ -7,7 +7,9 @@
 namespace Student {
 
 
-
+/*!
+ * \brief The EliteWorker class
+ */
 class EliteWorker  : public Course::WorkerBase
 {
 public:

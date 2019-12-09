@@ -17,6 +17,9 @@
 
 namespace Student {
 
+/*!
+ * \brief The MapItem class
+ */
 class MapItem : public QGraphicsItem
 {
 

@@ -8,7 +8,9 @@
 namespace Student {
 
 
-
+/*!
+ * \brief The Soldier class
+ */
 class Soldier : public Course::WorkerBase
 {
 public:
