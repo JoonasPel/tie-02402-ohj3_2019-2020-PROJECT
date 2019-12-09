@@ -22,7 +22,9 @@ MapWindow::MapWindow(QWidget *parent,
     player1(std::make_shared<Student::Player>("Player 1")),
     player2(std::make_shared<Student::Player>("Player 2")),
     last_clicked_tile(Course::Coordinate(0,0)),
-    time_used_counter(0)
+    timer_interval(0),
+    time_used_counter(0),
+    round_count(1)
 {
     m_ui->setupUi(this);
     this->setWindowTitle("Pirkanmaan valloitus");
@@ -489,6 +491,8 @@ void MapWindow::init_game(std::string name1, std::string name2, int interval)
         timer_interval = interval;
         //peliin paivittyy sekunnin valein jaljella oleva aika.
         timer->start(1000);
+    } else {
+        m_ui->label_13->setText("");
     }
 }
 
@@ -542,8 +546,14 @@ void MapWindow::on_TurnButton_clicked()
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 
-    time_used_counter = 0;
-    timer->start(1000);
+    round_count += 1;
+    m_ui->round_label->setNum(round_count);
+
+    if(timer_interval != 0)
+    {
+        time_used_counter = 0;
+        timer->start(1000);
+    }
 }
 
 void MapWindow::on_addEWButton_clicked()

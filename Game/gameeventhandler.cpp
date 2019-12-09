@@ -149,22 +149,4 @@ bool GameEventHandler::obj_placement_permission(std::shared_ptr<Course::TileBase
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

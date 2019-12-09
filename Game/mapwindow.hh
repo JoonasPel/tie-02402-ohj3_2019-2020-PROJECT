@@ -181,6 +181,7 @@ private:
 
     int timer_interval;
     int time_used_counter;
+    int round_count;
 
 private slots:
 

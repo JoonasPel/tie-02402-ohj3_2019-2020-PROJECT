@@ -106,6 +106,8 @@ public:
     QFrame *line_14;
     QLabel *label_13;
     QLabel *time_left_label;
+    QLabel *round_label;
+    QLabel *label_14;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -113,7 +115,7 @@ public:
     {
         if (MapWindow->objectName().isEmpty())
             MapWindow->setObjectName(QString::fromUtf8("MapWindow"));
-        MapWindow->resize(1424, 890);
+        MapWindow->resize(1431, 914);
         MapWindow->setLayoutDirection(Qt::LeftToRight);
         centralwidget = new QWidget(MapWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -499,10 +501,18 @@ public:
         time_left_label->setObjectName(QString::fromUtf8("time_left_label"));
         time_left_label->setGeometry(QRect(1270, 807, 81, 41));
         time_left_label->setFont(font4);
+        round_label = new QLabel(centralwidget);
+        round_label->setObjectName(QString::fromUtf8("round_label"));
+        round_label->setGeometry(QRect(1270, 844, 81, 31));
+        round_label->setFont(font4);
+        label_14 = new QLabel(centralwidget);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_14->setGeometry(QRect(1170, 840, 81, 41));
+        label_14->setFont(font4);
         MapWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MapWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1424, 21));
+        menubar->setGeometry(QRect(0, 0, 1431, 21));
         MapWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MapWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -570,6 +580,8 @@ public:
         np_label->setText(QString());
         label_13->setText(QApplication::translate("MapWindow", "Time left:", nullptr));
         time_left_label->setText(QString());
+        round_label->setText(QString());
+        label_14->setText(QApplication::translate("MapWindow", "Round:", nullptr));
     } // retranslateUi
 
 };

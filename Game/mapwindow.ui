@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1424</width>
-    <height>890</height>
+    <width>1431</width>
+    <height>914</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1028,13 +1028,49 @@ Basic Worker</string>
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="round_label">
+    <property name="geometry">
+     <rect>
+      <x>1270</x>
+      <y>844</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>840</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Round:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1424</width>
+     <width>1431</width>
      <height>21</height>
     </rect>
    </property>
