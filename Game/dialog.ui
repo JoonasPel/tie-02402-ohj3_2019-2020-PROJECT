@@ -111,7 +111,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>90</x>
      <y>160</y>
      <width>131</width>
      <height>41</height>
@@ -124,17 +124,7 @@
    </property>
    <property name="text">
     <string>Time till turn changes 
- (0 for no infinitetime)</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="timer_text">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>170</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
+ (0 for no infinite time)</string>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -153,10 +143,10 @@
   <widget class="QSpinBox" name="TimerspinBox">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>211</y>
-     <width>61</width>
-     <height>51</height>
+     <x>230</x>
+     <y>167</y>
+     <width>71</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
