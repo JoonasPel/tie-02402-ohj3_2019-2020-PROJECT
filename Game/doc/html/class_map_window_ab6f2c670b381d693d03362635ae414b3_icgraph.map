@@ -1,5 +1,5 @@
 <map id="MapWindow::draw_tiles" name="MapWindow::draw_tiles">
-<area shape="rect" id="node1" title=" " alt="" coords="309,5,468,32"/>
-<area shape="rect" id="node2" href="$class_map_window.html#a69b31759697a6d1734f78c1f9375d8f6" title=" " alt="" coords="104,5,261,32"/>
+<area shape="rect" id="node1" title="draw_tiles, piirtää tiilet gamesceneen" alt="" coords="309,5,468,32"/>
+<area shape="rect" id="node2" href="$class_map_window.html#a50a6aa5856916e6c1b2f9ca3f3ba09dd" title="init_game, alustaa pelin, asettaa pelaajien resurssit, aloitus rakennukset jne." alt="" coords="104,5,261,32"/>
 <area shape="rect" id="node3" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
 </map>

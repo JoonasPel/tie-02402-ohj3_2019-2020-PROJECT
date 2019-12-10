@@ -1,4 +1,4 @@
 <map id="Student::GameEventHandler::calculate_upkeep" name="Student::GameEventHandler::calculate_upkeep">
-<area shape="rect" id="node1" title=" " alt="" coords="240,5,427,47"/>
-<area shape="rect" id="node2" href="$class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8" title=" " alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node1" title="calculate_upkeep laskee workereiden kuluttaman ruoka&#45; ja rahamäärän." alt="" coords="240,5,427,47"/>
+<area shape="rect" id="node2" href="$class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8" title="getProduction palauttaa tilen tuotannon yhdellä erällä huomioiden workerit/buildingit...." alt="" coords="5,5,192,47"/>
 </map>

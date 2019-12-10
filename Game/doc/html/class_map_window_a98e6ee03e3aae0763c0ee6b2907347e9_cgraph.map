@@ -1,11 +1,11 @@
 <map id="MapWindow::add_new_building" name="MapWindow::add_new_building">
-<area shape="rect" id="node1" title=" " alt="" coords="5,175,157,217"/>
-<area shape="rect" id="node2" href="$class_map_window.html#a673ec26f170e21616c75f7f485b4d546" title=" " alt="" coords="231,5,384,32"/>
-<area shape="rect" id="node3" href="$class_map_window.html#a0f5fbcbf44ffd405e3fb479af6ddd53d" title=" " alt="" coords="229,56,385,83"/>
-<area shape="rect" id="node4" href="$class_map_window.html#ab035840b350cee1c0d3bccb8d9f4e3d7" title=" " alt="" coords="457,81,615,108"/>
-<area shape="rect" id="node5" href="$class_map_window.html#a6b685f74fcff31c668edf3363a64813b" title=" " alt="" coords="205,157,409,184"/>
-<area shape="rect" id="node6" href="$class_map_window.html#a6b33a1fa643d01a6f9e6f94023b4c841" title=" " alt="" coords="220,208,395,235"/>
-<area shape="rect" id="node7" href="$class_map_window.html#a34bb52f8a2e00a2e25cd4ed0e78d3f4f" title=" " alt="" coords="219,259,396,285"/>
-<area shape="rect" id="node8" href="$class_map_window.html#a210082deb450291b3e5df089f3814271" title=" " alt="" coords="228,310,387,351"/>
-<area shape="rect" id="node9" href="$class_map_window.html#a8e3936bfa4d2a8cb05cc7f80b276b169" title=" " alt="" coords="216,375,399,417"/>
+<area shape="rect" id="node1" title="add_new_building, lisää uuden rakennuksen ja kutsuu piirtofunktioita" alt="" coords="5,175,157,217"/>
+<area shape="rect" id="node2" href="$class_map_window.html#a673ec26f170e21616c75f7f485b4d546" title="drawItem, piirtää objektin" alt="" coords="231,5,384,32"/>
+<area shape="rect" id="node3" href="$class_map_window.html#a0f5fbcbf44ffd405e3fb479af6ddd53d" title="gamewon, disabloi napit ja ilmoittaa pelin voittajan, tätä kutsutaan kun rakennetaan nuclearplant" alt="" coords="229,56,385,83"/>
+<area shape="rect" id="node4" href="$class_map_window.html#ab035840b350cee1c0d3bccb8d9f4e3d7" title="setStatus, asettaa tekstin statuslabeliin joka ui:ssa alaosassa" alt="" coords="457,81,615,108"/>
+<area shape="rect" id="node5" href="$class_map_window.html#a8a2baba35a1fb99e823be30eae8c18c5" title="getImageByString, Hakee halutun kuvan resourceista." alt="" coords="205,157,409,184"/>
+<area shape="rect" id="node6" href="$class_map_window.html#a6b33a1fa643d01a6f9e6f94023b4c841" title="paintBuilding, piirtää rakennuksen gamesceneen" alt="" coords="220,208,395,235"/>
+<area shape="rect" id="node7" href="$class_map_window.html#a34bb52f8a2e00a2e25cd4ed0e78d3f4f" title="print_tile_info, kirjoittaa tiilen yleiset tiedot game_ui:hin" alt="" coords="219,259,396,285"/>
+<area shape="rect" id="node8" href="$class_map_window.html#a210082deb450291b3e5df089f3814271" title="print_total_production, piirtää game_ui:hin paljonko vuorossa&#45; olevan pelaajan kokotuotannon kaikista..." alt="" coords="228,310,387,351"/>
+<area shape="rect" id="node9" href="$class_map_window.html#a8e3936bfa4d2a8cb05cc7f80b276b169" title="update_player_resources, päivittää pelajaan resurssit" alt="" coords="216,375,399,417"/>
 </map>
