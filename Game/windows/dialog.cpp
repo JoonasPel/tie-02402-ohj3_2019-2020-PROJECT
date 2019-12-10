@@ -8,7 +8,7 @@ Dialog::Dialog(QWidget *parent) :
 
 {
     ui->setupUi(this);
-
+    ui->TimerspinBox->setValue(45);
 }
 
 
@@ -20,6 +20,7 @@ Dialog::~Dialog()
 int Dialog::exec()
 {
     int dialog = QDialog::exec();
+
 
     if(dialog == QDialog::Accepted)
     {
