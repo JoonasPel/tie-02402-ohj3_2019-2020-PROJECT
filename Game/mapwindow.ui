@@ -1159,9 +1159,9 @@ Basic Worker</string>
    <widget class="QLabel" name="sell_amount_label_2">
     <property name="geometry">
      <rect>
-      <x>1160</x>
+      <x>1150</x>
       <y>714</y>
-      <width>201</width>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
@@ -1173,7 +1173,7 @@ Basic Worker</string>
      </font>
     </property>
     <property name="text">
-     <string>Pate's limited Deal</string>
+     <string>Pate's limited Deal™</string>
     </property>
    </widget>
    <widget class="Line" name="line_15">

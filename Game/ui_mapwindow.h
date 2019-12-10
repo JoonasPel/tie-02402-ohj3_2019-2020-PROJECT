@@ -546,7 +546,7 @@ public:
         arrow_image_label->setGeometry(QRect(1213, 747, 61, 41));
         sell_amount_label_2 = new QLabel(centralwidget);
         sell_amount_label_2->setObjectName(QString::fromUtf8("sell_amount_label_2"));
-        sell_amount_label_2->setGeometry(QRect(1160, 714, 201, 41));
+        sell_amount_label_2->setGeometry(QRect(1150, 714, 211, 41));
         QFont font9;
         font9.setPointSize(15);
         font9.setBold(true);
@@ -651,7 +651,7 @@ public:
         buy_amount_label->setText(QApplication::translate("MapWindow", "buy_amount", nullptr));
         sell_image_label->setText(QApplication::translate("MapWindow", "sell_image", nullptr));
         arrow_image_label->setText(QApplication::translate("MapWindow", "-------->", nullptr));
-        sell_amount_label_2->setText(QApplication::translate("MapWindow", "Pate's limited Deal", nullptr));
+        sell_amount_label_2->setText(QApplication::translate("MapWindow", "Pate's limited Deal\342\204\242", nullptr));
     } // retranslateUi
 
 };
