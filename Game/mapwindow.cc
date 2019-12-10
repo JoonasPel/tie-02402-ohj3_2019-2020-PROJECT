@@ -195,8 +195,13 @@ void MapWindow::add_new_worker(std::shared_ptr<Course::WorkerBase> worker, Cours
 
     try {
         //(Pelaajalla on varaa workeriin) JA (pelaaja omistaa tilen TAI kukaan ei omista).
-        if(current_player->does_have_enough_resources(cost) &&
-                (tile->getOwner() == current_player || tile->getOwner() == nullptr))
+        if(!current_player->does_have_enough_resources(cost))
+        {
+            setStatus(current_player->getName()+" does not have enough resources.");
+        } else if (!(tile->getOwner() == current_player || tile->getOwner() == nullptr))
+        {
+            setStatus("This tile is owned by another player.");
+        } else
         {
             if (!current_player->already_owned(tile)){
                 current_player->addtile(tile);
@@ -239,10 +244,15 @@ bool MapWindow::add_new_building(std::shared_ptr<Course::BuildingBase> building,
         return false;
     }
 
-    try {
+    try {     
         //(Pelaajalla on varaa rakennukseen) JA (pelaaja omistaa tilen TAI kukaan ei omista).
-        if(current_player->does_have_enough_resources(cost) &&
-                (tile->getOwner() == current_player || tile->getOwner() == nullptr))
+        if(!current_player->does_have_enough_resources(cost))
+        {
+            setStatus(current_player->getName()+" does not have enough resources.");
+        } else if(!(tile->getOwner() == current_player || tile->getOwner() == nullptr))
+        {
+            setStatus("This tile is owned by another player.");
+        } else
         {
             //Tarkistetaan halutaanko listata tiili pelaajan tiilivektoriin.
             if (!current_player->already_owned(tile)){
