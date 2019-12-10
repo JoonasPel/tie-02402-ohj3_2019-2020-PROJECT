@@ -132,13 +132,13 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(10, 10, 1061, 791));
+        graphicsView->setGeometry(QRect(10, 10, 1065, 791));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(graphicsView->sizePolicy().hasHeightForWidth());
         graphicsView->setSizePolicy(sizePolicy);
-        graphicsView->setMinimumSize(QSize(1040, 675));
+        graphicsView->setMinimumSize(QSize(1060, 675));
         add_farm_button = new QPushButton(centralwidget);
         add_farm_button->setObjectName(QString::fromUtf8("add_farm_button"));
         add_farm_button->setGeometry(QRect(1273, 363, 111, 31));

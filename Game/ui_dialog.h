@@ -101,7 +101,7 @@ public:
         label_2->setText(QApplication::translate("Dialog", "Player 1:", nullptr));
         label_3->setText(QApplication::translate("Dialog", "Player 2:", nullptr));
         label_4->setText(QApplication::translate("Dialog", "Time till turn changes \n"
-" (0 for no infinite time)", nullptr));
+" (0 for infinite time)", nullptr));
     } // retranslateUi
 
 };

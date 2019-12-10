@@ -124,7 +124,7 @@
    </property>
    <property name="text">
     <string>Time till turn changes 
- (0 for no infinite time)</string>
+ (0 for infinite time)</string>
    </property>
   </widget>
   <widget class="Line" name="line">
