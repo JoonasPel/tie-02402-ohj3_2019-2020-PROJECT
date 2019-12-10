@@ -16,6 +16,9 @@
 #include <iostream>
 #include <core/coordinate.h>
 #include "interfaces/iobjectmanager.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <utility>
 
 namespace Student {
 class TileBase;
@@ -33,6 +36,12 @@ public:
 
     virtual ~GameEventHandler() = default;
 
+
+    /*!
+     * \brief getRandomResource, arpoo resurssin ja luvun väliltä 100-700
+     * \return palauttaa pair
+     */
+    std::pair<Course::BasicResource, int> getRandomResource();
 
 
     /*!

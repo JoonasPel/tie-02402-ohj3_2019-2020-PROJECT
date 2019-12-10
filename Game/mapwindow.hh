@@ -14,6 +14,7 @@
 
 #include <math.h>
 #include <map>
+#include <utility>
 
 #include "tiles/tilebase.h"
 #include <tiles/forest.h>
@@ -80,6 +81,15 @@ public:
      */
     void setStatus(std::string text);
 
+    /*!
+     * \brief getResource palauttaa stringinä viedyn resourcen
+     * \param resource course::resourcemap
+     */
+    std::string getResource(Course::BasicResource resource);
+
+
+
+
 
     /*!
      * \brief getImageByString, Hakee halutun kuvan resourceista.
@@ -100,6 +110,11 @@ public:
      * \param building, rakennus, joka piirretään
      */
     void paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap building);
+
+    /*!
+     * \brief update_deal, luo uuden diilin, ja piirtää sen ui:hin
+     */
+    void update_deal();
 
     /*!
      * \brief update_player_resources, päivittää pelajaan resurssit
@@ -183,6 +198,12 @@ private:
     int time_used_counter;
     int round_count;
 
+    Course::BasicResource sell_resource;
+    int sell_amount;
+
+    Course::BasicResource buy_resource;
+    int buy_amount;
+
 private slots:
 
     // Lisää kyseisen rakennuksen, kutsuu add_new_building metodia
@@ -205,6 +226,7 @@ private slots:
 
     // timeri joka asettaa vaihaa vuoroa annetun ajan mukaan
     void timer_event();
+    void on_deal_button_clicked();
 };
 
 #endif // MapWINDOW_HH

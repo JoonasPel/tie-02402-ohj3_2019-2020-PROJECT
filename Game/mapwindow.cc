@@ -55,6 +55,28 @@ void MapWindow::setStatus(std::string text)
     m_ui->statusLabel->setText(q_text);
 }
 
+std::string MapWindow::getResource(Course::BasicResource resource)
+{
+    std::string resource_string;
+
+    switch (resource) {
+
+    case Course::BasicResource::MONEY: return ("Money");
+
+    case Course::BasicResource::FOOD: return ("Food");
+
+    case Course::BasicResource::WOOD: return ("Wood");
+
+    case Course::BasicResource::STONE: return ("Stone");
+
+    case Course::BasicResource::ORE:  return ("Ore");
+
+    default: break;
+    }
+
+    return "";
+}
+
 QPixmap MapWindow::getImageByString(std::string object_name)
 {
     if(object_name == "Farm")
@@ -109,7 +131,10 @@ QPixmap MapWindow::getImageByString(std::string object_name)
          return building_image.scaled(QSize(28,28));
 
 
-    } else
+    } else if (object_name == "Arrow"){
+        QPixmap building_image(":/arrowimage.png");
+         return building_image.scaled(QSize(60,30));
+    }else
     {
         throw Course::BaseException("No image for object found!");
     }
@@ -159,7 +184,53 @@ void MapWindow::paintBuilding(std::shared_ptr<Course::TileBase> tile,QPixmap bui
     default: break;
 
     }
-     m_ui->graphicsView->viewport()->update();
+    m_ui->graphicsView->viewport()->update();
+}
+
+
+
+void MapWindow::update_deal()
+{
+    std::pair <Course::BasicResource,int> sell_deal
+            = gameEventHandler->getRandomResource();
+    sell_resource = sell_deal.first;
+
+    std::pair <Course::BasicResource,int> buy_deal
+            = gameEventHandler->getRandomResource();
+    buy_resource = buy_deal.first;
+
+    while(sell_resource == buy_resource)
+    {
+        std::pair <Course::BasicResource,int> sell_deal
+                = gameEventHandler->getRandomResource();
+
+        sell_resource = sell_deal.first;
+    }
+
+    sell_amount = sell_deal.second;
+    std::string sell_resource_string =getResource(sell_resource);
+
+    buy_amount = buy_deal.second;
+    std::string buy_resource_string =getResource(buy_resource);
+
+
+
+    m_ui->sell_image_label->setPixmap(getImageByString(sell_resource_string));
+    m_ui->sell_amount_label->setNum(sell_amount);
+
+    m_ui->arrow_image_label->setPixmap(getImageByString("Arrow"));
+
+    m_ui->buy_image_label->setPixmap(getImageByString(buy_resource_string));
+    m_ui->buy_amount_label->setNum(buy_amount);
+
+
+
+//    m_ui->deal_label->setText("Sell:  "+QString::number(sell_amount)+ " " +
+//                              QString::fromStdString(sell_resource_string)+"\n"+
+//                              "Buy:  "+QString::number(buy_amount)+ " " +
+//                              QString::fromStdString(buy_resource_string));
+
+
 }
 
 void MapWindow::update_player_resources()
@@ -494,6 +565,9 @@ void MapWindow::init_game(std::string name1, std::string name2, int interval)
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 
+    update_deal();
+    update_player_resources();
+
     m_ui->graphicsView->viewport()->update();
 
     if(interval != 0)
@@ -553,6 +627,10 @@ void MapWindow::on_TurnButton_clicked()
 
     print_total_production();
     update_player_resources();
+
+    m_ui->deal_button->setEnabled(true);
+    update_deal(); //Uusi diili pelaajalle.
+
     m_ui->CurrentPlayerLabel->setText("Current player: "+
                                       QString::fromStdString(current_player->getName()));
 
@@ -654,4 +732,25 @@ void MapWindow::timer_event()
     {
         on_TurnButton_clicked();
     }
+}
+
+void MapWindow::on_deal_button_clicked()
+{
+    if(!current_player->does_have_enough_resources({{sell_resource,sell_amount}}))
+    {
+        setStatus("You do not have enough resources!");
+    } else
+    {
+        //Pelaaja myy resursseja
+        gameEventHandler->modifyResource
+                (current_player, sell_resource, -sell_amount);
+
+        //Pelaaja ostaa resursseja
+        gameEventHandler->modifyResource
+                (current_player, buy_resource, buy_amount);
+
+        update_player_resources();
+        m_ui->deal_button->setDisabled(true);
+    }
+
 }

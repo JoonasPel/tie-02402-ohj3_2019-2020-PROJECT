@@ -11,5 +11,6 @@
         <file>woodimage.png</file>
         <file>oreimage.png</file>
         <file>npimage.png</file>
+        <file>arrowimage.png</file>
     </qresource>
 </RCC>

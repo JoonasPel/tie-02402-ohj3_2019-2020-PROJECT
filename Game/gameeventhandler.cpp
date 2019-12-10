@@ -10,6 +10,31 @@ GameEventHandler::GameEventHandler()
 
 }
 
+std::pair<Course::BasicResource, int> GameEventHandler::getRandomResource()
+{
+
+    std::pair<Course::BasicResource, int> rng_resource_pair = {};
+
+    int resource_type = (rand()%5)+1;
+    int amount = ((rand()%120+20)*5);
+
+    switch (resource_type) {
+
+    case 1: rng_resource_pair = {Course::BasicResource::MONEY,amount}; break;
+
+    case 2: rng_resource_pair = {Course::BasicResource::FOOD,amount}; break;
+
+    case 3: rng_resource_pair = {Course::BasicResource::WOOD,amount}; break;
+
+    case 4: rng_resource_pair = {Course::BasicResource::STONE,amount}; break;
+
+    case 5: rng_resource_pair = {Course::BasicResource::ORE,amount}; break;
+
+    default: break;
+    }
+    return rng_resource_pair;
+}
+
 std::map<Course::BasicResource, int> GameEventHandler::getProduction(std::shared_ptr<Course::TileBase> tile)
 {
     Course::ResourceMapDouble worker_efficiency = {
