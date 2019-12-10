@@ -1,6 +1,0 @@
-<map id="MapWindow::MapWindow" name="MapWindow::MapWindow">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,177,83"/>
-<area shape="rect" id="node2" href="$class_map_window.html#a34bb52f8a2e00a2e25cd4ed0e78d3f4f" title="print_tile_info, kirjoittaa tiilen yleiset tiedot game_ui:hin" alt="" coords="238,5,415,32"/>
-<area shape="rect" id="node3" href="$class_map_window.html#acc383c5d7c250dbb56a224cc775ffc30" title="save_activate_tile, Tallentaa tilen koordinaatit, jota klikattu viimeksi, eli joka on &quot;aktiivinen&quot;." alt="" coords="225,56,428,83"/>
-<area shape="rect" id="node4" href="$class_ui___map_window.html#abd260744f130a635ca398d72962bd71a" title=" " alt="" coords="245,107,409,133"/>
-</map>

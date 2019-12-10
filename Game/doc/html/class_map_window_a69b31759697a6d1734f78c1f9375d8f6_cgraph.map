@@ -1,7 +1,0 @@
-<map id="MapWindow::init_game" name="MapWindow::init_game">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,163,108"/>
-<area shape="rect" id="node2" href="$class_map_window.html#ab6f2c670b381d693d03362635ae414b3" title=" " alt="" coords="233,5,392,32"/>
-<area shape="rect" id="node3" href="$class_map_window.html#a673ec26f170e21616c75f7f485b4d546" title=" " alt="" coords="463,31,616,57"/>
-<area shape="rect" id="node4" href="$class_map_window.html#a6b685f74fcff31c668edf3363a64813b" title=" " alt="" coords="211,107,415,133"/>
-<area shape="rect" id="node5" href="$class_map_window.html#a6b33a1fa643d01a6f9e6f94023b4c841" title=" " alt="" coords="225,157,400,184"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Student::ObjectManager::getTile" name="Student::ObjectManager::getTile">
-<area shape="rect" id="node1" title=" " alt="" coords="240,39,403,80"/>
-<area shape="rect" id="node2" href="$class_student_1_1_object_manager.html#a34377f3d8f848e9c61eb3a22f23f821a" title=" " alt="" coords="17,5,180,47"/>
-<area shape="rect" id="node3" href="$class_student_1_1_game_event_handler.html#aed7e65b2c601dc9b1bd1d4c3466d5b2c" title="obj_placement_permission tarkistaa onko naapurissa kyseisen pelaajan omistamaa rakennusta...." alt="" coords="5,71,192,112"/>
-</map>

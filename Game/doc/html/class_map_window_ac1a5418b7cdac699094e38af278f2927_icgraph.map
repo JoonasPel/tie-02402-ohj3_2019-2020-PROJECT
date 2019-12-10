@@ -1,4 +1,0 @@
-<map id="MapWindow::paintWorker" name="MapWindow::paintWorker">
-<area shape="rect" id="node1" title="paintWorker, piirtää workerin gamesceneen." alt="" coords="205,13,376,39"/>
-<area shape="rect" id="node2" href="$class_map_window.html#afebc793e738549cd77ad7603dfaced8b" title="add_new_worker, lisää uudeen workerin ja kutsuu piirto funktioita" alt="" coords="5,5,157,47"/>
-</map>

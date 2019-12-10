@@ -1,4 +1,0 @@
-<map id="MapWindow::draw_tiles" name="MapWindow::draw_tiles">
-<area shape="rect" id="node1" title="draw_tiles, piirtää tiilet gamesceneen" alt="" coords="5,5,164,32"/>
-<area shape="rect" id="node2" href="$class_map_window.html#a673ec26f170e21616c75f7f485b4d546" title="drawItem, piirtää objektin" alt="" coords="212,5,365,32"/>
-</map>
