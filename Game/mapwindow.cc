@@ -403,6 +403,7 @@ void MapWindow::gamewon()
     m_ui->add_mine_button->setDisabled(true);
     m_ui->add_outpost_button->setDisabled(true);
     m_ui->add_np_button->setDisabled(true);
+    m_ui->deal_button->setDisabled(true);
     timer->stop();
 
 }
