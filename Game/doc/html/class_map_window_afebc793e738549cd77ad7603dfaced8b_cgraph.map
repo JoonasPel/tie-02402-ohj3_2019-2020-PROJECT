@@ -1,9 +1,9 @@
 <map id="MapWindow::add_new_worker" name="MapWindow::add_new_worker">
-<area shape="rect" id="node1" title=" " alt="" coords="5,129,157,170"/>
-<area shape="rect" id="node2" href="$class_map_window.html#a673ec26f170e21616c75f7f485b4d546" title=" " alt="" coords="220,5,373,32"/>
-<area shape="rect" id="node3" href="$class_map_window.html#ac1a5418b7cdac699094e38af278f2927" title=" " alt="" coords="211,56,382,83"/>
-<area shape="rect" id="node4" href="$class_map_window.html#a34bb52f8a2e00a2e25cd4ed0e78d3f4f" title=" " alt="" coords="208,107,385,133"/>
-<area shape="rect" id="node5" href="$class_map_window.html#a210082deb450291b3e5df089f3814271" title=" " alt="" coords="217,158,376,199"/>
-<area shape="rect" id="node6" href="$class_map_window.html#ab035840b350cee1c0d3bccb8d9f4e3d7" title=" " alt="" coords="218,224,375,251"/>
-<area shape="rect" id="node7" href="$class_map_window.html#a8e3936bfa4d2a8cb05cc7f80b276b169" title=" " alt="" coords="205,275,388,317"/>
+<area shape="rect" id="node1" title="add_new_worker, lisää uudeen workerin ja kutsuu piirto funktioita" alt="" coords="5,129,157,170"/>
+<area shape="rect" id="node2" href="$class_map_window.html#a673ec26f170e21616c75f7f485b4d546" title="drawItem, piirtää objektin" alt="" coords="220,5,373,32"/>
+<area shape="rect" id="node3" href="$class_map_window.html#ac1a5418b7cdac699094e38af278f2927" title="paintWorker, piirtää workerin gamesceneen." alt="" coords="211,56,382,83"/>
+<area shape="rect" id="node4" href="$class_map_window.html#a34bb52f8a2e00a2e25cd4ed0e78d3f4f" title="print_tile_info, kirjoittaa tiilen yleiset tiedot game_ui:hin" alt="" coords="208,107,385,133"/>
+<area shape="rect" id="node5" href="$class_map_window.html#a210082deb450291b3e5df089f3814271" title="print_total_production, piirtää game_ui:hin paljonko vuorossa&#45; olevan pelaajan kokotuotannon kaikista..." alt="" coords="217,158,376,199"/>
+<area shape="rect" id="node6" href="$class_map_window.html#ab035840b350cee1c0d3bccb8d9f4e3d7" title="setStatus, asettaa tekstin statuslabeliin joka ui:ssa alaosassa" alt="" coords="218,224,375,251"/>
+<area shape="rect" id="node7" href="$class_map_window.html#a8e3936bfa4d2a8cb05cc7f80b276b169" title="update_player_resources, päivittää pelajaan resurssit" alt="" coords="205,275,388,317"/>
 </map>

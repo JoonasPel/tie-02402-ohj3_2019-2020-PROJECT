@@ -1,5 +1,5 @@
 <map id="MapWindow::print_total_production" name="MapWindow::print_total_production">
-<area shape="rect" id="node1" title=" " alt="" coords="205,39,364,80"/>
-<area shape="rect" id="node2" href="$class_map_window.html#a98e6ee03e3aae0763c0ee6b2907347e9" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" id="node3" href="$class_map_window.html#afebc793e738549cd77ad7603dfaced8b" title=" " alt="" coords="5,71,157,112"/>
+<area shape="rect" id="node1" title="print_total_production, piirtää game_ui:hin paljonko vuorossa&#45; olevan pelaajan kokotuotannon kaikista..." alt="" coords="205,39,364,80"/>
+<area shape="rect" id="node2" href="$class_map_window.html#a98e6ee03e3aae0763c0ee6b2907347e9" title="add_new_building, lisää uuden rakennuksen ja kutsuu piirtofunktioita" alt="" coords="5,5,157,47"/>
+<area shape="rect" id="node3" href="$class_map_window.html#afebc793e738549cd77ad7603dfaced8b" title="add_new_worker, lisää uudeen workerin ja kutsuu piirto funktioita" alt="" coords="5,71,157,112"/>
 </map>

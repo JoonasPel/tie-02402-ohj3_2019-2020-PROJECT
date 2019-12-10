@@ -103,14 +103,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae101ce1be8beecb64949d2e18b714d0f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student_1_1_game_event_handler.html#ae101ce1be8beecb64949d2e18b714d0f">~GameEventHandler</a> ()=default</td></tr>
 <tr class="separator:ae101ce1be8beecb64949d2e18b714d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0d216b3db9fc7710b50ae6d4ece14f8"><td class="memItemLeft" align="right" valign="top">std::map&lt; Course::BasicResource, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8">getProduction</a> (std::shared_ptr&lt; Course::TileBase &gt; tile)</td></tr>
+<tr class="memdesc:ac0d216b3db9fc7710b50ae6d4ece14f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">getProduction palauttaa tilen tuotannon yhdellä erällä huomioiden workerit/buildingit. Olettaa workereiden olevan tyytyväisiä "satisfied".  <a href="class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8">More...</a><br /></td></tr>
 <tr class="separator:ac0d216b3db9fc7710b50ae6d4ece14f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82d6fdfd9a235f3e28b50596afdc785f"><td class="memItemLeft" align="right" valign="top">Course::ResourceMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student_1_1_game_event_handler.html#a82d6fdfd9a235f3e28b50596afdc785f">calculate_upkeep</a> (std::vector&lt; std::shared_ptr&lt; Course::WorkerBase &gt;&gt; workers)</td></tr>
+<tr class="memdesc:a82d6fdfd9a235f3e28b50596afdc785f"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate_upkeep laskee workereiden kuluttaman ruoka- ja rahamäärän.  <a href="class_student_1_1_game_event_handler.html#a82d6fdfd9a235f3e28b50596afdc785f">More...</a><br /></td></tr>
 <tr class="separator:a82d6fdfd9a235f3e28b50596afdc785f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92edc6db12061490ffbc7c638392d1e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student_1_1_game_event_handler.html#a92edc6db12061490ffbc7c638392d1e5">modifyResource</a> (std::shared_ptr&lt; Course::PlayerBase &gt; player, Course::BasicResource resource, int amount)</td></tr>
+<tr class="memdesc:a92edc6db12061490ffbc7c638392d1e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifyResource muuttaa pelaajan jonkin resurssin määrää.  <a href="class_student_1_1_game_event_handler.html#a92edc6db12061490ffbc7c638392d1e5">More...</a><br /></td></tr>
 <tr class="separator:a92edc6db12061490ffbc7c638392d1e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8185974ba298464382adccaad45f797"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student_1_1_game_event_handler.html#ac8185974ba298464382adccaad45f797">modifyResources</a> (std::shared_ptr&lt; Course::PlayerBase &gt; player, Course::ResourceMap resources)</td></tr>
+<tr class="memdesc:ac8185974ba298464382adccaad45f797"><td class="mdescLeft">&#160;</td><td class="mdescRight">modifyResources muuttaa pelaajan kaikkien resurssien määrää kerralla.  <a href="class_student_1_1_game_event_handler.html#ac8185974ba298464382adccaad45f797">More...</a><br /></td></tr>
 <tr class="separator:ac8185974ba298464382adccaad45f797"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed7e65b2c601dc9b1bd1d4c3466d5b2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student_1_1_game_event_handler.html#aed7e65b2c601dc9b1bd1d4c3466d5b2c">obj_placement_permission</a> (std::shared_ptr&lt; Course::TileBase &gt; tile, std::shared_ptr&lt; Course::iObjectManager &gt; objectmanager, std::shared_ptr&lt; <a class="el" href="class_student_1_1_player.html">Student::Player</a> &gt; current_player)</td></tr>
+<tr class="memdesc:aed7e65b2c601dc9b1bd1d4c3466d5b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">obj_placement_permission tarkistaa onko naapurissa kyseisen pelaajan omistamaa rakennusta. Tällä saadaan pelin kentälle "etenemismekaniikka".  <a href="class_student_1_1_game_event_handler.html#aed7e65b2c601dc9b1bd1d4c3466d5b2c">More...</a><br /></td></tr>
 <tr class="separator:aed7e65b2c601dc9b1bd1d4c3466d5b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -174,13 +179,22 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>calculate_upkeep laskee workereiden kuluttaman ruoka- ja rahamäärän. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">workers</td><td>vector, joka on saatu halutusta tiilestä. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>resourcemap workereiden yhteenlasketusta kulutuksesta. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_student_1_1_game_event_handler_a82d6fdfd9a235f3e28b50596afdc785f_icgraph.png" border="0" usemap="#class_student_1_1_game_event_handler_a82d6fdfd9a235f3e28b50596afdc785f_icgraph" alt=""/></div>
 <map name="class_student_1_1_game_event_handler_a82d6fdfd9a235f3e28b50596afdc785f_icgraph" id="class_student_1_1_game_event_handler_a82d6fdfd9a235f3e28b50596afdc785f_icgraph">
-<area shape="rect" title=" " alt="" coords="240,5,427,47"/>
-<area shape="rect" href="class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8" title=" " alt="" coords="5,5,192,47"/>
+<area shape="rect" title="calculate_upkeep laskee workereiden kuluttaman ruoka&#45; ja rahamäärän." alt="" coords="240,5,427,47"/>
+<area shape="rect" href="class_student_1_1_game_event_handler.html#ac0d216b3db9fc7710b50ae6d4ece14f8" title="getProduction palauttaa tilen tuotannon yhdellä erällä huomioiden workerit/buildingit...." alt="" coords="5,5,192,47"/>
 </map>
 </div>
 
@@ -201,13 +215,22 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>getProduction palauttaa tilen tuotannon yhdellä erällä huomioiden workerit/buildingit. Olettaa workereiden olevan tyytyväisiä "satisfied". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile,jonka</td><td>tuotanto palautetaan. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>resourcemap tuotannosta. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_student_1_1_game_event_handler_ac0d216b3db9fc7710b50ae6d4ece14f8_cgraph.png" border="0" usemap="#class_student_1_1_game_event_handler_ac0d216b3db9fc7710b50ae6d4ece14f8_cgraph" alt=""/></div>
 <map name="class_student_1_1_game_event_handler_ac0d216b3db9fc7710b50ae6d4ece14f8_cgraph" id="class_student_1_1_game_event_handler_ac0d216b3db9fc7710b50ae6d4ece14f8_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,192,47"/>
-<area shape="rect" href="class_student_1_1_game_event_handler.html#a82d6fdfd9a235f3e28b50596afdc785f" title=" " alt="" coords="240,5,427,47"/>
+<area shape="rect" title="getProduction palauttaa tilen tuotannon yhdellä erällä huomioiden workerit/buildingit...." alt="" coords="5,5,192,47"/>
+<area shape="rect" href="class_student_1_1_game_event_handler.html#a82d6fdfd9a235f3e28b50596afdc785f" title="calculate_upkeep laskee workereiden kuluttaman ruoka&#45; ja rahamäärän." alt="" coords="240,5,427,47"/>
 </map>
 </div>
 
@@ -245,6 +268,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>modifyResource muuttaa pelaajan jonkin resurssin määrää. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player,jonka</td><td>resurssia muokataan. </td></tr>
+    <tr><td class="paramname">resource,muokattava</td><td>resurssi. </td></tr>
+    <tr><td class="paramname">amount,määrä</td><td>jonka verran resurssia vähennetään tai lisätään. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd></dl>
+
 </div>
 </div>
 <a id="ac8185974ba298464382adccaad45f797"></a>
@@ -272,6 +306,16 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>modifyResources muuttaa pelaajan kaikkien resurssien määrää kerralla. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player,jonka</td><td>resursseja muutetaan. </td></tr>
+    <tr><td class="paramname">resources,resourcemap</td><td>muutettavien resurssien määrästä. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd></dl>
 
 </div>
 </div>
@@ -306,12 +350,23 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>obj_placement_permission tarkistaa onko naapurissa kyseisen pelaajan omistamaa rakennusta. Tällä saadaan pelin kentälle "etenemismekaniikka". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile,jonka</td><td>naapurit tarkistetaan. </td></tr>
+    <tr><td class="paramname">objectmanager</td><td></td></tr>
+    <tr><td class="paramname">current_player,jonka</td><td>täytyy omistaa tile ja talo naapurista. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>totuusarvo onko naapurissa pelaajan omistama tile ja talo. Jos on, niin pelaaja pystyy rakentamaan uuden talon/workerin parametrina saatavaan tileen. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_student_1_1_game_event_handler_aed7e65b2c601dc9b1bd1d4c3466d5b2c_cgraph.png" border="0" usemap="#class_student_1_1_game_event_handler_aed7e65b2c601dc9b1bd1d4c3466d5b2c_cgraph" alt=""/></div>
 <map name="class_student_1_1_game_event_handler_aed7e65b2c601dc9b1bd1d4c3466d5b2c_cgraph" id="class_student_1_1_game_event_handler_aed7e65b2c601dc9b1bd1d4c3466d5b2c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,192,47"/>
+<area shape="rect" title="obj_placement_permission tarkistaa onko naapurissa kyseisen pelaajan omistamaa rakennusta...." alt="" coords="5,5,192,47"/>
 <area shape="rect" href="class_student_1_1_object_manager.html#ada954ec27963f047dc1dcbeb50cfd5af" title=" " alt="" coords="240,5,403,47"/>
 </map>
 </div>
